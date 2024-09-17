@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{newpxtext,euler}
+\usepackage[OT1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{geometry}
+
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\renewcommand{\epsilon}{\varepsilon}
+
+\setlength{\parindent}{0pt}
+
+
+\input{boxes}
+\usepackage{lipsum}
+ \geometry{
+ a4paper,
+ total={170mm,260mm},
+ left=20mm,
+ top=15mm,
+ }
+ 
+\title{\vspace{-2cm}\par\noindent\rule{16cm}{1pt}\large
+\\\bfseries Trabajo final de edp, luego vemos un buen título\\
+xddddddddddddddddddddddddddddddd
+\vspace{-0.34cm}\par\noindent\hspace{0.15cm}\rule{16cm}{1pt}
+\vspace{-0.6cm}
+}
+\author{\small \bfseries María Alejandra Rodríguez Ríos$.^1$\quad \quad\small Mateo Andrés Manosalva Amaris$.^{2}$\\ \small \texttt{mrodriguezri@unal.edu.co} \quad \quad \quad \quad \quad \quad \quad \quad \texttt{mmanosalva@unal.edu.co}\\ \small \bfseries Edgar Santiago Ochoa Quiroga\\
+\small \texttt{eochoaq@unal.edu.co}
+}
+
+\usepackage{titling}
+\predate{\hspace{6.24cm}\small}
+\postdate{}
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+\lipsum[1]
+\end{abstract}
+
+\section{Preliminares}
+
+\begin{definition}
+ Sea $\{e_j:  1\leq j\leq n\}$ la base canónica de $\R^n$, una función $f: \mathbb{R}^n \rightarrow \mathbb{C}$ se dice periódica de periodo $L \neq 0$, si
+
+$$
+f(x+L e_j)=f(x), \text { para todo } x \in \mathbb{R}^n \text{ y } 1\leq j\leq n, 
+$$
+
+
+\end{definition}
+
+Algunas observaciones:
+\begin{itemize}
+    \item  Tenemos que dado $L\in \R-\{0\}$, para todo $m \in \mathbb{Z}, m L$ también es un periodo de $f$ en el sentido que $f(x+m L e_j)=f(x)$, para cualquier $x \in \mathbb{R}^n $ y $1\leq j\leq n$. En particular, $-L$ también es un periodo para la función $f$. Por esta razón se puede asumir que $L>0$.
+    
+    \item Si $f$ es constante, entonces $f$ es periódica de cualquier periodo. Si $f$ es periódica no constante, existe un menor periodo $L>0$, el cual se conoce como periodo fundamental.
+\end{itemize}
+
+\begin{note}
+    Dado $L>0$ el conjunto $C_{\text {per }}([-L, L]^n)$ consiste de todas las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ continuas con periodo $2L$. Similarmente, dado $k \in \mathbb{Z}^{+}, C_{p e r}^k([-L, L]^n)$ consiste de todas las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ periódicas con periodo $2 L$ de clase $C^k$.\\
+
+De manera equivalente, los espacios anteriores se pueden identificar como sigue:
+
+$$
+C_{\text {per }}([-L, L]^n):=\{f \in C([-L, L]^n): f(Le_j)=f(-Le_j), 1\leq j\leq n\}.
+$$
+
+
+Cuando $k \in \mathbb{Z}^{+}$, dado un multiíndice $\beta=(\beta_1,\ldots,\beta_n)$,
+
+\begin{align*}
+    C_{\text {per }}^k([-L, L]^n):&=\left\{f \in C^k([-L, L]^n): \partial^{\beta}f(Le_j)=\partial^{\beta}f(-Le_j), \text{ para todo } \beta \text{ tal que } |\beta|\leq k\right. \\
+    &\hspace{0.8cm} \text{y para todo } 1\leq j\leq n\}
+\end{align*}
+
+Diremos que $f \in C_{\text {per }}^{\infty}([-L, L]^n)$, si $f \in C_{\text {per }}^k([-L, L]^n)$ para cualquier $k \in \mathbb{Z}^{+}$. Por consistencia en la notación, definimos $C_{p e r}^0([-L, L]^n)=C_{p e r}([-L, L]^n)$.\\
+
+De la definición de los espacios $C_{p e r}^k([-L, L]^n)$ notamos que
+
+$$
+C_{p e r}([-L, L]^n) \supseteq C_{p e r}^1([-L, L]^n) \supseteq \cdots \supseteq C_{p e r}^k([-L, L]^n).
+$$
+
+\end{note}
+
+Dado $L>0$, si $f: \mathbb{R}^n \rightarrow \mathbb{C}$ es una función periódica de periodo $2 L$, entonces
+
+$$
+\widetilde{f}(x):=f\left(\frac{L}{\pi} x\right)
+$$
+
+define una función periódica de periodo $2 \pi$. En particular, obtenemos que los espacios $C_{p e r}^k([-L, L]^n)$ y $C_{p e r}^k([-\pi, \pi]^n)$ son isomorfos como espacios vectoriales. De igual manera, la teoría de la transformada de Fourier se puede reescalar para pasar de la región $[-L, L]^n a[-\pi, \pi]^n$. Por estas razones $y$ sin pérdida de generalidad, en lo que sigue trabajaremos con funciones periódicas de periodo $2 \pi$.\\
+
+Otra notación frecuente para funciones periódicas y transformada de Fourier es considerar funciones sobre el toro $\mathbb{T}^n$. El toro $\mathbb{T}^n$ es el intervalo $[0,2 \pi]^n$ donde los lados opuestos se identifican. De manera más precisa, el toro es el conjunto de clases de equivalencia en $\mathbb{R}^n$ dada por la relación $x \sim y$ si $y$ solo si $x-y \in 2 \pi \mathbb{Z}^n$, es decir $\mathbb{T}^n=\mathbb{R}^n/ 2 \pi \mathbb{Z}^n$. Adicionalmente el toro es un grupo aditivo por lo que será útil hacerle una traslación a $[-\pi,\pi]^n$\\
+
+Por las propiedades anteriores, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C}$ se pueden identificar como funciones periódicas $f: \mathbb{R}^n \rightarrow \mathbb{C}$ con periodo $2 \pi$. De esta manera, $C_{\text {per }}^k([-\pi, \pi]^n)$ es isomorfo a $C^k(\mathbb{T}^n)$ por lo que por comodidad trabajaremos sobre este espacio.\\
+
+\begin{note}
+    Dado que  podemos identificar $\mathbb{T}^n$ como $[-\pi,\pi]^n$, vemos que la integración de funciones sobre el toro resulta de restringir la medida de Lebesgue en $[\pi,\pi]^n$ y por la periodicidad de las funciones en $\mathbb{T}^n$ tenemos que:
+
+    $$\int_{\mathbb{T}^n} f(x) d x=\int_{[-\pi,\pi]^n} f(x) d x=\int_{[-0,2\pi]^n} f(x) d x=\int_{\left[a_1, 2\pi+a_1\right] \times \cdots \times\left[a_n, 2\pi+a_n\right]} f(x) d x$$
+
+    para cualesquiera $a_1,\ldots,a_n \in \R$\\
+    
+
+\end{note}
+
+    Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
+
+    \begin{align*}
+        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=f(x)g(x)\big|_{\partial \mathbb{T}^n}-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x\\
+        &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x
+    \end{align*}
+
+ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$\\
+
+\textcolor{red}{Esto está bien?}
+
+
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{references}
+\nocite{*}
+
+
+
+
+\end{document}
+
+
