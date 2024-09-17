@@ -13,6 +13,8 @@
 \renewcommand\O{\ensuremath{\emptyset}}
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\T{\ensuremath{\mathbb{T}}}
+
 \renewcommand{\epsilon}{\varepsilon}
 
 \setlength{\parindent}{0pt}
@@ -115,23 +117,68 @@ Por las propiedades anteriores, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C
     para cualesquiera $a_1,\ldots,a_n \in \R$, en efecto:
 
     $$\begin{aligned}
-\int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x \\
-& =\int_{[\pi, 2 \pi]^n} f(y-2 \pi \cdot \mathbf{1}) d y+\int_{[0, \pi]^n} f(x) d x \\
-& =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x\\
-&=\int_{[-0,2\pi]^n} f(x) d x
-\end{aligned}$$
-    
+    \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x \\
+    & =\int_{[\pi, 2 \pi]^n} f(y-2 \pi \cdot \mathbf{1}) d y+\int_{[0, \pi]^n} f(x) d x \\
+    & =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x\\
+    &=\int_{[-0,2\pi]^n} f(x) d x
+    \end{aligned}$$
 
+Para la última propiedad note que:
+
+$$\int_{[0,2\pi]^ n}f(x)dx=\int_{[0,2\pi]}\int_{[0,2\pi]}\ldots\int_{[0,2\pi]}f(x) dx_1\ldots dx_n$$
+
+dado que $f(x)$ es integrable entonces vale el teorema de fubini, dicho esto, basta ver que el resultado se tiene para una de las integrales, a saber:
+
+$$\int_{[0,2\pi]}f(x)dx=\int_{[a,2\pi+a]}f(x)dx$$
+
+Si $a>2\pi$, en efecto:
+
+\begin{align*}
+    \int_0^{2\pi}f(x)dx&=\int_0^af(x)dx-\int_{2\pi}^af(x) dx\\
+    &=\int_{2\pi}^{2\pi+a}f(y-2\pi)dy-\int_{2\pi}^af(x)dx\\
+    &=\int_{2\pi}^{2\pi+a}f(x)dx-\int_{2\pi}^af(x)dx\\
+    &=\int_a^{2\pi+a}f(x)dx
+.\end{align*}
+
+los casos $a\in [0,2\pi]$ y $a<0$ son análogos.
 \end{note}
 
-    Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
+Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
 
     \begin{align*}
-        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=f(x)g(x)\big|_{\partial \mathbb{T}^n}-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x\\
+        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=\int_{\partial \mathbb{T}^n}f(x)g(x)\eta_i dS(x)-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x\\
         &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x
     \end{align*}
 
-ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$\\
+ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$.\\
+
+\begin{theorem}
+Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, m \in \mathbb{Z}^n$
+
+$$
+\begin{array}{ll}
+\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=0, & \text { si } k \neq m \\
+\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=(2 \pi)^n, & \text { si } k=m
+\end{array}
+$$
+\end{theorem}
+
+\begin{proof}
+En efecto:
+
+\begin{align*}
+    \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx\\
+    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k-m) \cdot x}dx_1\ldots dx_n\\
+    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}dx_1\ldots dx_n
+.\end{align*}
+
+\end{proof}
+
+Dado el sistema ortogonal $\phi_k(x)=e^{ik\cdot x}$ con $k\in \Z^n$  y $x\in \R^n$, queremos escribir a $f\in C_{per}(\mathbb{T}^n)$ como:
+
+$$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x}$$
+
+
 
 
 \newpage
