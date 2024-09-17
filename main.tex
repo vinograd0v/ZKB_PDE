@@ -133,12 +133,35 @@ Por las propiedades anteriores, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C
 
 ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$\\
 
-<<<<<<< HEAD
-=======
 \textcolor{red}{Esto está bien?}
 \textcolor{blue}{Parece que si}
 
->>>>>>> 0a0c9e83a990ae61d2b77f4f04d7d1cea351b988
+\section{Resultados de Buen Planteamiento}
+
+Consideremos el problema de valor inicial asociado a la \textit{ecuacion con no linealidad modificada de Zakharov-Kustnesov-Burgers}
+$$\begin{cases}
+    u_t+\partial_{x_1}\Delta u-\Delta u+u^3=0, & (x,t)\in(-\pi,\pi)^n\times(0,\infty),\\
+    u(x,0)=u_0(x), & x\in[-\pi,\pi]^n.
+\end{cases}$$
+\textcolor{blue}{Luego escribo bien, de momento pura cuenta}
+\begin{align*}
+   (u_t+\partial_{x_1}\Delta u-\Delta u+u^3)\hat{\phantom{i}}(k)&= \widehat{u}_t(k)+\widehat{\partial_{x_1}\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k)\\
+   &=\partial_t\widehat{u}(k)+ik_1\widehat{\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k)\\
+   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^n\widehat{\partial^2_{x_i}u}(k)+\widehat{u^3}(k)\\
+   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^ni^2k_i^2\widehat{u}(k)+\widehat{u^3}(k)\\
+   &=\partial_t\widehat{u}(k)+(1-ik_1)|k|^2\widehat{u}(k)+\widehat{u^3}(k).\\
+\end{align*}
+Asi junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z$ tenemos el siguiente problema de valor inicial (EDO) respecto a $t$
+$$\begin{cases}
+    \dfrac{d}{dt}\widehat{u}(k)+(|k|^2-ik_1|k|^2)\widehat{u}(k)=-\widehat{u^3}(k), & k\in\Z^n,t>0,\\
+    \widehat{u}(k,0)=\widehat{u}_0(k), &k\in\Z.
+\end{cases}$$
+Luego usando el factor integrante $e^{(|k|^2-ik_1|k|^2)t}$, e integrando a ambos lados de 0 a $t$ tenemos que
+$$e^{(|k|^2-ik_1|k|^2)t}\widehat{u}(k,t)-\widehat{u}_0(k)=-\int_0^te^{(|k|^2-ik_1|k|^2)t^\prime}\widehat{u^3}(k,t^\prime)\,dt^\prime.$$
+Asi despejando $\widehat{u}(k,t)$ llegamos a que
+$$\widehat{u}(k,t)=e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k)-\int_0^te^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime)\,dt^\prime,$$
+Tomando la transformada inversa de Fourier tenemos que
+
 
 \newpage
 \bibliographystyle{unsrt}
@@ -146,11 +169,6 @@ ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$\\
 \bibliography{references}
 \nocite{*}
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 0a0c9e83a990ae61d2b77f4f04d7d1cea351b988
 \end{document}
 
 
