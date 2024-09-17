@@ -152,6 +152,8 @@ Finalmente por la periodicidad, la integración por partes no nos deja términos
 
 ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$.\\
 
+\textcolor{red}{Preguntarle a Oscar por esto}
+
 \begin{theorem}
 Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, m \in \mathbb{Z}^n$
 
@@ -169,8 +171,25 @@ En efecto:
 \begin{align*}
     \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx\\
     &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k-m) \cdot x}dx_1\ldots dx_n\\
-    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}dx_1\ldots dx_n
+    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}e^{i(k_2-m_2) x_2}\ldots e^{i(k_n-m_n) x_n}dx_1\ldots dx_n\\
+    &=\int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}dx_1\int_{[-\pi,\pi]}e^{i(k_2-m_2) x_2}dx_2\ldots \int_{[-\pi,\pi]} e^{i(k_n-m_n) x_n}dx_n
 .\end{align*}
+
+y como:
+
+$$
+\begin{aligned}
+\int_{-\pi}^\pi e^{i(k-m)x} d x= \begin{cases}0, & \text { si } m \neq k \\
+2 \pi, & \text { si } m=k\end{cases}
+\end{aligned}
+$$
+
+entonces se concluye que:
+
+$$(\Phi_k|\Phi_m)=\begin{cases}
+0, \quad &\text{si } m\neq k\\
+(2\pi)^n &\text{si } m=k
+\end{cases}$$
 
 \end{proof}
 
@@ -178,6 +197,7 @@ Dado el sistema ortogonal $\phi_k(x)=e^{ik\cdot x}$ con $k\in \Z^n$  y $x\in \R^
 
 $$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x}$$
 
+\textcolor{red}{Mañana sigo}
 
 \section{Resultados de Buen Planteamiento}
 
@@ -204,8 +224,6 @@ $$e^{(|k|^2-ik_1|k|^2)t}\widehat{u}(k,t)-\widehat{u}_0(k)=-\int_0^te^{(|k|^2-ik_
 Asi despejando $\widehat{u}(k,t)$ llegamos a que
 $$\widehat{u}(k,t)=e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k)-\int_0^te^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime)\,dt^\prime,$$
 Tomando la transformada inversa de Fourier tenemos que
-
-
 
 \newpage
 \bibliographystyle{unsrt}
