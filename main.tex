@@ -47,9 +47,11 @@ xddddddddddddddddddddddddddddddd
 
 \maketitle
 \begin{abstract}
-\lipsum[1]
+Este trabajo se centra en el estudio de la ecuación de Zakharov-Kusnetsov-Burgers modificada en $\T^n$, es cual es un dominio periódico. Utilizando la serie de Fourier y espacios de Sobolev, se realizará la buena colocación local del problema en dichos espacios. El resultado principal demuestra que, para $n \geq 1$ y $s > \frac{n}{2}$, existe una solución única y local en el tiempo que depende del dato inicial, adicionalmente, se realizará una demostración en base a la fórmula integral de Duhamel, lo que permite un análisis riguroso de la existencia, unicidad y dependencia continua de las soluciones en los espacios $ H^s(T^n)$.
 \end{abstract}
 
+\section{Introducción}
+\lipsum[2]
 \section{Preliminares}
 
 \begin{definition}
@@ -166,7 +168,7 @@ $$
 \end{theorem}
 
 \begin{proof}
-En efecto:
+En efecto, por el teorema de Tychonoff tenemos que el producto cartesiano de conjuntos compactos es compacto y como $\T^{n}=[-\pi,\pi]\times [-\pi,\pi]\ldots[-\pi,\pi]$ entonces $\T^{n}$ es compacto, por lo cual, como $\Phi_k(x)$ es una función continua en $[-\pi,\pi]$ podemos aplicar el teorema de Fubini como sigue:
 
 \begin{align*}
     \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx\\
@@ -179,8 +181,8 @@ y como:
 
 $$
 \begin{aligned}
-\int_{-\pi}^\pi e^{i(k-m)x} d x= \begin{cases}0, & \text { si } m \neq k \\
-2 \pi, & \text { si } m=k\end{cases}
+\int_{-\pi}^\pi e^{i(k_i-m_i)x} d x= \begin{cases}0, & \text { si } m_i \neq k_i \\
+2 \pi, & \text { si } m_i=k_i\end{cases}
 \end{aligned}
 $$
 
@@ -193,15 +195,46 @@ $$(\Phi_k|\Phi_m)=\begin{cases}
 
 \end{proof}
 
-Dado el sistema ortogonal $\phi_k(x)=e^{ik\cdot x}$ con $k\in \Z^n$  y $x\in \R^n$, queremos escribir a $f\in C_{per}(\mathbb{T}^n)$ como:
+Dado el sistema ortogonal $\phi_k(x)=e^{ik\cdot x}$ con $k\in \Z^n$  y $x\in \R^n$, queremos escribir a $f\in C(\mathbb{T}^n)$ como:
 
-$$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x}$$
+$$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x},$$
 
-\textcolor{red}{Mañana sigo}
+procedamos formalmente asumiendo que la serie anterior converge uniformemente, así, luego:
+
+\begin{align*}
+    \left(f|\Phi_m\right)&=\sum_{k\in \Z^n} c_k\left(\Phi_k|\Phi_m\right)\\
+    &=c_m (2\pi)^n
+,\end{align*}
+
+donde $c_m$, con $m\in \Z^n$ son los coeficientes de Fourier, esto es:
+
+$$c_m=\dfrac{1}{(2\pi)^n}\left(f|\Phi_m\right)=\dfrac{1}{(2\pi)^n}\int_{\T^n}f(x)e^{-im\cdot x} dx,$$
+
+esto motiva la definición de la transformada y serie de Fourier en $C(\T^n)$.
+
+
+\begin{definition}
+Dada $f \in C(\T^n)$ la secuencia de números complejos $\{\widehat{f}(k)\}_{k \in \mathbb{Z}^n}$ se llama la transformada de Fourier de $f$ y está definida como
+
+$$
+\widehat{f}(k)=\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) e^{-i k \cdot x} d x
+$$
+
+
+Al número complejo $\widehat{f}(k)$ se le llama el coeficiente de Fourier.
+La serie (puede ser no convergente)
+
+$$
+\sum_{k=\Z^n} \widehat{f}(k) e^{i k \cdot x}
+$$
+
+se llama la serie de Fourier de $f$.
+\end{definition}
+
 
 \section{Resultados de Buen Planteamiento}
 
-Consideremos el problema de valor inicial asociado a la \textit{ecuacion con no linealidad modificada de Zakharov-Kustnesov-Burgers}
+Consideremos el problema de valor inicial asociado a la \textit{ecuación con no linealidad modificada de Zakharov-Kustnesov-Burgers}
 $$\begin{cases}
     u_t+\partial_{x_1}\Delta u-\Delta u+u^3=0, & (x,t)\in(-\pi,\pi)^n\times(0,\infty),\\
     u(x,0)=u_0(x), & x\in[-\pi,\pi]^n.
