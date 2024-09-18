@@ -3,7 +3,7 @@
 \makeatother
 \usepackage{thmtools}
 \usepackage[framemethod=TikZ]{mdframed}
-\mdfsetup{skipabove=1em,skipbelow=1em}
+\mdfsetup{skipabove=1em,skipbelow=1em,nobreak=true}
 
 \theoremstyle{definition}
 \declaretheoremstyle[
@@ -11,7 +11,7 @@
     mdframed={
         linewidth=1pt,
         rightline=true, topline=true, bottomline=true,
-        linecolor=black, backgroundcolor=black!1!white,
+        linecolor=black, backgroundcolor=black!0!white,
     }
 ]{thmbox}
 \declaretheoremstyle[
@@ -19,7 +19,7 @@
     mdframed={
         linewidth=1pt,
         leftline=false,rightline=false, topline=false, bottomline=false,
-        linecolor=black, backgroundcolor=black!1!white,
+        linecolor=black, backgroundcolor=black!0!white,
     }
 ]{standar}
 
