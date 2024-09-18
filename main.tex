@@ -6,6 +6,8 @@
 \usepackage[spanish]{babel}
 \usepackage{amsfonts,amsmath,amssymb,amsthm}
 \usepackage{geometry}
+\usepackage{bm} % for \bm
+\usepackage{fixmath}
 
 \newcommand\N{\ensuremath{\mathbb{N}}}
 \newcommand\R{\ensuremath{\mathbb{R}}}
@@ -13,7 +15,7 @@
 \renewcommand\O{\ensuremath{\emptyset}}
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
-\newcommand\T{\ensuremath{\mathbb{T}}}
+\newcommand\T{\mathbb{T}}
 
 \renewcommand{\epsilon}{\varepsilon}
 
@@ -30,8 +32,8 @@
  }
  
 \title{\vspace{-2cm}\par\noindent\rule{16cm}{1pt}\large
-\\\bfseries Trabajo final de edp, luego vemos un buen título\\
-xddddddddddddddddddddddddddddddd
+\\\bfseries Sobre la buena colocación del problema de Cauchy \\
+asociado a la ecuación con no linealidad modificada de Zakharov-Kusnetsov-Burgers en espacios de Sobolev $\mathbf{H^s}\pmb{(}\pmb{\mathbb{T}}\mathbf{^n}\pmb{)}.$
 \vspace{-0.34cm}\par\noindent\hspace{0.15cm}\rule{16cm}{1pt}
 \vspace{-0.6cm}
 }
@@ -47,7 +49,7 @@ xddddddddddddddddddddddddddddddd
 
 \maketitle
 \begin{abstract}
-Este trabajo se centra en el estudio de la ecuación de Zakharov-Kusnetsov-Burgers modificada en $\T^n$, es cual es un dominio periódico. Utilizando la serie de Fourier y espacios de Sobolev, se realizará la buena colocación local del problema en dichos espacios. El resultado principal demuestra que, para $n \geq 1$ y $s > \frac{n}{2}$, existe una solución única y local en el tiempo que depende del dato inicial, adicionalmente, se realizará una demostración en base a la fórmula integral de Duhamel, lo que permite un análisis riguroso de la existencia, unicidad y dependencia continua de las soluciones en los espacios $ H^s(T^n)$.
+Este trabajo se centra en el estudio de la ecuación no lineal modificada de Zakharov-Kusnetsov-Burgers en $\T^n$, el cual es un dominio periódico. Utilizando resultados de series de Fourier y espacios de Sobolev, se realiza la buena colocación local del problema en dichos espacios. El resultado principal demuestra que, para $n \geq 1$ y $s > \frac{n}{2}$, existe una solución única y local en el tiempo que depende del dato inicial en $H^s(\mathbb{T}^n)$, se realiza la demostración en base a la fórmula integral de Duhamel, lo que permite un análisis formal de la dependencia continua de las soluciones.
 \end{abstract}
 
 \section{Introducción}
@@ -120,7 +122,7 @@ Por las propiedades anteriores, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C
 
     $$\begin{aligned}
     \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x \\
-    & =\int_{[\pi, 2 \pi]^n} f(y-2 \pi \cdot \mathbf{1}) d y+\int_{[0, \pi]^n} f(x) d x \\
+    & =\int_{[\pi, 2 \pi]^n} f(y-(2 \pi,\ldots,2\pi)) d y+\int_{[0, \pi]^n} f(x) d x \\
     & =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x\\
     &=\int_{[-0,2\pi]^n} f(x) d x
     \end{aligned}$$
@@ -193,8 +195,6 @@ $$(\Phi_k|\Phi_m)=\begin{cases}
 (2\pi)^n &\text{si } m=k
 \end{cases}$$
 
-
-coyo.
 \end{proof}
 
 Dado el sistema ortogonal $\phi_k(x)=e^{ik\cdot x}$ con $k\in \Z^n$  y $x\in \R^n$, queremos escribir a $f\in C(\mathbb{T}^n)$ como:
@@ -236,7 +236,7 @@ se llama la serie de Fourier de $f$.
 
 \section{Resultados de Buen Planteamiento}
 
-Consideremos el problema de valor inicial asociado a la \textit{ecuación con no linealidad modificada de Zakharov-Kustnesov-Burgers}
+Consideremos el problema de valor inicial asociado a la \textit{ecuación con no linealidad modificada de Zakharov-Kusnetsov-Burgers}
 $$\begin{cases}
     u_t+\partial_{x_1}\Delta u-\Delta u+u^3=0, & (x,t)\in(-\pi,\pi)^n\times(0,\infty),\\
     u(x,0)=u_0(x), & x\in[-\pi,\pi]^n.
@@ -249,24 +249,25 @@ $$\begin{cases}
    &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^ni^2k_i^2\widehat{u}(k)+\widehat{u^3}(k)\\
    &=\partial_t\widehat{u}(k)+(1-ik_1)|k|^2\widehat{u}(k)+\widehat{u^3}(k).\\
 \end{align*}
-Asi junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z$ tenemos el siguiente problema de valor inicial (EDO) respecto a $t$
+Así junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z$ tenemos el siguiente problema de valor inicial (EDO) respecto a $t$
 $$\begin{cases}
     \dfrac{d}{dt}\widehat{u}(k)+(|k|^2-ik_1|k|^2)\widehat{u}(k)=-\widehat{u^3}(k), & k\in\Z^n,t>0,\\
     \widehat{u}(k,0)=\widehat{u}_0(k), &k\in\Z.
 \end{cases}$$
 Luego usando el factor integrante $e^{(|k|^2-ik_1|k|^2)t}$, e integrando a ambos lados de 0 a $t$ tenemos que
 $$e^{(|k|^2-ik_1|k|^2)t}\widehat{u}(k,t)-\widehat{u}_0(k)=-\int_0^te^{(|k|^2-ik_1|k|^2)t^\prime}\widehat{u^3}(k,t^\prime)\,dt^\prime.$$
-Asi despejando $\widehat{u}(k,t)$ llegamos a que
+Así despejando $\widehat{u}(k,t)$ llegamos a que
 $$\widehat{u}(k,t)=e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k)-\int_0^te^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime)\,dt^\prime,$$
 tomando la transformada inversa de Fourier tenemos que
 \begin{align*}
     u(x,t)&=(e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k))^{\vee}-\int_0^t(e^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime))^{\vee}\,dt^\prime\\
     &=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{u}_0(k)-\int_0^t\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)(t-t^\prime)+ik\cdot x}\widehat{u^3}(k,t^\prime)\,dt^\prime.
 \end{align*}
-Teniendo en cuenta esto, es en cierta medida natural definir la familia de operadores $\{U(t)\}_{t\in\R}$ tal que:
-\textcolor{blue}{Preguntar pq es en todo R}
+Teniendo en cuenta esto, es en cierta medida natural definir la familia de operadores $\{U(t)\}_{t\in\R}$ tal que:\\
+
+\textcolor{blue}{Preguntar pq es en todo R}\\
 $$U(t)f(x)=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{f}(k).$$
-Para $f$ lo suficientemente regular. De esta manera formalmente nuestro candidato a solucion es la formula integral dada por
+Para $f$ lo suficientemente regular. De esta manera formalmente nuestro candidato a solución es la formula integral dada por
 $$u(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)u^3(x,t^\prime)\,dt^\prime.$$
 \newpage
 \bibliographystyle{unsrt}
