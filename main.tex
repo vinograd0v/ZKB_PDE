@@ -53,7 +53,8 @@ Este trabajo se centra en el estudio de la ecuación no lineal modificada de Zak
 \end{abstract}
 
 \section{Introducción}
-\lipsum[2]
+\lipsum[2]\\
+\lipsum[1]
 \section{Preliminares}
 
 \begin{definition}
@@ -240,50 +241,33 @@ $$\sum_{k \in \mathbb{Z}^n} | \hat{f}(k) |^2 \leq \frac{1}{(2\pi)^n} \| f \|_2^2
 \end{theorem}
 
 \begin{proof}
+Sabemos que como la norma es mayor o igual a cero, entonces
 \begin{align*}
-0 &\leq||f(x)-\sum_{k\in \Z, |k|\leq\mathbb{N}}\widehat{f(k)}e^{ik\cdot x}||^{2}_2,\\
-&\leq || f||_2^{2}+ || \sum_{k\in \Z, |k|\leq\mathbb{N}} \widehat{f(k) e^{ik\cdot x}}||_2^{2}
+0 &\leq\left\|f(x)-\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\widehat{f}(k)e^{ik\cdot x}\right\|^{2}_2\\
+&= || f||_2^{2}+ \left\| \sum_{\substack{k\in \Z^{n}\\|k|\leq N}} \widehat{f}(k)e^{ik\cdot x}\right\|_2^{2}- 2 \Re\left(f(x)\left|\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \widehat{f}(k) e^{ik\cdot x}\right.\right)\\
+&= || f||_2^{2}+ \left\| \sum_{\substack{k,m\in \Z^{n}\\ |k|,|m|\leq N}} \widehat{f}(k)\overline{\widehat{f}(m)}(e^{ik\cdot x}|e^{im\cdot x})\right\|_2^{2}- 2 \Re\left(\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \overline{\widehat{f}(k)} \left(\widehat{f}(k) |e^{ik\cdot x}\right)\right)\\
+&= || f||_2^{2}+ \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}} (2\pi)^{n}\left|\widehat{f}(k)\right|^{2}-2 \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}\\
+&= || f||_2^{2}- \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}
 \end{align*}
+Colocando los resultados anteriores, entonces
+\begin{align*}
+0 &\leq|| f||_2^{2}-(2\pi)^n \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2}
+\end{align*}
+Por lo cual 
+\begin{align*}
+\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}
+\end{align*}
+Luego tomando el límite cuando $N\rightarrow \infty$, entonces
+\begin{align*}
+\sum_{\substack{k\in \Z^{n}}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}
+\end{align*}
+
 
 \end{proof}
 
-
-
 \section{Resultados de Buen Planteamiento}
 
-Consideremos el problema de valor inicial asociado a la \textit{ecuación con no linealidad modificada de Zakharov-Kusnetsov-Burgers}
-$$\begin{cases}
-    u_t+\partial_{x_1}\Delta u-\Delta u+u^3=0, & (x,t)\in(-\pi,\pi)^n\times(0,\infty),\\
-    u(x,0)=u_0(x), & x\in[-\pi,\pi]^n.
-\end{cases}$$
-\textcolor{blue}{Luego escribo bien, de momento pura cuenta}
-\begin{align*}
-   (u_t+\partial_{x_1}\Delta u-\Delta u+u^3)^{\wedge}(k)&= \widehat{u}_t(k)+\widehat{\partial_{x_1}\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k)\\
-   &=\partial_t\widehat{u}(k)+ik_1\widehat{\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k)\\
-   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^n\widehat{\partial^2_{x_i}u}(k)+\widehat{u^3}(k),\\
-   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^ni^2k_i^2\widehat{u}(k)+\widehat{u^3}(k)\\
-   &=\partial_t\widehat{u}(k)+(1-ik_1)|k|^2\widehat{u}(k)+\widehat{u^3}(k).\\
-\end{align*}
-Así junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z$ tenemos el siguiente problema de valor inicial (EDO) respecto a $t$
-$$\begin{cases}
-    \dfrac{d}{dt}\widehat{u}(k)+(|k|^2-ik_1|k|^2)\widehat{u}(k)=-\widehat{u^3}(k), & k\in\Z^n,t>0\\
-    \widehat{u}(k,0)=\widehat{u}_0(k), &k\in\Z.
-\end{cases}$$
-Luego usando el factor integrante $e^{(|k|^2-ik_1|k|^2)t}$, e integrando a ambos lados de 0 a $t$ tenemos que
-$$e^{(|k|^2-ik_1|k|^2)t}\widehat{u}(k,t)-\widehat{u}_0(k)=-\int_0^te^{(|k|^2-ik_1|k|^2)t^\prime}\widehat{u^3}(k,t^\prime)\,dt^\prime.$$
-Así despejando $\widehat{u}(k,t)$ llegamos a que
-$$\widehat{u}(k,t)=e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k)-\int_0^te^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime)\,dt^\prime,$$
-tomando la transformada inversa de Fourier tenemos que
-\begin{align*}
-    u(x,t)&=(e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k))^{\vee}-\int_0^t(e^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime))^{\vee}\,dt^\prime\\
-    &=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{u}_0(k)-\int_0^t\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)(t-t^\prime)+ik\cdot x}\widehat{u^3}(k,t^\prime)\,dt^\prime.
-\end{align*}
-Teniendo en cuenta esto, es en cierta medida natural definir la familia de operadores $\{U(t)\}_{t\geq 0}$ tal que:\\
-
-\textcolor{blue}{Preguntar pq es en todo R}\\
-$$U(t)f(x)=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{f}(k).$$
-Para $f$ lo suficientemente regular. De esta manera formalmente nuestro candidato a solución es la formula integral dada por
-$$u(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)u^3(x,t^\prime)\,dt^\prime.$$
+\input{wp}
 \newpage
 \bibliographystyle{unsrt}
 
