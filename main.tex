@@ -121,22 +121,15 @@ Por las propiedades anteriores, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C
     para cualesquiera $a_1,\ldots,a_n \in \R$, en efecto:
 
     $$\begin{aligned}
-<<<<<<< HEAD
-    \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x ,\\
-    & =\int_{[\pi, 2 \pi]^n} f(y-2 \pi \cdot \mathbf{1}) d y+\int_{[0, \pi]^n} f(x) d x,\\
-    & =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x,\\
-    &=\int_{[-0,2\pi]^n} f(x) d x.
-=======
     \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x \\
-    & =\int_{[\pi, 2 \pi]^n} f(y-(2 \pi,\ldots,2\pi)) d y+\int_{[0, \pi]^n} f(x) d x \\
+     & =\int_{[\pi, 2 \pi]^n} f(y-(2 \pi,\ldots,2\pi)) d y+\int_{[0, \pi]^n} f(x) d x \\
     & =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x\\
-    &=\int_{[-0,2\pi]^n} f(x) d x
->>>>>>> 075f76e9e60ed3a355c5b04b446b2520a494a21f
+    &=\int_{[0,2\pi]^n} f(x) d x.
     \end{aligned}$$
 
 Para la última propiedad note que:
 
-$$\int_{[0,2\pi]^ n}f(x)dx=\int_{[0,2\pi]}\int_{[0,2\pi]}\ldots\int_{[0,2\pi]}f(x) dx_1\ldots dx_n.$$
+$$\int_{[0,2\pi]^ n}f(x)dx=\int_{[0,2\pi]}\int_{[0,2\pi]}\ldots\int_{[0,2\pi]}f(x) dx_1\ldots dx_n,$$
 
 dado que $f(x)$ es integrable entonces vale el teorema de fubini, dicho esto, basta ver que el resultado se tiene para una de las integrales, a saber:
 
@@ -145,11 +138,11 @@ $$\int_{[0,2\pi]}f(x)dx=\int_{[a,2\pi+a]}f(x)dx.$$
 Si $a>2\pi$, en efecto:
 
 \begin{align*}
-    \int_0^{2\pi}f(x)dx&=\int_0^af(x)dx-\int_{2\pi}^af(x) dx,\\
-    &=\int_{2\pi}^{2\pi+a}f(y-2\pi)dy-\int_{2\pi}^af(x)dx,\\
-    &=\int_{2\pi}^{2\pi+a}f(x)dx-\int_{2\pi}^af(x)dx,\\
+    \int_0^{2\pi}f(x)dx&=\int_0^af(x)dx-\int_{2\pi}^af(x) dx\\
+    &=\int_{2\pi}^{2\pi+a}f(y-2\pi)dy-\int_{2\pi}^af(x)dx\\
+    &=\int_{2\pi}^{2\pi+a}f(x)dx-\int_{2\pi}^af(x)dx\\
     &=\int_a^{2\pi+a}f(x)dx
-.\end{align*}
+,\end{align*}
 
 los casos $a\in [0,2\pi]$ y $a<0$ son análogos.
 \end{note}
@@ -157,7 +150,7 @@ los casos $a\in [0,2\pi]$ y $a<0$ son análogos.
 Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
 
     \begin{align*}
-        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=\int_{\partial \mathbb{T}^n}f(x)g(x)\eta_i dS(x)-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x,\\
+        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=\int_{\partial \mathbb{T}^n}f(x)g(x)\eta_i dS(x)-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x\\
         &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x.
     \end{align*}
 
@@ -180,9 +173,9 @@ $$
 En efecto, por el teorema de Tychonoff tenemos que el producto cartesiano de conjuntos compactos es compacto y como $\T^{n}=[-\pi,\pi]\times [-\pi,\pi]\ldots[-\pi,\pi]$ entonces $\T^{n}$ es compacto, por lo cual, como $\Phi_k(x)$ es una función continua en $[-\pi,\pi]$ podemos aplicar el teorema de Fubini como sigue:
 
 \begin{align*}
-    \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx,\\
-    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k-m) \cdot x}dx_1\ldots dx_n,\\
-    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}e^{i(k_2-m_2) x_2}\ldots e^{i(k_n-m_n) x_n}dx_1\ldots dx_n,\\
+    \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx\\
+    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k-m) \cdot x}dx_1\ldots dx_n\\
+    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}e^{i(k_2-m_2) x_2}\ldots e^{i(k_n-m_n) x_n}dx_1\ldots dx_n\\
     &=\int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}dx_1\int_{[-\pi,\pi]}e^{i(k_2-m_2) x_2}dx_2\ldots \int_{[-\pi,\pi]} e^{i(k_n-m_n) x_n}dx_n
 .\end{align*}
 
@@ -211,7 +204,7 @@ $$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x},$$
 procedamos formalmente asumiendo que la serie anterior converge uniformemente, así, luego:
 
 \begin{align*}
-    \left(f|\Phi_m\right)&=\sum_{k\in \Z^n} c_k\left(\Phi_k|\Phi_m\right),\\
+    \left(f|\Phi_m\right)&=\sum_{k\in \Z^n} c_k\left(\Phi_k|\Phi_m\right)\\
     &=c_m (2\pi)^n
 ,\end{align*}
 
