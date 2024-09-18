@@ -101,7 +101,7 @@ $$
 Dado $L>0$, si $f: \mathbb{R}^n \rightarrow \mathbb{C}$ es una función periódica de periodo $2 L$, entonces
 
 $$
-\widetilde{f}(x):=f\left(\frac{L}{\pi} x\right)
+\widetilde{f}(x):=f\left(\frac{L}{\pi} x\right),
 $$
 
 define una función periódica de periodo $2 \pi$. En particular, obtenemos que los espacios $C_{p e r}^k([-L, L]^n)$ y $C_{p e r}^k([-\pi, \pi]^n)$ son isomorfos como espacios vectoriales. De igual manera, la teoría de la transformada de Fourier se puede reescalar para pasar de la región $[-L, L]^n a[-\pi, \pi]^n$. Por estas razones $y$ sin pérdida de generalidad, en lo que sigue trabajaremos con funciones periódicas de periodo $2 \pi$.\\
@@ -113,32 +113,32 @@ Por las propiedades anteriores, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C
 \begin{note}
     Dado que  podemos identificar $\mathbb{T}^n$ como $[-\pi,\pi]^n$, vemos que la integración de funciones sobre el toro resulta de restringir la medida de Lebesgue en $[\pi,\pi]^n$ y por la periodicidad de las funciones en $\mathbb{T}^n$ tenemos que:
 
-    $$\int_{\mathbb{T}^n} f(x) d x=\int_{[-\pi,\pi]^n} f(x) d x=\int_{[0,2\pi]^n} f(x) d x=\int_{\left[a_1, 2\pi+a_1\right] \times \cdots \times\left[a_n, 2\pi+a_n\right]} f(x) d x$$
+    $$\int_{\mathbb{T}^n} f(x) d x=\int_{[-\pi,\pi]^n} f(x) d x=\int_{[0,2\pi]^n} f(x) d x=\int_{\left[a_1, 2\pi+a_1\right] \times \cdots \times\left[a_n, 2\pi+a_n\right]} f(x) d x.$$
 
 
     para cualesquiera $a_1,\ldots,a_n \in \R$, en efecto:
 
     $$\begin{aligned}
-    \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x \\
-    & =\int_{[\pi, 2 \pi]^n} f(y-2 \pi \cdot \mathbf{1}) d y+\int_{[0, \pi]^n} f(x) d x \\
-    & =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x\\
-    &=\int_{[-0,2\pi]^n} f(x) d x
+    \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x ,\\
+    & =\int_{[\pi, 2 \pi]^n} f(y-2 \pi \cdot \mathbf{1}) d y+\int_{[0, \pi]^n} f(x) d x,\\
+    & =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x,\\
+    &=\int_{[-0,2\pi]^n} f(x) d x.
     \end{aligned}$$
 
 Para la última propiedad note que:
 
-$$\int_{[0,2\pi]^ n}f(x)dx=\int_{[0,2\pi]}\int_{[0,2\pi]}\ldots\int_{[0,2\pi]}f(x) dx_1\ldots dx_n$$
+$$\int_{[0,2\pi]^ n}f(x)dx=\int_{[0,2\pi]}\int_{[0,2\pi]}\ldots\int_{[0,2\pi]}f(x) dx_1\ldots dx_n.$$
 
 dado que $f(x)$ es integrable entonces vale el teorema de fubini, dicho esto, basta ver que el resultado se tiene para una de las integrales, a saber:
 
-$$\int_{[0,2\pi]}f(x)dx=\int_{[a,2\pi+a]}f(x)dx$$
+$$\int_{[0,2\pi]}f(x)dx=\int_{[a,2\pi+a]}f(x)dx.$$
 
 Si $a>2\pi$, en efecto:
 
 \begin{align*}
-    \int_0^{2\pi}f(x)dx&=\int_0^af(x)dx-\int_{2\pi}^af(x) dx\\
-    &=\int_{2\pi}^{2\pi+a}f(y-2\pi)dy-\int_{2\pi}^af(x)dx\\
-    &=\int_{2\pi}^{2\pi+a}f(x)dx-\int_{2\pi}^af(x)dx\\
+    \int_0^{2\pi}f(x)dx&=\int_0^af(x)dx-\int_{2\pi}^af(x) dx,\\
+    &=\int_{2\pi}^{2\pi+a}f(y-2\pi)dy-\int_{2\pi}^af(x)dx,\\
+    &=\int_{2\pi}^{2\pi+a}f(x)dx-\int_{2\pi}^af(x)dx,\\
     &=\int_a^{2\pi+a}f(x)dx
 .\end{align*}
 
@@ -148,8 +148,8 @@ los casos $a\in [0,2\pi]$ y $a<0$ son análogos.
 Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
 
     \begin{align*}
-        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=\int_{\partial \mathbb{T}^n}f(x)g(x)\eta_i dS(x)-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x\\
-        &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x
+        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=\int_{\partial \mathbb{T}^n}f(x)g(x)\eta_i dS(x)-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x,\\
+        &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x.
     \end{align*}
 
 ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$.\\
@@ -161,8 +161,8 @@ Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, 
 
 $$
 \begin{array}{ll}
-\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=0, & \text { si } k \neq m \\
-\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=(2 \pi)^n, & \text { si } k=m
+\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=0, & \text { si } k \neq m, \\
+\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=(2 \pi)^n, & \text { si } k=m.
 \end{array}
 $$
 \end{theorem}
@@ -171,9 +171,9 @@ $$
 En efecto, por el teorema de Tychonoff tenemos que el producto cartesiano de conjuntos compactos es compacto y como $\T^{n}=[-\pi,\pi]\times [-\pi,\pi]\ldots[-\pi,\pi]$ entonces $\T^{n}$ es compacto, por lo cual, como $\Phi_k(x)$ es una función continua en $[-\pi,\pi]$ podemos aplicar el teorema de Fubini como sigue:
 
 \begin{align*}
-    \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx\\
-    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k-m) \cdot x}dx_1\ldots dx_n\\
-    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}e^{i(k_2-m_2) x_2}\ldots e^{i(k_n-m_n) x_n}dx_1\ldots dx_n\\
+    \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx,\\
+    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k-m) \cdot x}dx_1\ldots dx_n,\\
+    &=\int_{[-\pi,\pi]}\int_{[-\pi,\pi]}\ldots \int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}e^{i(k_2-m_2) x_2}\ldots e^{i(k_n-m_n) x_n}dx_1\ldots dx_n,\\
     &=\int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}dx_1\int_{[-\pi,\pi]}e^{i(k_2-m_2) x_2}dx_2\ldots \int_{[-\pi,\pi]} e^{i(k_n-m_n) x_n}dx_n
 .\end{align*}
 
@@ -181,16 +181,16 @@ y como:
 
 $$
 \begin{aligned}
-\int_{-\pi}^\pi e^{i(k_i-m_i)x} d x= \begin{cases}0, & \text { si } m_i \neq k_i \\
-2 \pi, & \text { si } m_i=k_i\end{cases}
+\int_{-\pi}^\pi e^{i(k_i-m_i)x} d x= \begin{cases}0, & \text { si } m_i \neq k_i, \\
+2 \pi, & \text { si } m_i=k_i.\end{cases}
 \end{aligned}
 $$
 
 entonces se concluye que:
 
 $$(\Phi_k|\Phi_m)=\begin{cases}
-0, \quad &\text{si } m\neq k\\
-(2\pi)^n &\text{si } m=k
+0, \quad &\text{si } m\neq k,\\
+(2\pi)^n &\text{si } m=k.
 \end{cases}$$
 
 \end{proof}
@@ -202,7 +202,7 @@ $$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x},$$
 procedamos formalmente asumiendo que la serie anterior converge uniformemente, así, luego:
 
 \begin{align*}
-    \left(f|\Phi_m\right)&=\sum_{k\in \Z^n} c_k\left(\Phi_k|\Phi_m\right)\\
+    \left(f|\Phi_m\right)&=\sum_{k\in \Z^n} c_k\left(\Phi_k|\Phi_m\right),\\
     &=c_m (2\pi)^n
 ,\end{align*}
 
@@ -217,7 +217,7 @@ esto motiva la definición de la transformada y serie de Fourier en $C(\T^n)$.
 Dada $f \in C(\T^n)$ la secuencia de números complejos $\{\widehat{f}(k)\}_{k \in \mathbb{Z}^n}$ se llama la transformada de Fourier de $f$ y está definida como
 
 $$
-\widehat{f}(k)=\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) e^{-i k \cdot x} d x
+\widehat{f}(k)=\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) e^{-i k \cdot x} d x.
 $$
 
 
@@ -225,11 +225,26 @@ Al número complejo $\widehat{f}(k)$ se le llama el coeficiente de Fourier.
 La serie (puede ser no convergente)
 
 $$
-\sum_{k=\Z^n} \widehat{f}(k) e^{i k \cdot x}
+\sum_{k=\Z^n} \widehat{f}(k) e^{i k \cdot x}.
 $$
 
 se llama la serie de Fourier de $f$.
 \end{definition}
+
+Teniendo en cuenta lo anterior, veamos que se cumple lo siguiente,
+\begin{theorem}
+Si $f \in C (\T^{n})$ entonces vale la identidad de Bessel, es decir,
+$$\sum_{k \in \mathbb{Z}^n} | \hat{f}(k) |^2 \leq \frac{1}{(2\pi)^n} \| f \|_2^2 = \frac{1}{(2\pi)^n} \int_{[-\pi, \pi]^n} |f(x)|^2 \, dx.$$
+\end{theorem}
+
+\begin{proof}
+\begin{align*}
+0 &\leq||f(x)-\sum_{k\in \Z, |k|\leq\mathbb{N}}\widehat{f(k)}e^{ik\cdot x}||^{2}_2,\\
+&\leq || f||_2^{2}+ || \sum_{k\in \Z, |k|\leq\mathbb{N}} \widehat{f(k) e^{ik\cdot x}}||_2^{2}
+\end{align*}
+
+\end{proof}
+
 
 
 \section{Resultados de Buen Planteamiento}
@@ -241,10 +256,10 @@ $$\begin{cases}
 \end{cases}$$
 \textcolor{blue}{Luego escribo bien, de momento pura cuenta}
 \begin{align*}
-   (u_t+\partial_{x_1}\Delta u-\Delta u+u^3)^{\wedge}(k)&= \widehat{u}_t(k)+\widehat{\partial_{x_1}\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k)\\
-   &=\partial_t\widehat{u}(k)+ik_1\widehat{\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k)\\
-   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^n\widehat{\partial^2_{x_i}u}(k)+\widehat{u^3}(k)\\
-   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^ni^2k_i^2\widehat{u}(k)+\widehat{u^3}(k)\\
+   (u_t+\partial_{x_1}\Delta u-\Delta u+u^3)^{\wedge}(k)&= \widehat{u}_t(k)+\widehat{\partial_{x_1}\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k),\\
+   &=\partial_t\widehat{u}(k)+ik_1\widehat{\Delta u}(k)-\widehat{\Delta u}(k)+\widehat{u^3}(k),\\
+   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^n\widehat{\partial^2_{x_i}u}(k)+\widehat{u^3}(k),\\
+   &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^ni^2k_i^2\widehat{u}(k)+\widehat{u^3}(k),\\
    &=\partial_t\widehat{u}(k)+(1-ik_1)|k|^2\widehat{u}(k)+\widehat{u^3}(k).\\
 \end{align*}
 Asi junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z$ tenemos el siguiente problema de valor inicial (EDO) respecto a $t$
@@ -258,7 +273,7 @@ Asi despejando $\widehat{u}(k,t)$ llegamos a que
 $$\widehat{u}(k,t)=e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k)-\int_0^te^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime)\,dt^\prime,$$
 tomando la transformada inversa de Fourier tenemos que
 \begin{align*}
-    u(x,t)&=(e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k))^{\vee}-\int_0^t(e^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime))^{\vee}\,dt^\prime\\
+    u(x,t)&=(e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k))^{\vee}-\int_0^t(e^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime))^{\vee}\,dt^\prime,\\
     &=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{u}_0(k)-\int_0^t\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)(t-t^\prime)+ik\cdot x}\widehat{u^3}(k,t^\prime)\,dt^\prime.
 \end{align*}
 Teniendo en cuenta esto, es en cierta medida natural definir la familia de operadores $\{U(t)\}_{t\in\R}$ tal que:
