@@ -245,11 +245,39 @@ $$\sum_{k \in \mathbb{Z}^n} | \hat{f}(k) |^2 \leq \frac{1}{(2\pi)^n} \| f \|_2^2
 0 &\leq||f(x)-\sum_{k\in \Z, |k|\leq\mathbb{N}}\widehat{f(k)}e^{ik\cdot x}||^{2}_2,\\
 &\leq || f||_2^{2}+ || \sum_{k\in \Z, |k|\leq\mathbb{N}} \widehat{f(k) e^{ik\cdot x}}||_2^{2}
 \end{align*}
-
 \end{proof}
 
-\section{Resultados de Buen Planteamiento}
+\begin{theorem}
+Si $f \in C^l\left(\mathbb{T}^n\right)$ y $\beta=\left(\beta_1, \ldots, \beta_n\right)$ es un multi-índice de orden $l$, es decir, $|\beta|=\beta_1+\cdots+\beta_n=l$, entonces $\widehat{\partial^\beta f}(k)=i^{|\beta|} k^\beta \widehat{f}(k)$, para todo $k \in \mathbb{Z}^n$.
+\end{theorem}
 
+\begin{theorem}
+Si $m>\frac{N}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
+
+$$
+\|\widehat{f}\|_2^2=\sum_{k \in \mathbb{Z}^n}|\widehat{f}(k)|^2=\frac{1}{(2 \pi)^n} \int_{[-\pi, \pi]^n}|f(x)|^2 d x=\frac{1}{(2 \pi)^n}\|f\|_2^2.
+$$
+
+
+De manera equivalente, si $f, g \in C^m\left(\mathbb{T}^n\right)$,
+
+$$
+(\widehat{f} \mid \widehat{g})=\sum_{k \in \mathbb{Z}^n} \widehat{f}(k) \overline{\widehat{g}(k)}=\frac{1}{(2 \pi)^n} \int_{[-\pi, \pi]^n} f(x) \overline{g(x)} d x=\frac{1}{(2 \pi)^n}(f \mid g).
+$$
+\end{theorem}
+
+\begin{definition}
+El espacio $L^2\left(\mathbb{T}^n\right)=L^2\left([-\pi, \pi]^n\right)$ consiste de funciones $f:[-\pi, \pi]^n \rightarrow \mathbb{C}$ medibles según Lebesgue tales que:
+
+$$\|f\|_2^2=\int_{[-\pi, \pi]^n}|f(x)|^2 d x<\infty.$$
+\end{definition}
+
+\begin{theorem}
+El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T}^n\right)$.    
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resultados de Buen Planteamiento}
 \input{wp}
 \newpage
 \bibliographystyle{unsrt}
