@@ -155,17 +155,17 @@ Finalmente por la periodicidad, la integración por partes no nos deja términos
         &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x.
     \end{align*}
 
-ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$.\\
-
-\textcolor{red}{Preguntarle a Oscar por esto}
+\textcolor{red}{Fubidios}
 
 \begin{theorem}
 Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, m \in \mathbb{Z}^n$
 
 $$
 \begin{array}{ll}
-\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=0, & \text { si } k \neq m, \\
-\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=(2 \pi)^n, & \text { si } k=m.
+\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{\T^n} \Phi_k(x) \overline{\Phi_m(x)}=\begin{cases}
+0 \quad &\text{si }m\neq  k,\\
+(2\pi)^n &\text{si } m=k
+\end{cases}
 \end{array}
 $$
 \end{theorem}
@@ -275,11 +275,11 @@ $$\partial^{\beta}f(x)=\partial_{x_j}f(x),$$
 luego:
 
 \begin{align*}
-    \widehat{\partial^{\alpha}f}(k)&=\widehat{\partial_{k_j}f}(k)\\
+    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}f}(k)\\
     &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{k_j}f(k)e^{-ik\cdot x}\\
     &=-\dfrac{1}{(2\pi)^n}\int_{\T^n}(-ik_j)f(k)e^{-ik\cdot x}\\
-    &=\dfrac{i^{|\alpha|}k^{\alpha}}{(2\pi)^n}\int_{\T^n}f(k)e^{-ik\cdot x}\\
-    &=i^{|\alpha|}k^{\alpha}\hat{f}(k)
+    &=\dfrac{i^{|\beta|}k^{\beta}}{(2\pi)^n}\int_{\T^n}f(k)e^{-ik\cdot x}\\
+    &=i^{|\beta|}k^{\beta}\hat{f}(k)
 .\end{align*}
 
 Ahora supongamos que la igualdad se tiene para todo multi-índice $\alpha$ de orden $n$, note que dado un multi-índice de orden $n+1$, $\beta$, existe un multi-índice $\alpha$ de orden $n$ tal que:
