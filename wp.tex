@@ -14,7 +14,7 @@ Procedamos de manera formal en búsqueda de un candidato a solución, tomando la
    &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^ni^2k_i^2\widehat{u}(k)+\widehat{u^3}(k)\\
    &=\partial_t\widehat{u}(k)+(1-ik_1)|k|^2\widehat{u}(k)+\widehat{u^3}(k).\\
 \end{align*}
-Así junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z$ tenemos una ecuación diferencial ordinaria asociada a un problema de valor inicial respecto a la variable temporal 
+Así junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z^n$ tenemos una ecuación diferencial ordinaria asociada a un problema de valor inicial respecto a la variable temporal 
 $$\begin{cases}
     \dfrac{d}{dt}\widehat{u}(k)+(|k|^2-ik_1|k|^2)\widehat{u}(k)=-\widehat{u^3}(k), & k\in\Z^n,t>0\\
     \widehat{u}(k,0)=\widehat{u}_0(k), &k\in\Z.
@@ -29,7 +29,10 @@ tomando la transformada inversa de Fourier tenemos que
     &=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{u}_0(k)-\int_0^t\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)(t-t^\prime)+ik\cdot x}\widehat{u^3}(k,t^\prime)\,dt^\prime.
 \end{align*}
 Teniendo en cuenta esto, es en cierta medida natural definir la familia de operadores $\{U(t)\}_{t\geq 0}$ tal que:
-$$U(t)f(x)=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{f}(k).$$
+$$U(t)f(x)=\begin{cases}
+    \sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{f}(k), & t>0,\\
+    f(x), &t=0
+\end{cases}$$
 Para $f$ lo suficientemente regular. De esta manera, nuestro candidato a solución es la formula de Duhamel dada por
 \begin{equation}\label{Duhamel}
 u(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)u^3(x,t^\prime)\,dt^\prime.
