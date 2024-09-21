@@ -309,17 +309,19 @@ Por el principio de inducción matemática se sigue la igualdad.
 \begin{theorem}
 Si $m>\frac{n}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
 
-$$
+\begin{align}
 \|\widehat{f}\|_2^2=\sum_{k \in \mathbb{Z}^n}|\widehat{f}(k)|^2=\frac{1}{(2 \pi)^n} \int_{\T^n}|f(x)|^2 d x=\frac{1}{(2 \pi)^n}\|f\|_{L^2}^2.
-$$
-
+\end{align}
 
 De manera equivalente, si $f, g \in C^m\left(\mathbb{T}^n\right)$,
 
-$$
+\begin{align}
 (\widehat{f} \mid \widehat{g})=\sum_{k \in \mathbb{Z}^n} \widehat{f}(k) \overline{\widehat{g}(k)}=\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) \overline{g(x)} d x=\frac{1}{(2 \pi)^n}(f \mid g).
-$$
+\end{align}
+
 \end{theorem}
+
+A continuación presentamos el espacio $L^2(\T^n)$.
 
 \begin{definition}
 El espacio $L^2\left(\mathbb{T}^n\right)=L^2\left([-\pi, \pi]^n\right)$ consiste de funciones $f:[-\pi, \pi]^n \rightarrow \mathbb{C}$ medibles según Lebesgue tales que:
@@ -331,7 +333,40 @@ $$\|f\|_{L^2}^2=\int_{\T^n}|f(x)|^2 d x<\infty.$$
 El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T}^n\right)$.    
 \end{theorem}
 
+Sobre la transformada de Fourier en $L^2(\T^n)$ tenemos de la desigualdad de Cauchy-Schwartz:
 
+$$
+\begin{aligned}
+|\hat{f}(k)| & =\left|\frac{1}{(2 \pi)^n} \int_{\pi^n} f(x) e^{-i k \cdot x} d x\right| \\
+& =\frac{1}{(2 \pi)^n} |(f|e^{i k \cdot x}) | \\
+& \leq \frac{1}{(2 \pi)^n}\|f\|_{L^2}\left\|\Phi_k \right\|_{L^2} \\
+& \leq(2 \pi)^{-\frac{n}{2}}\|f\|_{L^2},
+\end{aligned}
+$$
+
+dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in l^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$
+
+\begin{theorem}
+
+La transformada de Fourier
+
+$$
+\wedge: L^2\left(\mathbb{T}^n\right) \rightarrow l^2\left(\mathbb{Z}^n\right)
+$$
+
+es un isomorfismo. Además, vale la identidad de Parseval (3.3) y (3.4).
+\end{theorem}
+
+El teorema anterior implica que existe la inversa de la transformada de Fourier que denotaremos como
+
+$$
+\vee: l^2\left(\mathbb{Z}^n\right) \rightarrow L^2\left(\mathbb{T}^n\right)
+$$
+
+definida como $\left\{\alpha_k\right\}^{\vee}=\displaystyle\sum_{k \in \mathbb{Z}^n} \alpha_k \Phi_k$, donde el sentido de esta serie es en $L^2$.
+
+
+\subsection{Espacios de Sobolev}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados de Buen Planteamiento}
