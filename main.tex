@@ -306,7 +306,7 @@ Por el principio de inducción matemática se sigue la igualdad.
 \end{proof}
 
 
-\begin{theorem}
+\begin{theorem}\label{convergencia}
 Si $m>\frac{n}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
 
 \begin{align}
@@ -321,6 +321,8 @@ De manera equivalente, si $f, g \in C^m\left(\mathbb{T}^n\right)$,
 
 \end{theorem}
 
+
+
 A continuación presentamos el espacio $L^2(\T^n)$.
 
 \begin{definition}
@@ -328,12 +330,23 @@ El espacio $L^2\left(\mathbb{T}^n\right)=L^2\left([-\pi, \pi]^n\right)$ consiste
 
 $$\|f\|_{L^2}^2=\int_{\T^n}|f(x)|^2 d x<\infty.$$
 \end{definition}
-
+Asumimos que,
 \begin{theorem}
 El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T}^n\right)$.    
 \end{theorem}
 
-Sobre la transformada de Fourier en $L^2(\T^n)$ tenemos de la desigualdad de Cauchy-Schwartz:
+Ahora por lo anterior podemos probar que $f\in C^{\infty}(\T^{n}) \rightarrow \widehat{f}$ es inyectiva.
+\begin{theorem}\label{inyectiva}
+Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}$. Entonces $f = g$.
+\end{theorem}
+\begin{proof}
+
+ Sea $h = f - g$ luego, por propiedades de las funciones continuas y $\T^{n}$,tenemos que $h \in C^{\infty}(\T^{n})$ y por hipótesis $\hat{h}(k) = 0$ para todo $k \in \mathbb{Z}$. Por lo cual tenemos que la suma de Cesàro $S_N(h) = 0$ para todo entero $N \geq 1$, y por el Teorema \ref{convergencia}  , se sigue que $\|h\| = 0$, es decir, $h = 0$.       
+\end{proof}
+
+        
+\begin{note}
+  Sobre la transformada de Fourier en $L^2(\T^n)$ tenemos de la desigualdad de Cauchy-Schwartz:
 
 $$
 \begin{aligned}
@@ -344,7 +357,9 @@ $$
 \end{aligned}
 $$
 
-dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in l^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$
+dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in l^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$  
+\end{note}
+
 
 \begin{theorem}
 
@@ -354,8 +369,63 @@ $$
 \wedge: L^2\left(\mathbb{T}^n\right) \rightarrow l^2\left(\mathbb{Z}^n\right)
 $$
 
-es un isomorfismo. Además, vale la identidad de Parseval (3.3) y (3.4).
+es un isomorfismo. Además, vale la identidad de Parseval (1) y (2)
 \end{theorem}
+\begin{proof}
+Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$. Sea $\{f_n\}$ una sucesión, de manera que $\{f_n\}\subset C^{m}(\T^{n}) $ de manera que $f_n$ converge a $f$ en el sentido de $L^2$. Por los Teoremas \ref{convergencia} y \ref{inyectiva}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
+
+$$
+\|f_n - f_m\|^2_{L^2(\T^{n})} = (2\pi)^{n} \|\hat{f}_n - \hat{f}_m\|^2_{\ell^2(\mathbb{Z})},
+$$
+
+para todo $n, m \in \mathbb{Z}$. \\
+Luego, como $\{f_n\} \subset C^{m}(\T^{n})$ converge en $L^2$, tenemos que  define una secuencia de Cauchy. Teniendo en cuenta la nota mencionada anteriormente, tenemos que esto implica que la secuencia de transformadas de Fourier $\{\widehat{f}_n\}$ es de Cauchy en $\ell^2(\mathbb{Z}^{n})$. Puesto que $\ell^2(\mathbb{Z}^{n})$ es completo. Sea $\{\alpha_k\} \in \ell^2(\mathbb{Z}^{n})$ el límite de $\{\widehat{f}_n\}$.\\
+
+
+
+\textcolor{green}{Según yo hay dos opciones aquí cual les gusta más, 1 es oscar version xd}\\
+Ahora, veamos que  $\widehat{f} = \{\widehat{f}(k)\} = \{\alpha_k\}$, es decir, $\alpha_k = \widehat{f}(k)$ para todo entero $k$.\\
+
+Note que,
+
+$$
+|\widehat{f}_n(k) - \alpha_k|^2 \leq \sum_{k=-\infty}^{\infty} |\widehat{f}_n(k) - \alpha_k|^2 = \|\hat{f}_n - \{\alpha_k\}\|^2_{\ell^2} \to 0 \quad \text{cuando} \quad n \to \infty.
+$$
+
+Por otro lado, la desigualdad de Cauchy-Schwarz nos da
+
+$$
+|\widehat{f}_n(k) - \widehat{f}(k)| = \dfrac{1}{(2\pi)^{n}} \int_{-\pi}^{\pi} (f_n(x) - f(x)) e^{-ik\cdot x} \, dx \leq (2\pi)^{-\frac{n}{2}} \|f_n - f\|_2 \to 0.
+$$
+\textcolor{green}{version 2 }\\
+Sea $\{\alpha_m\}_{m \in \mathbb{Z}^n}$ una sucesión de números complejos tal que $\{\alpha_m\}_{m \in \mathbb{Z}^n} \in \ell^2(\mathbb{Z}^n)$. Sea
+
+$$
+f_N(x) := \dfrac{1}{(2\pi)^{N}}\sum_{|m| \leq N} \alpha_m e^{-i m \cdot x},
+$$
+
+Observe que $\{f_N\}$ es una sucesión de Cauchy en $L^2(\mathbb{T}^n)$, es decir,
+
+$$
+\int_{\mathbb{T}^n} \|f_N - f_M\|^2_{L^2} = \int_{\mathbb{T}^n} |f_N(x) - f_M(x)|^2 \, dt =\dfrac{1}{(2\pi)^{N-M}} \sum_{M < |m| \leq N} |\alpha_m|^2 \to 0 \quad \text{cuando} \quad M, N \to \infty.
+$$
+
+Por tanto, existe $f \in L^2(\mathbb{T}^n)$ tal que 
+
+$$
+\lim_{N \to \infty} f_N = f.
+$$
+
+Además,
+
+$$
+\widehat{f}(k) = \langle f, \varphi_k \rangle = \lim_{N \to \infty} \dfrac{1}{(2\pi)^{N}}\sum_{|m| \leq N} \alpha_m \langle e^{- i m \cdot x}, \varphi_k \rangle =\dfrac{1}{(2\pi)^{n}} \alpha_k.
+$$
+
+Por lo tanto, $\widehat{f}(m) = \alpha_m$ para todo $m \in \mathbb{Z}^n$.
+
+
+\end{proof}
 
 El teorema anterior implica que existe la inversa de la transformada de Fourier que denotaremos como
 
