@@ -46,3 +46,40 @@ u(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)u^3(x,t^\prime)\,dt^\prime.
         Es continua.
     \end{itemize}
 \end{definition}
+Antes de continuar con el resultado principal debemos hacer varias salvedades. Primero definimos el espacio $C([0,T];H^s(\T^n))$.
+\begin{definition}
+     El espacio $C([0,T];H^s(\T^n))$ consiste de funciones $f:[0,T]\to H^s(\T^n)$, continuas en el siguiente sentido:\\ 
+ Dado $t^\prime\in(0,T)$ tenemos que
+$$\lim_{t\to t^\prime}\|f(t)-f(t^\prime)\|_{H^s}=0,$$
+si $t^\prime=0$ o $t^\prime=T$ se toma el limite lateral.
+ \end{definition} 
+Segundo introducimos los conceptos claves de contracción y punto fijo.  
+\begin{definition}Sea $(M,d)$ un espacio métrico y $\psi:M\to M$ una función.
+    \begin{itemize}
+        \item $\psi$ es una \textbf{contracción} si existe $0<L<1$ tal que
+        $$d(\psi(x),\psi(y))\leq Ld(x,y),$$
+        para todo $x,y\in M.$
+        \item Dado $x\in M,$ si $\psi(x)=x$, se dice que $x$ es un \textbf{punto fijo} de $\psi.$
+    \end{itemize}
+\end{definition}
+\begin{theorem}[Punto fijo de Banach]\label{Banach}
+Sea $(M,d)$ un espacio métrico completo. entonces toda contracción tiene un único punto fijo.   
+\end{theorem}
+La idea para el buen planteamiento es ver (\ref{Duhamel}) como una aplicación y usar (\ref{Banach}) para encontrar soluciones como puntos fijos en espacios de funciones adecuados. Con todo esto procedemos a la demostración de el resultado principal, la buena colocación local.
+\begin{theorem}
+    Para cualquier $n\geq 1$ fijo, el problema de Cauchy (\ref{ZKB}) esta localmente bien planteado en $H^s(\T^n),$ $s>\frac{n}{2}.$ Esto es:
+    \begin{itemize}
+        \item \textbf{(Existencia y Unicidad).} Para cualquier $u_0\in H^s(\T^n),$ existe un tiempo $T>0$ y una unica $u\in C([0,T];H^s(\T^n))$ solución de la formula integral (\ref{Duhamel}) con dato inicial $u_0.$
+        \item \textbf{(Dependencia Continua).} Dado $u_0\in H^s(\T^n)$ existe una vecindad $V$ de $u_0$ en $H^s(\T^n)$ y $T>0$ tal que la aplicación dato inicial solución 
+        $$v_0\in V\mapsto v\in C([0,T];H^s(\T^n)). $$ 
+        Es continua. 
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+Dividiremos la prueba en tres partes.
+\begin{itemize}
+       \item[i)]\textbf{Existencia.} Sea $u_0\in H^s(\T^n)$ con $s>\frac{n}{2}$ arbitrario pero fijo. Veamos que existe una solución de (\ref{Duhamel}) con dato inicial $u_0.$ Si $u_0=0,$ tomando $u=0$ tenemos la existencia. Ahora si asumimos $u_0\neq 0$ tenemos que $\|u_0\|_{H^s}>0.$ 
+   \end{itemize}   
+\end{proof}
+
+
