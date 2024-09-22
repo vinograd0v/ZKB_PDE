@@ -37,7 +37,7 @@ asociado a la ecuación con no linealidad modificada de Zakharov-Kusnetsov-Burge
 \vspace{-0.34cm}\par\noindent\hspace{0.15cm}\rule{16cm}{1pt}
 \vspace{-0.6cm}
 }
-\author{\small \bfseries María Alejandra Rodríguez Ríos$.^1$\quad \quad\small Mateo Andrés Manosalva Amaris$.^{2}$\\ \small \texttt{mrodriguezri@unal.edu.co} \quad \quad \quad \quad \quad \quad \quad \quad \texttt{mmanosalva@unal.edu.co}\\ \small \bfseries Edgar Santiago Ochoa Quiroga\\
+\author{\small \bfseries María Alejandra Rodríguez Ríos$.^1$\quad \quad\small Mateo Andrés Manosalva Amaris$.^{2}$\\ \small \quad \texttt{mrodriguezri@unal.edu.co} \quad \quad \quad \quad \quad \quad \texttt{mmanosalva@unal.edu.co}\quad\quad \quad\\ \small \bfseries Edgar Santiago Ochoa Quiroga$^{3}$\\
 \small \texttt{eochoaq@unal.edu.co}
 }
 
@@ -155,23 +155,23 @@ Finalmente por la periodicidad, la integración por partes no nos deja términos
         &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x.
     \end{align*}
 
-ya que $f(-\pi e_j)g(-\pi e_j)=f(\pi e_j)g(\pi e_j)$ para todo $1\leq j\leq n$.\\
-
-\textcolor{red}{Preguntarle a Oscar por esto}
+\textcolor{red}{Fubidios}
 
 \begin{theorem}
 Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, m \in \mathbb{Z}^n$
 
 $$
 \begin{array}{ll}
-\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=0, & \text { si } k \neq m, \\
-\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{[-\pi, \pi]^n} \Phi_k(x) \overline{\Phi_m(x)}=(2 \pi)^n, & \text { si } k=m.
+\displaystyle\left(\Phi_k \mid \Phi_m\right)=\int_{\T^n} \Phi_k(x) \overline{\Phi_m(x)}=\begin{cases}
+0 \quad &\text{si }m\neq  k,\\
+(2\pi)^n &\text{si } m=k
+\end{cases}
 \end{array}
 $$
 \end{theorem}
 
 \begin{proof}
-En efecto, por el teorema de Tychonoff tenemos que el producto cartesiano de conjuntos compactos es compacto y como $\T^{n}=[-\pi,\pi]\times [-\pi,\pi]\ldots[-\pi,\pi]$ entonces $\T^{n}$ es compacto, por lo cual, como $\Phi_k(x)$ es una función continua en $[-\pi,\pi]$ podemos aplicar el teorema de Fubini como sigue:
+En efecto, por el teorema de Tychonoff tenemos que el producto cartesiano de conjuntos compactos es compacto y como $\T^{n}=[-\pi,\pi]\times [-\pi,\pi]\times\ldots\times[-\pi,\pi]$ entonces $\T^{n}$ es compacto, por lo cual, como $\Phi_k(x)$ es una función continua en $[-\pi,\pi]^n$ podemos aplicar el teorema de Fubini como sigue:
 
 \begin{align*}
     \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx\\
@@ -184,7 +184,7 @@ y como:
 
 $$
 \begin{aligned}
-\int_{-\pi}^\pi e^{i(k_i-m_i)x} d x= \begin{cases}0, & \text { si } m_i \neq k_i, \\
+\int_{-\pi}^\pi e^{i(k_i-m_i)x_i} d x_i= \begin{cases}0, & \text { si } m_i \neq k_i, \\
 2 \pi, & \text { si } m_i=k_i.\end{cases}
 \end{aligned}
 $$
@@ -235,7 +235,7 @@ se llama la serie de Fourier de $f$.
 \end{definition}
 
 Teniendo en cuenta lo anterior, veamos que se cumple lo siguiente,
-\begin{theorem}
+\begin{theorem}\label{bessel}
 Si $f \in C (\T^{n})$ entonces vale la identidad de Bessel, es decir,
 $$\sum_{k \in \mathbb{Z}^n} | \hat{f}(k) |^2 \leq \frac{1}{(2\pi)^n} \| f \|_2^2 = \frac{1}{(2\pi)^n} \int_{[-\pi, \pi]^n} |f(x)|^2 \, dx.$$
 \end{theorem}
@@ -247,26 +247,58 @@ Sabemos que como la norma es mayor o igual a cero, entonces
 &= || f||_2^{2}+ \left\| \sum_{\substack{k\in \Z^{n}\\|k|\leq N}} \widehat{f}(k)e^{ik\cdot x}\right\|_2^{2}- 2 \Re\left(f(x)\left|\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \widehat{f}(k) e^{ik\cdot x}\right.\right)\\
 &= || f||_2^{2}+ \left\| \sum_{\substack{k,m\in \Z^{n}\\ |k|,|m|\leq N}} \widehat{f}(k)\overline{\widehat{f}(m)}(e^{ik\cdot x}|e^{im\cdot x})\right\|_2^{2}- 2 \Re\left(\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \overline{\widehat{f}(k)} \left(\widehat{f}(k) |e^{ik\cdot x}\right)\right)\\
 &= || f||_2^{2}+ \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}} (2\pi)^{n}\left|\widehat{f}(k)\right|^{2}-2 \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}\\
-&= || f||_2^{2}- \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}
+&= || f||_2^{2}- \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}.
 \end{align*}
 
-Colocando los resultados anteriores, entonces
-\begin{align*}
-0 &\leq|| f||_2^{2}-(2\pi)^n \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2}
+Así\begin{align*}
+0 &\leq|| f||_2^{2}-(2\pi)^n \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2}.
 \end{align*}
 Por lo cual 
 \begin{align*}
-\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}
+\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}.
 \end{align*}
-Luego tomando el límite cuando $N\rightarrow \infty$, entonces
+Luego tomando el límite cuando $N\rightarrow \infty$, se sigue que:
 \begin{align*}
-\sum_{\substack{k\in \Z^{n}}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}
+\sum_{\substack{k\in \Z^{n}}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}.
 \end{align*}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{derivadacacorra}
 Si $f \in C^l\left(\mathbb{T}^n\right)$ y $\beta=\left(\beta_1, \ldots, \beta_n\right)$ es un multi-índice de orden $l$, es decir, $|\beta|=\beta_1+\cdots+\beta_n=l$, entonces $\widehat{\partial^\beta f}(k)=i^{|\beta|} k^\beta \widehat{f}(k)$, para todo $k \in \mathbb{Z}^n$.
 \end{theorem}
+
+\begin{proof}
+Procedamos  por inducción sobre el orden del multi-índice, primero note que si $\beta$ es un multi-índice de orden 1, entonces $\beta=(0,\ldots,1,\ldots,0)$, así:
+
+$$\partial^{\beta}f(x)=\partial_{x_j}f(x),$$
+
+luego:
+
+\begin{align*}
+    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}f}(k)\\
+    &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{k_j}f(k)e^{-ik\cdot x}\\
+    &=-\dfrac{1}{(2\pi)^n}\int_{\T^n}(-ik_j)f(k)e^{-ik\cdot x}\\
+    &=\dfrac{i^{|\beta|}k^{\beta}}{(2\pi)^n}\int_{\T^n}f(k)e^{-ik\cdot x}\\
+    &=i^{|\beta|}k^{\beta}\hat{f}(k)
+.\end{align*}
+
+Ahora supongamos que la igualdad se tiene para todo multi-índice $\alpha$ de orden $n$, note que dado un multi-índice de orden $n+1$, $\beta$, existe un multi-índice $\alpha$ de orden $n$ tal que:
+
+$$\partial^{\beta}f(x)=\partial_{x_j}\partial^{\alpha}f(x),$$
+
+así:
+
+\begin{align*}
+    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}\partial^{\alpha}f}(k)\\
+    &=ik_j\widehat{\partial^{\alpha}f}(k)\\
+    &=ik_ji^{|\alpha|}k^{\alpha}\hat{f}(k)\\
+    &=i^{|\beta|}k^{\beta}\hat{f}(k).
+.\end{align*}
+
+Por el principio de inducción matemática se sigue la igualdad.
+
+\end{proof}
+
 
 \begin{theorem}
 Si $m>\frac{N}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
