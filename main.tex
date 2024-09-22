@@ -335,13 +335,17 @@ Asumimos que,
 El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T}^n\right)$.    
 \end{theorem}
 
-Ahora por lo anterior podemos probar que $f\in C^{\infty}(\T^{n}) \rightarrow \widehat{f}$ es inyectiva.
+\begin{note}
+Recordemos que $C^{\infty}(\T^n)\subset C^m(\T^ n)\subset  \ldots\subset C(\T^n)$, es claro que las funciones en $C(\T^n)$ son funciones en $L^2(\T^n)$ por la continuidad sobre un compacto, esto nos dice que el conjunto $C^m(\T^n)$ es denso en $L^2(\T^n)$ para todo $m\geq 0$
+\end{note}
+
+Ahora por lo anterior podemos probar que si $f\in C^{\infty}(\T^{n})$ entonces $\widehat{f}$ es inyectiva.
 \begin{theorem}\label{inyectiva}
 Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}^{n}$. Entonces $f = g$.
 \end{theorem}
 \begin{proof}
 
- Sea $h = f - g$ luego, por propiedades de las funciones continuas y $\T^{n}$,tenemos que $h \in C^{\infty}(\T^{n})$ y por hipótesis $\hat{h}(k) = 0$ para todo $k \in \mathbb{Z}$. Por lo cual tenemos que la suma de Cesàro $S_N(h) = 0$ para todo entero $N \geq 1$, y por el Teorema \ref{convergencia}  , se sigue que $\|h\| = 0$, es decir, $h = 0$.       
+ Sea $h = f - g$ luego, por propiedades de las funciones continuas en $\T^{n}$,tenemos que $h \in C^{\infty}(\T^{n})$ y por hipótesis $\hat{h}(k) = 0$ para todo $k \in \mathbb{Z}$, por el Teorema \ref{convergencia}  , se sigue que $\|h\| = 0$, es decir, $h = 0$.       
 \end{proof}
 
         
@@ -372,7 +376,7 @@ $$
 es un isomorfismo. Además, vale la identidad de Parseval (1) y (2)
 \end{theorem}
 \begin{proof}
-Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$. Sea $\{f_n\}$ una sucesión, de manera que $\{f_n\}\subset C^{m}(\T^{n}) $ de manera que $f_n$ converge a $f$ en el sentido de $L^2$. Por los Teoremas \ref{convergencia} y \ref{inyectiva}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
+Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$. Sea $\{f_n\}$ una sucesión, de manera que $\{f_n\}\subset C^{m}(\T^{n}) $ tal que $f_n$ converge a $f$ en el sentido de $L^2$. Por los Teoremas \ref{convergencia} y \ref{inyectiva}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
 
 $$
 \|f_n - f_m\|^2_{L^2(\T^{n})} = (2\pi)^{n} \|\hat{f}_n - \hat{f}_m\|^2_{2},
