@@ -49,7 +49,7 @@ asociado a la ecuación con no linealidad modificada de Zakharov-Kusnetsov-Burge
 
 \maketitle
 \begin{abstract}
-Este trabajo se centra en el estudio de la ecuación no lineal modificada de Zakharov-Kusnetsov-Burgers en $\T^n$, el cual es un dominio periódico. Utilizando resultados de series de Fourier y espacios de Sobolev, se realiza la buena colocación local del problema en dichos espacios. El resultado principal demuestra que, para $n \geq 1$ y $s > \frac{n}{2}$, existe una solución única y local en el tiempo que depende del dato inicial en $H^s(\mathbb{T}^n)$, se realiza la demostración en base a la fórmula integral de Duhamel, lo que permite un análisis formal de la dependencia continua de las soluciones.
+Este trabajo se centra en el estudio de la ecuación no lineal modificada de Zakharov-Kusnetsov-Burgers en $\T^n$, el cual es un dominio periódico. Utilizando resultados de series de Fourier y espacios de Sobolev, se realiza la buena colocación local del problema en dichos espacios. El resultado principal demuestra que, para $n \geq 1$ y $s > \frac{n}{2}$, existe una única solución local en el tiempo que depende del dato inicial en $H^s(\mathbb{T}^n)$, se realiza la demostración en base a la fórmula integral de Duhamel, lo que permite un análisis formal de la dependencia continua de las soluciones.
 \end{abstract}
 
 \section{Introducción}
@@ -69,16 +69,15 @@ $$
 
 Algunas observaciones:
 \begin{itemize}
-    \item  Tenemos que dado $L\in \R-\{0\}$, para todo $m \in \mathbb{Z}, m L$ también es un periodo de $f$ en el sentido que $f(x+m L e_j)=f(x)$, para cualquier $x \in \mathbb{R}^n $ y $1\leq j\leq n$. En particular, $-L$ también es un periodo para la función $f$. Por esta razón se puede asumir que $L>0$.
+    \item  Tenemos que dado $L\in \R-\{0\}$, para todo $m \in \mathbb{Z}, m L$ también es un periodo de $f$, es  decir, $f(x+m L e_j)=f(x)$, para todo $x \in \mathbb{R}^n $ y $1\leq j\leq n$. En particular, $-L$ también es un periodo para la función $f$. Por esto se puede asumir en particular que $L>0$.
     
-    \item Si $f$ es constante, entonces $f$ es periódica de cualquier periodo. Si $f$ es periódica no constante, existe un menor periodo $L>0$, el cual se conoce como periodo fundamental.
+    \item Si $f$ es periódica no constante, existe un periodo mínimo $L>0$, el cual se conoce como periodo fundamental.
 \end{itemize}
 
 \begin{note}
-    Dado $L>0$ el conjunto $C_{\text {per }}([-L, L]^n)$ consiste de todas las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ continuas con periodo $2L$. Similarmente, dado $k \in \mathbb{Z}^{+}, C_{p e r}^k([-L, L]^n)$ consiste de todas las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ periódicas con periodo $2 L$ de clase $C^k$.\\
+    Dado $L>0$ el conjunto $C_{\text {per }}([-L, L]^n)$ consiste en las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ continuas con periodo $2L$. Análogamente, dado $k \in \mathbb{Z}^{+}, C_{p e r}^k([-L, L]^n)$ consiste de todas las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ periódicas con periodo $2 L$ de clase $C^k$.\\
 
-De manera equivalente, los espacios anteriores se pueden identificar como sigue:
-
+Una manera equivalente de identificar los espacios anteriores es la siguiente:
 $$
 C_{\text {per }}([-L, L]^n):=\{f \in C([-L, L]^n): f(Le_j)=f(-Le_j), 1\leq j\leq n\}.
 $$
@@ -88,30 +87,34 @@ Cuando $k \in \mathbb{Z}^{+}$, dado un multiíndice $\beta=(\beta_1,\ldots,\beta
 
 \begin{align*}
     C_{\text {per }}^k([-L, L]^n):&=\left\{f \in C^k([-L, L]^n): \partial^{\beta}f(Le_j)=\partial^{\beta}f(-Le_j), \text{ para todo } \beta \text{ tal que } |\beta|\leq k\right. \\
-    &\hspace{0.8cm} \text{y para todo } 1\leq j\leq n\}
+    &\hspace{0.8cm} \text{y para todo } 1\leq j\leq n\}.
 \end{align*}
 
-Diremos que $f \in C_{\text {per }}^{\infty}([-L, L]^n)$, si $f \in C_{\text {per }}^k([-L, L]^n)$ para cualquier $k \in \mathbb{Z}^{+}$. Por consistencia en la notación, definimos $C_{p e r}^0([-L, L]^n)=C_{p e r}([-L, L]^n)$.\\
+Diremos que $f \in C_{\text {per }}^{\infty}([-L, L]^n)$, si $f \in C_{\text {per }}^k([-L, L]^n)$ para cualquier $k \in \mathbb{Z}^{+}$.\\
 
-De la definición de los espacios $C_{p e r}^k([-L, L]^n)$ notamos que
+Note que:
 
-$$2
-C_{p e r}([-L, L]^n) \supseteq C_{p e r}^1([-L, L]^n) \supseteq \cdots \supseteq C_{p e r}^k([-L, L]^n).
 $$
+C_{p e r}([-L, L]^n) \supseteq C_{p e r}^1([-L, L]^n) \supseteq \cdots \supseteq C_{p e r}^k([-L, L]^n),
+$$
+
+es decir, el conjunto es más pequeño cuando pedimos más regularidad a las funciones.
 
 \end{note}
 
-Dado $L>0$, si $f: \mathbb{R}^n \rightarrow \mathbb{C}$ es una función periódica de periodo $2 L$, entonces
+Dado $L>0$, si $f: \mathbb{R}^n \rightarrow \mathbb{C}$ es una función periódica de periodo $2 L$, entonces el mapeo
 
 $$
 \widetilde{f}(x):=f\left(\frac{L}{\pi} x\right),
 $$
 
-define una función periódica de periodo $2 \pi$. En particular, obtenemos que los espacios $C_{p e r}^k([-L, L]^n)$ y $C_{p e r}^k([-\pi, \pi]^n)$ son isomorfos como espacios vectoriales. De igual manera, la teoría de la transformada de Fourier se puede reescalar para pasar de la región $[-L, L]^n a[-\pi, \pi]^n$. Por estas razones $y$ sin pérdida de generalidad, en lo que sigue trabajaremos con funciones periódicas de periodo $2 \pi$.\\
+define una función periódica de periodo $2 \pi$. Esto es, que los espacios $C_{p e r}^k([-L, L]^n)$ y $C_{p e r}^k([-\pi, \pi]^n)$ son isomorfos como espacios vectoriales. Por estas razones y sin pérdida de generalidad, trabajaremos con funciones de periodo $2\pi$.\\
 
-Otra notación frecuente para funciones periódicas y transformada de Fourier es considerar funciones sobre el toro $\mathbb{T}^n$. El toro $\mathbb{T}^n$ es el intervalo $[0,2 \pi]^n$ donde los lados opuestos se identifican. De manera más precisa, el toro es el conjunto de clases de equivalencia en $\mathbb{R}^n$ dada por la relación $x \sim y$ si $y$ solo si $x-y \in 2 \pi \mathbb{Z}^n$, es decir $\mathbb{T}^n=\mathbb{R}^n/ 2 \pi \mathbb{Z}^n$. Adicionalmente el toro es un grupo aditivo por lo que será útil hacerle una traslación a $[-\pi,\pi]^n$\\
+Otra forma frecuente para trabajar sobre este espacio de funciones periódicas es considerar funciones sobre  el toro $\mathbb{T}^n$. El toro $\mathbb{T}^n$ es el intervalo $[0,2 \pi]^n$ donde los lados opuestos se identifican.\\
 
-Por las propiedades anteriores, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C}$ se pueden identificar como funciones periódicas $f: \mathbb{R}^n \rightarrow \mathbb{C}$ con periodo $2 \pi$. De esta manera, $C_{\text {per }}^k([-\pi, \pi]^n)$ es isomorfo a $C^k(\mathbb{T}^n)$ por lo que por comodidad trabajaremos sobre este espacio. \cite{ogrianoc}\\
+De manera más rigurosa, el toro es el conjunto de clases de equivalencia de $\mathbb{R}^n$ dadas por la relación $x \sim y$ si y solo si $x-y \in 2 \pi \mathbb{Z}^n$, esto es $\mathbb{T}^n=\mathbb{R}^n/ 2 \pi \mathbb{Z}^n$. Adicionalmente el toro es un grupo aditivo por lo que será útil hacerle una traslación a $[-\pi,\pi]^n$\\
+
+Por las propiedades del toro que hemos mencionado, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C}$ se pueden identificar como funciones periódicas $f: \mathbb{R}^n \rightarrow \mathbb{C}$ con periodo $2 \pi$. De esta manera, $C_{\text {per }}^k([-\pi, \pi]^n)$ es isomorfo a $C^k(\mathbb{T}^n)$, por comodidad en la notación durante el resto de  este trabajo nos referiremos a este espacio como $C^k(\T^n)$. \cite{ogrianoc}\\
 
 \begin{note}
     Dado que  podemos identificar $\mathbb{T}^n$ como $[-\pi,\pi]^n$, vemos que la integración de funciones sobre el toro resulta de restringir la medida de Lebesgue en $[\pi,\pi]^n$ y por la periodicidad de las funciones en $\mathbb{T}^n$ tenemos que:
@@ -151,11 +154,13 @@ los casos $a\in [0,2\pi]$ y $a<0$ son análogos.
 Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
 
     \begin{align*}
-        \int_{\mathbb{T}^n} \partial_j f(x) g(x) d x&=\int_{\partial \mathbb{T}^n}f(x)g(x)\eta_i dS(x)-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x\\
-        &=-\int_{\mathbb{T}^n} \partial_j g(x) f(x) d x.
+        \int_{\mathbb{T}^n} \partial_{x_i} f(x) g(x) d x&=\int_{\T ^{n-1}}\left(\int_{-\pi}^{\pi}\partial_{x_i} f(x) g(x)dx_{i}\right)d\widetilde{x}\\
+        &=\int_{\T^{n-1}}\left[fg(x_1,\ldots,\pi,\ldots,x_n)-fg(x_1,\ldots,-\pi,\ldots,x_n)\right]d\widetilde{x}\\
+        &\hspace*{0.4cm}-\int_{T^{n-1}}\int_{-\pi}^{\pi}f(x)\partial_{x_i}g(x)dx_id\widetilde{x}\\
+        &=\int_{\T^{n-1}}0\,d\widetilde{x}-\int_{\T^n}f(x)\partial_{x_i}g(x)dx\\
+        &=-\int_{\T^n}f(x)\partial_{x_i}g(x)dx
     \end{align*}
 
-\textcolor{red}{Fubidios}
 
 \begin{theorem}
 Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, m \in \mathbb{Z}^n$
@@ -202,7 +207,7 @@ Dado el sistema ortogonal $\phi_k(x)=e^{ik\cdot x}$ con $k\in \Z^n$  y $x\in \R^
 
 $$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x},$$
 
-procedamos formalmente asumiendo que la serie anterior converge uniformemente, así, luego:
+procedamos formalmente asumiendo que la serie anterior converge uniformemente, así:
 
 \begin{align*}
     \left(f|\Phi_m\right)&=\sum_{k\in \Z^n} c_k\left(\Phi_k|\Phi_m\right)\\
@@ -234,32 +239,33 @@ $$
 se llama la serie de Fourier de $f$.
 \end{definition}
 
-Teniendo en cuenta lo anterior, veamos que se cumple lo siguiente,
-\begin{theorem}\label{bessel}
-Si $f \in C (\T^{n})$ entonces vale la identidad de Bessel, es decir,
-$$\sum_{k \in \mathbb{Z}^n} | \hat{f}(k) |^2 \leq \frac{1}{(2\pi)^n} \| f \|_2^2 = \frac{1}{(2\pi)^n} \int_{[-\pi, \pi]^n} |f(x)|^2 \, dx.$$
+Se puede estudiar a detalle la convergencia de esta serie, sin embargo esto se sale del propósito de este trabajo. Más adelante presentaremos resultados conocidos de la convergencia de la serie de Fourier que requerimos para obtener nuestro resultado de buena colocación, no adentraremos en los detalles de la demostración de los mismos, esto se puede consultar en \cite{grafakos2008classical} o en \cite{iorio2001fourier}.
+
+\begin{theorem}[Desigualdad de Bessel]\label{bessel}
+Si $f \in C (\T^{n})$ entonces:
+$$\sum_{k \in \mathbb{Z}^n} | \hat{f}(k) |^2 \leq \frac{1}{(2\pi)^n} \| f \|_{L^2}^2 = \frac{1}{(2\pi)^n} \int_{\T^n} |f(x)|^2 \, dx.$$
 \end{theorem}
 
 \begin{proof}
 Sabemos que como la norma es mayor o igual a cero, entonces
 \begin{align*}
-0 &\leq\left\|f(x)-\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\widehat{f}(k)e^{ik\cdot x}\right\|^{2}_2\\
-&= || f||_2^{2}+ \left\| \sum_{\substack{k\in \Z^{n}\\|k|\leq N}} \widehat{f}(k)e^{ik\cdot x}\right\|_2^{2}- 2 \Re\left(f(x)\left|\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \widehat{f}(k) e^{ik\cdot x}\right.\right)\\
-&= || f||_2^{2}+ \left\| \sum_{\substack{k,m\in \Z^{n}\\ |k|,|m|\leq N}} \widehat{f}(k)\overline{\widehat{f}(m)}(e^{ik\cdot x}|e^{im\cdot x})\right\|_2^{2}- 2 \Re\left(\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \overline{\widehat{f}(k)} \left(\widehat{f}(k) |e^{ik\cdot x}\right)\right)\\
-&= || f||_2^{2}+ \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}} (2\pi)^{n}\left|\widehat{f}(k)\right|^{2}-2 \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}\\
-&= || f||_2^{2}- \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}.
+0 &\leq\left\|f(x)-\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\widehat{f}(k)e^{ik\cdot x}\right\|^{2}_{L^2}\\
+&= || f||_{L^2}^{2}+ \left\| \sum_{\substack{k\in \Z^{n}\\|k|\leq N}} \widehat{f}(k)e^{ik\cdot x}\right\|_{L^2}^{2}- 2 \Re\left(f(x)\left|\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \widehat{f}(k) e^{ik\cdot x}\right.\right)\\
+&= || f||_{L^2}^{2}+ \sum_{\substack{k,m\in \Z^{n}\\ |k|,|m|\leq N}} \widehat{f}(k)\overline{\widehat{f}(m)}(e^{ik\cdot x}|e^{im\cdot x})- 2 \Re\left(\sum_{\substack{k \in \Z^{n}\\ |k|\leq N}} \overline{\widehat{f}(k)} \left(f(x) |e^{ik\cdot x}\right)\right)\\
+&= || f||_{L^2}^{2}+ \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}} (2\pi)^{n}\left|\widehat{f}(k)\right|^{2}-2 \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}\\
+&= || f||_{L^2}^{2}- \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}.
 \end{align*}
 
 Así\begin{align*}
-0 &\leq|| f||_2^{2}-(2\pi)^n \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2}.
+0 &\leq|| f||_{[L^2}^{2}-(2\pi)^n \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2}.
 \end{align*}
 Por lo cual 
 \begin{align*}
-\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}.
+\sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_{L^2}^{2}.
 \end{align*}
 Luego tomando el límite cuando $N\rightarrow \infty$, se sigue que:
 \begin{align*}
-\sum_{\substack{k\in \Z^{n}}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_2^{2}.
+\sum_{\substack{k\in \Z^{n}}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_{L^2}^{2}.
 \end{align*}
 \end{proof}
 
@@ -276,9 +282,9 @@ luego:
 
 \begin{align*}
     \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}f}(k)\\
-    &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{k_j}f(k)e^{-ik\cdot x}\\
-    &=-\dfrac{1}{(2\pi)^n}\int_{\T^n}(-ik_j)f(k)e^{-ik\cdot x}\\
-    &=\dfrac{i^{|\beta|}k^{\beta}}{(2\pi)^n}\int_{\T^n}f(k)e^{-ik\cdot x}\\
+    &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{k_j}f(x)e^{-ik\cdot x}\\
+    &=-\dfrac{1}{(2\pi)^n}\int_{\T^n}(-ik_j)f(x)e^{-ik\cdot x}\\
+    &=\dfrac{i^{|\beta|}k^{\beta}}{(2\pi)^n}\int_{\T^n}f(x)e^{-ik\cdot x}\\
     &=i^{|\beta|}k^{\beta}\hat{f}(k)
 .\end{align*}
 
@@ -292,7 +298,7 @@ así:
     \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}\partial^{\alpha}f}(k)\\
     &=ik_j\widehat{\partial^{\alpha}f}(k)\\
     &=ik_ji^{|\alpha|}k^{\alpha}\hat{f}(k)\\
-    &=i^{|\beta|}k^{\beta}\hat{f}(k).
+    &=i^{|\beta|}k^{\beta}\hat{f}(k)
 .\end{align*}
 
 Por el principio de inducción matemática se sigue la igualdad.
@@ -301,29 +307,85 @@ Por el principio de inducción matemática se sigue la igualdad.
 
 
 \begin{theorem}
-Si $m>\frac{N}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
+Si $m>\frac{n}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
 
-$$
-\|\widehat{f}\|_2^2=\sum_{k \in \mathbb{Z}^n}|\widehat{f}(k)|^2=\frac{1}{(2 \pi)^n} \int_{[-\pi, \pi]^n}|f(x)|^2 d x=\frac{1}{(2 \pi)^n}\|f\|_2^2.
-$$
-
+\begin{align}
+\|\widehat{f}\|_2^2=\sum_{k \in \mathbb{Z}^n}|\widehat{f}(k)|^2=\frac{1}{(2 \pi)^n} \int_{\T^n}|f(x)|^2 d x=\frac{1}{(2 \pi)^n}\|f\|_{L^2}^2.
+\end{align}
 
 De manera equivalente, si $f, g \in C^m\left(\mathbb{T}^n\right)$,
 
-$$
-(\widehat{f} \mid \widehat{g})=\sum_{k \in \mathbb{Z}^n} \widehat{f}(k) \overline{\widehat{g}(k)}=\frac{1}{(2 \pi)^n} \int_{[-\pi, \pi]^n} f(x) \overline{g(x)} d x=\frac{1}{(2 \pi)^n}(f \mid g).
-$$
+\begin{align}
+(\widehat{f} \mid \widehat{g})=\sum_{k \in \mathbb{Z}^n} \widehat{f}(k) \overline{\widehat{g}(k)}=\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) \overline{g(x)} d x=\frac{1}{(2 \pi)^n}(f \mid g).
+\end{align}
+
 \end{theorem}
+
+A continuación presentamos el espacio $L^2(\T^n)$.
 
 \begin{definition}
 El espacio $L^2\left(\mathbb{T}^n\right)=L^2\left([-\pi, \pi]^n\right)$ consiste de funciones $f:[-\pi, \pi]^n \rightarrow \mathbb{C}$ medibles según Lebesgue tales que:
 
-$$\|f\|_2^2=\int_{[-\pi, \pi]^n}|f(x)|^2 d x<\infty.$$
+$$\|f\|_{L^2}^2=\int_{\T^n}|f(x)|^2 d x<\infty.$$
 \end{definition}
 
 \begin{theorem}
 El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T}^n\right)$.    
 \end{theorem}
+
+Sobre la transformada de Fourier en $L^2(\T^n)$ tenemos de la desigualdad de Cauchy-Schwartz:
+
+$$
+\begin{aligned}
+|\hat{f}(k)| & =\left|\frac{1}{(2 \pi)^n} \int_{\pi^n} f(x) e^{-i k \cdot x} d x\right| \\
+& =\frac{1}{(2 \pi)^n} |(f|e^{i k \cdot x}) | \\
+& \leq \frac{1}{(2 \pi)^n}\|f\|_{L^2}\left\|\Phi_k \right\|_{L^2} \\
+& \leq(2 \pi)^{-\frac{n}{2}}\|f\|_{L^2},
+\end{aligned}
+$$
+
+dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in l^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$
+
+\begin{theorem}
+
+La transformada de Fourier
+
+$$
+\wedge: L^2\left(\mathbb{T}^n\right) \rightarrow l^2\left(\mathbb{Z}^n\right)
+$$
+
+es un isomorfismo. Además, vale la identidad de Parseval (3.3) y (3.4).
+\end{theorem}
+
+El teorema anterior implica que existe la inversa de la transformada de Fourier que denotaremos como
+
+$$
+\vee: l^2\left(\mathbb{Z}^n\right) \rightarrow L^2\left(\mathbb{T}^n\right)
+$$
+
+definida como $\left\{\alpha_k\right\}^{\vee}=\displaystyle\sum_{k \in \mathbb{Z}^n} \alpha_k \Phi_k$, donde el sentido de esta serie es en $L^2$.
+
+
+\subsection{Espacios de Sobolev}
+
+En esta subsección presentamos los espacios de Sobolev periódicos $H^s(\T^n)$ y algunas propiedades importantes que necesitaremos en la prueba de buena colocación, estos espacios se estudian de manera más detallada  en \cite{ioriojunior2001equacoes}.\\
+
+Es posible demostrar que el espacio $C^1(\T^n)$ no es completo con la norma
+
+$$
+\|f\|_{H^1}=\frac{1}{(2 \pi)^{\frac{n}{2}}}\left(\|f\|_{L^2}^2+\left\|f^{\prime}\right\|_{L^2}^2\right)^{\frac{1}{2}}
+$$
+
+
+La norma anterior es interesante para establecer si una función es integrable y diferenciable (en algún sentido) y estudiar si su derivada conserva la misma propiedad de integrabilidad. Esto motiva a definir el espacio completado \cite{ogrianoc}.
+
+$$
+H_{p e r}^1(\T^n)=\overline{\left(C^1(\T^n),\|\cdot\|_{H^1}\right)}.
+$$
+
+Dado que la transformada de Fourier en $L^2$ es un isomorfismo observamos lo siguiente:\\
+
+\textcolor{red}{Ya vengo voy a la tienda y sigo más tarde xd}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados de Buen Planteamiento}
