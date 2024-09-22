@@ -161,6 +161,68 @@ Finalmente por la periodicidad, la integración por partes no nos deja términos
         &=-\int_{\T^n}f(x)\partial_{x_i}g(x)dx
     \end{align*}
 
+(\textbf{Espacios} $\mathbf{\ell^p}$ ). Sea $1 \leq p<\infty$. Consideramos el siguiente conjunto de sucesiones  a valor complejo:
+$$
+\ell^p=\ell^p(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sum_{k\in \Z^n}\left|\alpha_k\right|^p<\infty\right\}
+$$
+
+
+Note que $l^p$ es un espacio vectorial con la suma $\left(\alpha_k\right)_{k \in \mathbb{Z}^n}+\left(\beta_k\right)_{k \in \mathbb{Z}^n}=$ $\left(\alpha_k+\beta_k\right)_{k \in \mathbb{Z}^n}$ y la multiplicación por escalar $\lambda \cdot\left(\alpha_k\right)_{k \in \mathbb{Z}^n}=\left(\lambda \alpha_k\right)_{k \in \mathbb{Z}^n}, \lambda \in \mathbb{C}$. Adicionalmente, considere la norma:
+
+$$
+\|\alpha\|_p=\left(\sum_{k\in \Z^n}\left|\alpha_k\right|^p\right)^{\frac{1}{p}}
+$$
+
+
+Es posible ver que $\left(\ell^p,\|\cdot\|_p\right)$ es un espacio de Banach. Cuando $p=\infty$, definimos $\ell^{\infty}$ como sigue:
+
+$$
+\ell^{\infty}=\ell^{\infty}(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|<\infty\right\}
+$$
+
+y definimos la norma
+
+$$
+\|\alpha\|_{\infty}=\sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|
+$$
+
+
+También tenemos que $\left(\ell^{\infty},\|\cdot\|_{\infty}\right)$ es un espacio de Banach.
+Cuando $p=2$, la norma es inducida por el producto interno
+
+$$
+(\alpha \mid \beta)=\sum_{k\in \Z^n} \alpha_k \overline{\beta_k}
+$$
+
+donde $\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}, \beta=\left(\beta_k\right)_{k \in \mathbb{Z}^n} \in \ell^2(\mathbb{Z}^n)$.\\
+
+
+
+(\textbf{Norma} $\mathbf{L^p}$ ). Para $1 \leq p<\infty$ y $f \in C(\T^n)$ definimos la norma
+
+$$
+\|f\|_p=\left(\int_{\T^n}|f(x)|^p d x\right)^{\frac{1}{p}}
+$$
+
+
+Tenemos que $\left(C(\T^n),\|\cdot\|_p\right)$ es un espacio vectorial normado que no es completo.
+Por otro lado, considere la norma
+
+$$
+\|f\|_{\infty}=\sup _{x \in \T^n}|f(x)| .
+$$
+
+
+Se puede mostrar también que $\left(C(\T^n),\|\cdot\|_{\infty}\right)$ es un espacio de Banach.
+Cuando $p=2$, la norma es inducida por el producto interno
+
+$$
+(f \mid g)=\int_{\T^n} f(x) \overline{g(x)} d x
+$$
+
+
+La norma $\|\cdot\|_p$ se le llama la norma $L^p, 1 \leq p \leq \infty$.
+
 
 \begin{theorem}\label{ortogonalidad}
 Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, m \in \mathbb{Z}^n$
@@ -269,6 +331,23 @@ Luego tomando el límite cuando $N\rightarrow \infty$, se sigue que:
 \end{align*}
 \end{proof}
 
+\begin{theorem}
+La transformada de Fourier es lineal.
+\end{theorem}
+
+\begin{proof}
+Note que:
+
+$$
+\begin{aligned}
+(f+c g)(k) & =\frac{1}{(2\pi)^n}\int_{\T^n}(f+g)(x) e^{-i k \cdot x} d x \\
+& =\frac{1}{(2\pi)^n}\int_{\T^n}(f(x)+c g(x)) e^{-i k \cdot x} d x \\
+& =\frac{1}{(2\pi)^n}\int_{\T^n} f(x) e^{-i k \cdot x} d x+\frac{c}{(2\pi)^n} \int_{\T^n} g(x) e^{i k \cdot x} d x \\
+& =\hat{f}(k)+c\hat{g}(k)
+\end{aligned}
+$$
+\end{proof}
+
 \begin{theorem}\label{derivadacacorra}
 Si $f \in C^l\left(\mathbb{T}^n\right)$ y $\beta=\left(\beta_1, \ldots, \beta_n\right)$ es un multi-índice de orden $l$, es decir, $|\beta|=\beta_1+\cdots+\beta_n=l$, entonces $\widehat{\partial^\beta f}(k)=i^{|\beta|} k^\beta \widehat{f}(k)$, para todo $k \in \mathbb{Z}^n$.
 \end{theorem}
@@ -305,7 +384,7 @@ Por el principio de inducción matemática se sigue la igualdad.
 
 \end{proof}
 
-A continuación presentamos el espacio $L^2(\T^n)$, anteriormente,  en el Teorema \ref{bessel} habíamos definido la norma $\|\|_{L^2}$ como una notación, sin presentar una definición de este espacio...
+A continuación presentamos el espacio $L^2(\T^n)$.
 
 \begin{definition}
 El espacio $L^2\left(\mathbb{T}^n\right)=L^2\left([-\pi, \pi]^n\right)$ consiste de funciones $f:[-\pi, \pi]^n \rightarrow \mathbb{C}$ medibles según Lebesgue tales que:
@@ -323,11 +402,8 @@ Recordemos que $C^{\infty}(\T^n)\subset C^m(\T^ n)\subset  \ldots\subset C(\T^n)
 Es posible ver que $L^2(\T)$ es completo y el espacio $C(\T^n)$ no lo es con  la norma $\|\cdot\|_{L^2}$, dicho esto podemos definir a $L^2(\T^n)$ como el espacio de completación de $C(\T^n)$ por la densidad.
 \end{note}
 
-\textcolor{red}{Aquí hay que definir los espacios y su producto interno...}\\
-
-
 \begin{theorem}\label{convergencia}
-Si $m>\frac{n}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
+Si $m>\frac{n}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $\ell^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
 
 \begin{align}
 \|\widehat{f}\|_2^2=\sum_{k \in \mathbb{Z}^n}|\widehat{f}(k)|^2=\frac{1}{(2 \pi)^n} \int_{\T^n}|f(x)|^2 d x=\frac{1}{(2 \pi)^n}\|f\|_{L^2}^2.
@@ -362,7 +438,7 @@ $$
 \end{aligned}
 $$
 
-dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in l^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$  
+dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in \ell^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$  
 \end{note}
 
 
@@ -458,7 +534,7 @@ $$
 La norma anterior es interesante para establecer si una función es integrable y diferenciable (en algún sentido) y estudiar si su derivada conserva la misma propiedad de integrabilidad. Esto motiva a definir el espacio completado \cite{ogrianoc}.
 
 $$
-H_{p e r}^1(\T^n)=\overline{\left(C^1(\T^n),\|\cdot\|_{H^1}\right)}.
+H^1(\T^n)=\overline{\left(C^1(\T^n),\|\cdot\|_{H^1}\right)}.
 $$
 
 Dado que la transformada de Fourier en $L^2$ es un isomorfismo observamos lo siguiente:\\
