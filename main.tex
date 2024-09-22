@@ -360,8 +360,8 @@ $$\partial^{\beta}f(x)=\partial_{x_j}f(x),$$
 luego:
 
 \begin{align*}
-    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}f}(k)\\
-    &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{k_j}f(x)e^{-ik\cdot x}\\
+    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{x_j}f}(k)\\
+    &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{x_j}f(x)e^{-ik\cdot x}\\
     &=-\dfrac{1}{(2\pi)^n}\int_{\T^n}(-ik_j)f(x)e^{-ik\cdot x}\\
     &=\dfrac{i^{|\beta|}k^{\beta}}{(2\pi)^n}\int_{\T^n}f(x)e^{-ik\cdot x}\\
     &=i^{|\beta|}k^{\beta}\hat{f}(k)
@@ -374,7 +374,7 @@ $$\partial^{\beta}f(x)=\partial_{x_j}\partial^{\alpha}f(x),$$
 así:
 
 \begin{align*}
-    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}\partial^{\alpha}f}(k)\\
+    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{x_j}\partial^{\alpha}f}(k)\\
     &=ik_j\widehat{\partial^{\alpha}f}(k)\\
     &=ik_ji^{|\alpha|}k^{\alpha}\hat{f}(k)\\
     &=i^{|\beta|}k^{\beta}\hat{f}(k)
