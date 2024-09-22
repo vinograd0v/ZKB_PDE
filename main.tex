@@ -337,7 +337,7 @@ El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T
 
 Ahora por lo anterior podemos probar que $f\in C^{\infty}(\T^{n}) \rightarrow \widehat{f}$ es inyectiva.
 \begin{theorem}\label{inyectiva}
-Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}$. Entonces $f = g$.
+Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}^{n}$. Entonces $f = g$.
 \end{theorem}
 \begin{proof}
 
@@ -375,10 +375,10 @@ es un isomorfismo. Además, vale la identidad de Parseval (1) y (2)
 Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$. Sea $\{f_n\}$ una sucesión, de manera que $\{f_n\}\subset C^{m}(\T^{n}) $ de manera que $f_n$ converge a $f$ en el sentido de $L^2$. Por los Teoremas \ref{convergencia} y \ref{inyectiva}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
 
 $$
-\|f_n - f_m\|^2_{L^2(\T^{n})} = (2\pi)^{n} \|\hat{f}_n - \hat{f}_m\|^2_{\ell^2(\mathbb{Z})},
+\|f_n - f_m\|^2_{L^2(\T^{n})} = (2\pi)^{n} \|\hat{f}_n - \hat{f}_m\|^2_{2},
 $$
 
-para todo $n, m \in \mathbb{Z}$. \\
+para todo $n, m \in \mathbb{Z}^{n}$. \\
 Luego, como $\{f_n\} \subset C^{m}(\T^{n})$ converge en $L^2$, tenemos que  define una secuencia de Cauchy. Teniendo en cuenta la nota mencionada anteriormente, tenemos que esto implica que la secuencia de transformadas de Fourier $\{\widehat{f}_n\}$ es de Cauchy en $\ell^2(\mathbb{Z}^{n})$. Puesto que $\ell^2(\mathbb{Z}^{n})$ es completo. Sea $\{\alpha_k\} \in \ell^2(\mathbb{Z}^{n})$ el límite de $\{\widehat{f}_n\}$.\\
 
 
@@ -389,7 +389,7 @@ Ahora, veamos que  $\widehat{f} = \{\widehat{f}(k)\} = \{\alpha_k\}$, es decir, 
 Note que,
 
 $$
-|\widehat{f}_n(k) - \alpha_k|^2 \leq \sum_{k=-\infty}^{\infty} |\widehat{f}_n(k) - \alpha_k|^2 = \|\hat{f}_n - \{\alpha_k\}\|^2_{\ell^2} \to 0 \quad \text{cuando} \quad n \to \infty.
+|\widehat{f}_n(k) - \alpha_k|^2 \leq \sum_{k=-\infty}^{\infty} |\widehat{f}_n(k) - \alpha_k|^2 = \|\hat{f}_n - \{\alpha_k\}\|^2_{2} \to 0 \quad \text{cuando} \quad n \to \infty.
 $$
 
 Por otro lado, la desigualdad de Cauchy-Schwarz nos da
