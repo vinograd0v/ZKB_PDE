@@ -78,7 +78,65 @@ La idea para el buen planteamiento es ver (\ref{Duhamel}) como una aplicación y
 \begin{proof}
 Dividiremos la prueba en tres partes.
 \begin{itemize}
-       \item[i)]\textbf{Existencia.} Sea $u_0\in H^s(\T^n)$ con $s>\frac{n}{2}$ arbitrario pero fijo. Veamos que existe una solución de (\ref{Duhamel}) con dato inicial $u_0.$ Si $u_0=0,$ tomando $u=0$ tenemos la existencia. Ahora si asumimos $u_0\neq 0$ tenemos que $\|u_0\|_{H^s}>0.$ 
+       \item[i)]\textbf{Existencia.} Sea $u_0\in H^s(\T^n)$ con $s>\frac{n}{2}$ arbitrario pero fijo. Veamos que existe una solución de (\ref{Duhamel}) con dato inicial $u_0.$ Si $u_0=0,$ tomando $u=0$ tenemos la existencia. Ahora si asumimos $u_0\neq 0$ tenemos que $\|u_0\|_{H^s}>0.$ Dados $T>0$ y $a>0$ fijos definimos el espacio
+       $$X_T^s(a)=\{v\in C([0,T];H^s(\T^n)):\sup_{t\in[0,T]}\|v(t)\|_{H^s}\leq a\}.$$
+       Primero probemos que $X_T^s(a)$ es completo con la distancia
+       $$\sup_{t\in[0,T]}\|u(t)-v(t)\|_{H^s},$$
+       para $u,v\in X^s_T(a)$.\\
+
+       \textcolor{blue}{Creo que ya vi lo que dice el pedante del Ivan pero aun no lo pienso escribir}
+       \\
+
+       Con esto, sea $v\in X^s_T(a)$, definimos la función
+       $$\phi(v)(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)v^3(x,t^\prime)\,dt^\prime.$$
+       Veamos que $\phi(v)\in X^s_T(a).$ \textcolor{blue}{Aqui va lo de que pertenece a ese C chistoso}.
+       Utilizando la definición de la norma en $H^s(\T^n)$ junto al hecho de que $\widehat{U(t)f}(k)=e^{(ik_1|k|^2-|k^2|)t}\widehat{f}(k),$ tenemos que
+       \begin{align*}
+           \|\phi(v)(x,t)\|_{H^s}&\leq\|U(t)u_0(x)\|_{H_s}+\int_0^t\|U(t-t^\prime)v^3(x,t^\prime)\|_{H^s}\,dt^\prime\\
+           &=\|\langle k\rangle^s\widehat{U(t)u}_0(k)\|_2+\int_0^t\|\langle k\rangle^s(U(t-t^\prime)v^3)^\wedge(k,t^\prime)\|_2\,dt^\prime\\
+           &=\|e^{(ik_1|k|^2-|k^2|)t}\langle k\rangle^s\widehat{u}_0(k)\|_2+\int_0^t\|e^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\langle k\rangle^s\widehat{v^3}(k,t^\prime)\|_2\,dt^\prime\\
+           &\leq\|u_0(x)\|_{H^s}+\int_0^t\|v^3(x,t^\prime)\|_{H^s}\,dt^\prime\\
+           &\leq\|u_0(x)\|_{H^s}+c\int_0^t\|v(x,t^\prime)\|^3_{H^s}\,dt^\prime.
+       \end{align*}
+       Note que esto lo podemos hacer ya que $H^s(\T^n)$ es álgebra de Banach y 
+       $$\left|e^{(ik_1|k|^2-|k^2|)t}\right|=\left|e^{ik_1|k|^2t}\right|\left|e^{-|k|^2t}\right|\leq 1.$$
+       Si tomamos el supremo a ambos lados de la desigualdad tenemos que
+       \begin{align*}
+           \sup_{t\in[0,T]}\|\phi(v)(x,t)\|_{H^s}&\leq\|u_0(x)\|_{H^s}+cT\sup_{t\in[0,T]}\|v(x,t)\|^3\\
+           &\leq\|u_0(x)\|_{H^s}+cTa^3,
+       \end{align*}
+       esto ultimo ya que $v\in X_T^s(a).$ Note que si escogemos
+       $$\begin{cases}
+           a=\dfrac{3}{2}\|u_0(x)\|_{H^s}>0,\\
+           0<T<\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s},
+       \end{cases}$$
+       tenemos que
+       $$\sup_{t\in[0,T]}\|\phi(v)(x,t)\|_{H^s}<\|u_0(x)\|_{H^s}+c\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^3 =\dfrac{3}{2}\|u_0(x)\|_{H^s}$$
+       Así concluimos que $\phi:X^s_T(a)\to X^s_T(a).$ Ahora veamos que $\phi$ define una contracción para los $a$ y $T$ dados previamente. Sean $u,v\in X^s_T(a),$ Note que por la definición de $\phi$ y de manera similar al argumento previo tenemos
+       \begin{align*}
+           \|\phi(v)(t)-\phi(u)(t)\|_{H^s}&=\left\|-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime+\int_0^tU(t-t^\prime)u^3(t^\prime)\,dt^\prime\right\|_{H^s}\\
+           &\leq\int_0^t\|U(t-t^\prime)(u^3(t^\prime)-v^3(t^\prime))\|_{H^s}\,dt^\prime\\
+           &=\int_0^t\|u^3(t^\prime)-v^3(t^\prime)\|_{H^s}\,dt^\prime\\
+           &=\int_0^t\|(u-v)(u^2+uv+v^2)(t^\prime)\|_{H^s}\,dt^\prime\\
+           &\leq c\int_0^t\|u(t^\prime)-v(t^\prime)\|_{H^s}\|(u^2+uv+v^2)(t^\prime)\|_{H^s}\,dt^\prime\\
+           &\leq c\int_0^t\|u(t^\prime)-v(t^\prime)\|_{H^s}(\|u^2(t^\prime)\|_{H^s}+\|uv(t^\prime)\|_{H^s}+\|v^2(t^\prime)\|_{H^s})\,dt^\prime.
+       \end{align*}
+       Note que quitamos temporalmente la dependencia espacial por simpleza en escritura. Con esto si tomamos el supremo a ambos lados respecto a $t$ tenemos que
+       $$\sup_{t\in[0,T]}\|\phi(v)(x,t)-\phi(u)(x,t)\|_{H^s}\leq 3ca^2T\sup\|u(x,t)-v(x,t)\|_{H^s}.$$
+       Luego note que
+       $$0<3ca^2T<3c\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^2\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)=1$$
+       De esta manera concluimos que $\phi$ es una contracción sobre un espacio métrico completo, y por el teorema (\ref{Banach}) tenemos que existe una única función $u\in X^s_T(a)$ donde $\phi(u)=u,$ esto quiere decir que $u$ es una solución de (\ref{Duhamel}). Finalizando así la existencia.
+       \item \textbf{Unicidad.}
+       \item \textbf{Dependencia Continua.}
+       \textcolor{blue}{luego hago esto, toca monear}
+
+
+
+
+
+
+
+
    \end{itemize}   
 \end{proof}
 
