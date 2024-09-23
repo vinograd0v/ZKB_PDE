@@ -161,8 +161,70 @@ Finalmente por la periodicidad, la integración por partes no nos deja términos
         &=-\int_{\T^n}f(x)\partial_{x_i}g(x)dx
     \end{align*}
 
+(\textbf{Espacios} $\mathbf{\ell^p}$ ). Sea $1 \leq p<\infty$. Consideramos el siguiente conjunto de sucesiones  a valor complejo:
+$$
+\ell^p=\ell^p(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sum_{k\in \Z^n}\left|\alpha_k\right|^p<\infty\right\}
+$$
 
-\begin{theorem}
+
+Note que $l^p$ es un espacio vectorial con la suma $\left(\alpha_k\right)_{k \in \mathbb{Z}^n}+\left(\beta_k\right)_{k \in \mathbb{Z}^n}=$ $\left(\alpha_k+\beta_k\right)_{k \in \mathbb{Z}^n}$ y la multiplicación por escalar $\lambda \cdot\left(\alpha_k\right)_{k \in \mathbb{Z}^n}=\left(\lambda \alpha_k\right)_{k \in \mathbb{Z}^n}, \lambda \in \mathbb{C}$. Adicionalmente, considere la norma:
+
+$$
+\|\alpha\|_p=\left(\sum_{k\in \Z^n}\left|\alpha_k\right|^p\right)^{\frac{1}{p}}
+$$
+
+
+Es posible ver que $\left(\ell^p,\|\cdot\|_p\right)$ es un espacio de Banach. Cuando $p=\infty$, definimos $\ell^{\infty}$ como sigue:
+
+$$
+\ell^{\infty}=\ell^{\infty}(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|<\infty\right\}
+$$
+
+y definimos la norma
+
+$$
+\|\alpha\|_{\infty}=\sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|
+$$
+
+
+También tenemos que $\left(\ell^{\infty},\|\cdot\|_{\infty}\right)$ es un espacio de Banach.
+Cuando $p=2$, la norma es inducida por el producto interno
+
+$$
+(\alpha \mid \beta)=\sum_{k\in \Z^n} \alpha_k \overline{\beta_k}
+$$
+
+donde $\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}, \beta=\left(\beta_k\right)_{k \in \mathbb{Z}^n} \in \ell^2(\mathbb{Z}^n)$.\\
+
+
+
+(\textbf{Norma} $\mathbf{L^p}$ ). Para $1 \leq p<\infty$ y $f \in C(\T^n)$ definimos la norma
+
+$$
+\|f\|_p=\left(\int_{\T^n}|f(x)|^p d x\right)^{\frac{1}{p}}
+$$
+
+
+Tenemos que $\left(C(\T^n),\|\cdot\|_p\right)$ es un espacio vectorial normado que no es completo.
+Por otro lado, considere la norma
+
+$$
+\|f\|_{\infty}=\sup _{x \in \T^n}|f(x)| .
+$$
+
+
+Se puede mostrar también que $\left(C(\T^n),\|\cdot\|_{\infty}\right)$ es un espacio de Banach.
+Cuando $p=2$, la norma es inducida por el producto interno
+
+$$
+(f \mid g)=\int_{\T^n} f(x) \overline{g(x)} d x
+$$
+
+
+La norma $\|\cdot\|_p$ se le llama la norma $L^p, 1 \leq p \leq \infty$.
+
+
+\begin{theorem}\label{ortogonalidad}
 Si $k \in \mathbb{Z}^n$, sea $\Phi_k(x):=e^{i k \cdot x}$ entonces que para $k, m \in \mathbb{Z}^n$
 
 $$
@@ -269,6 +331,23 @@ Luego tomando el límite cuando $N\rightarrow \infty$, se sigue que:
 \end{align*}
 \end{proof}
 
+\begin{theorem}
+La transformada de Fourier es lineal.
+\end{theorem}
+
+\begin{proof}
+Note que:
+
+$$
+\begin{aligned}
+(f+c g)(k) & =\frac{1}{(2\pi)^n}\int_{\T^n}(f+g)(x) e^{-i k \cdot x} d x \\
+& =\frac{1}{(2\pi)^n}\int_{\T^n}(f(x)+c g(x)) e^{-i k \cdot x} d x \\
+& =\frac{1}{(2\pi)^n}\int_{\T^n} f(x) e^{-i k \cdot x} d x+\frac{c}{(2\pi)^n} \int_{\T^n} g(x) e^{i k \cdot x} d x \\
+& =\hat{f}(k)+c\hat{g}(k)
+\end{aligned}
+$$
+\end{proof}
+
 \begin{theorem}\label{derivadacacorra}
 Si $f \in C^l\left(\mathbb{T}^n\right)$ y $\beta=\left(\beta_1, \ldots, \beta_n\right)$ es un multi-índice de orden $l$, es decir, $|\beta|=\beta_1+\cdots+\beta_n=l$, entonces $\widehat{\partial^\beta f}(k)=i^{|\beta|} k^\beta \widehat{f}(k)$, para todo $k \in \mathbb{Z}^n$.
 \end{theorem}
@@ -281,8 +360,8 @@ $$\partial^{\beta}f(x)=\partial_{x_j}f(x),$$
 luego:
 
 \begin{align*}
-    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}f}(k)\\
-    &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{k_j}f(x)e^{-ik\cdot x}\\
+    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{x_j}f}(k)\\
+    &=\dfrac{1}{(2\pi)^n}\int_{\T^n}\partial_{x_j}f(x)e^{-ik\cdot x}\\
     &=-\dfrac{1}{(2\pi)^n}\int_{\T^n}(-ik_j)f(x)e^{-ik\cdot x}\\
     &=\dfrac{i^{|\beta|}k^{\beta}}{(2\pi)^n}\int_{\T^n}f(x)e^{-ik\cdot x}\\
     &=i^{|\beta|}k^{\beta}\hat{f}(k)
@@ -295,7 +374,7 @@ $$\partial^{\beta}f(x)=\partial_{x_j}\partial^{\alpha}f(x),$$
 así:
 
 \begin{align*}
-    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{k_j}\partial^{\alpha}f}(k)\\
+    \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{x_j}\partial^{\alpha}f}(k)\\
     &=ik_j\widehat{\partial^{\alpha}f}(k)\\
     &=ik_ji^{|\alpha|}k^{\alpha}\hat{f}(k)\\
     &=i^{|\beta|}k^{\beta}\hat{f}(k)
@@ -304,24 +383,6 @@ así:
 Por el principio de inducción matemática se sigue la igualdad.
 
 \end{proof}
-
-
-\begin{theorem}\label{convergencia}
-Si $m>\frac{n}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $l^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
-
-\begin{align}
-\|\widehat{f}\|_2^2=\sum_{k \in \mathbb{Z}^n}|\widehat{f}(k)|^2=\frac{1}{(2 \pi)^n} \int_{\T^n}|f(x)|^2 d x=\frac{1}{(2 \pi)^n}\|f\|_{L^2}^2.
-\end{align}
-
-De manera equivalente, si $f, g \in C^m\left(\mathbb{T}^n\right)$,
-
-\begin{align}
-(\widehat{f} \mid \widehat{g})=\sum_{k \in \mathbb{Z}^n} \widehat{f}(k) \overline{\widehat{g}(k)}=\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) \overline{g(x)} d x=\frac{1}{(2 \pi)^n}(f \mid g).
-\end{align}
-
-\end{theorem}
-
-
 
 A continuación presentamos el espacio $L^2(\T^n)$.
 
@@ -335,29 +396,49 @@ Asumimos que,
 El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T}^n\right)$.    
 \end{theorem}
 
-Ahora por lo anterior podemos probar que $f\in C^{\infty}(\T^{n}) \rightarrow \widehat{f}$ es inyectiva.
+\begin{note}
+Recordemos que $C^{\infty}(\T^n)\subset C^m(\T^ n)\subset  \ldots\subset C(\T^n)$, es claro que las funciones en $C(\T^n)$ son funciones en $L^2(\T^n)$ por la continuidad sobre un compacto, esto nos dice que el conjunto $C^m(\T^n)$ es denso en $L^2(\T^n)$ para todo $m\geq 0$\\
+
+Es posible ver que $L^2(\T)$ es completo y el espacio $C(\T^n)$ no lo es con  la norma $\|\cdot\|_{L^2}$, dicho esto podemos definir a $L^2(\T^n)$ como el espacio de completación de $C(\T^n)$ por la densidad.
+\end{note}
+
+\begin{theorem}\label{convergencia}
+Si $m>\frac{n}{2}$ con $m$ entero, entonces la serie de Fourier de una función $f \in C^m\left(\mathbb{T}^n\right)$ converge absoluta y uniformemente a $f$, además, se tiene que $\|f\|_{\infty} \leq\|\widehat{f}\|_1$ donde $\|\cdot\|_1$ es la norma de $\ell^1\left(\mathbb{Z}^n\right)$. Más aún, vale la identidad de Parseval
+
+\begin{align}
+\|\widehat{f}\|_2^2=\sum_{k \in \mathbb{Z}^n}|\widehat{f}(k)|^2=\frac{1}{(2 \pi)^n} \int_{\T^n}|f(x)|^2 d x=\frac{1}{(2 \pi)^n}\|f\|_{L^2}^2.
+\end{align}
+
+De manera equivalente, si $f, g \in C^m\left(\mathbb{T}^n\right)$,
+
+\begin{align}
+(\widehat{f} \mid \widehat{g})=\sum_{k \in \mathbb{Z}^n} \widehat{f}(k) \overline{\widehat{g}(k)}=\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) \overline{g(x)} d x=\frac{1}{(2 \pi)^n}(f \mid g).
+\end{align}
+
+\end{theorem}
+
+Por lo anterior podemos probar que si $f\in C^{\infty}(\T^{n})$ entonces $\widehat{f}$ es inyectiva.
 \begin{theorem}\label{inyectiva}
-Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}$. Entonces $f = g$.
+Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}^{n}$. Entonces $f = g$.
 \end{theorem}
 \begin{proof}
 
- Sea $h = f - g$ luego, por propiedades de las funciones continuas y $\T^{n}$,tenemos que $h \in C^{\infty}(\T^{n})$ y por hipótesis $\hat{h}(k) = 0$ para todo $k \in \mathbb{Z}$. Por lo cual tenemos que la suma de Cesàro $S_N(h) = 0$ para todo entero $N \geq 1$, y por el Teorema \ref{convergencia}  , se sigue que $\|h\| = 0$, es decir, $h = 0$.       
+ Sea $h = f - g$ luego, por propiedades de las funciones continuas en $\T^{n}$,tenemos que $h \in C^{\infty}(\T^{n})$ y por hipótesis $\hat{h}(k) = 0$ para todo $k \in \mathbb{Z}$, por el Teorema \ref{convergencia}  , se sigue que $\|\hat{h}\|_2= 0=\|h\|_{L^2}$, es decir, $h = 0$.       
 \end{proof}
-
         
 \begin{note}
-  Sobre la transformada de Fourier en $L^2(\T^n)$ tenemos de la desigualdad de Cauchy-Schwartz:
+  Sobre la transformada de Fourier en $L^2(\T^n)$ tenemos de la desigualdad de Cauchy-Schwarz:
 
 $$
 \begin{aligned}
-|\hat{f}(k)| & =\left|\frac{1}{(2 \pi)^n} \int_{\pi^n} f(x) e^{-i k \cdot x} d x\right| \\
+|\hat{f}(k)| & =\left|\frac{1}{(2 \pi)^n} \int_{\T^n} f(x) e^{-i k \cdot x} d x\right| \\
 & =\frac{1}{(2 \pi)^n} |(f|e^{i k \cdot x}) | \\
 & \leq \frac{1}{(2 \pi)^n}\|f\|_{L^2}\left\|\Phi_k \right\|_{L^2} \\
 & \leq(2 \pi)^{-\frac{n}{2}}\|f\|_{L^2},
 \end{aligned}
 $$
 
-dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in l^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$  
+dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in \ell^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$  
 \end{note}
 
 
@@ -366,66 +447,69 @@ dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)
 La transformada de Fourier
 
 $$
-\wedge: L^2\left(\mathbb{T}^n\right) \rightarrow l^2\left(\mathbb{Z}^n\right)
+\wedge: L^2\left(\mathbb{T}^n\right) \rightarrow \ell^2\left(\mathbb{Z}^n\right)
 $$
 
 es un isomorfismo. Además, vale la identidad de Parseval (1) y (2)
 \end{theorem}
 \begin{proof}
-Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$. Sea $\{f_n\}$ una sucesión, de manera que $\{f_n\}\subset C^{m}(\T^{n}) $ de manera que $f_n$ converge a $f$ en el sentido de $L^2$. Por los Teoremas \ref{convergencia} y \ref{inyectiva}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
+Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$. Sea $\{f_n\}$ una sucesión, de manera que $\{f_n\}\subset C^{m}(\T^{n}) $ tal que $f_n$ converge a $f$ en el sentido de $L^2$. Por el teorema \ref{convergencia}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
 
 $$
-\|f_n - f_m\|^2_{L^2(\T^{n})} = (2\pi)^{n} \|\hat{f}_n - \hat{f}_m\|^2_{\ell^2(\mathbb{Z})},
+\|f_n - f_m\|^2_{L^2} = (2\pi)^{n} \|\hat{f}_n - \hat{f}_m\|^2_{2},
 $$
 
-para todo $n, m \in \mathbb{Z}$. \\
-Luego, como $\{f_n\} \subset C^{m}(\T^{n})$ converge en $L^2$, tenemos que  define una secuencia de Cauchy. Teniendo en cuenta la nota mencionada anteriormente, tenemos que esto implica que la secuencia de transformadas de Fourier $\{\widehat{f}_n\}$ es de Cauchy en $\ell^2(\mathbb{Z}^{n})$. Puesto que $\ell^2(\mathbb{Z}^{n})$ es completo. Sea $\{\alpha_k\} \in \ell^2(\mathbb{Z}^{n})$ el límite de $\{\widehat{f}_n\}$.\\
+para todo $n, m \in \mathbb{Z}^{n}$. \\
+Luego, como $\{f_n\} \subset C^{m}(\T^{n})$ converge en $L^2$, esta define una secuencia de Cauchy. La identidad de Parseval entonces nos muestra que $\{\widehat{f}_n\}$ es de Cauchy en $\ell^2(\mathbb{Z}^{n})$. Puesto que $\ell^2(\mathbb{Z}^{n})$ es completo, entonces toda sucesión de Cauchy converge. Sea $\{\alpha_k\} \in \ell^2(\mathbb{Z}^{n})$ el límite de $\{\widehat{f}_n\}$.\\
 
-
-
-\textcolor{green}{Según yo hay dos opciones aquí cual les gusta más, 1 es oscar version xd}\\
-Ahora, veamos que  $\widehat{f} = \{\widehat{f}(k)\} = \{\alpha_k\}$, es decir, $\alpha_k = \widehat{f}(k)$ para todo entero $k$.\\
+Ahora, veamos que  $\widehat{f} = \{\widehat{f}(k)\} = \{\alpha_k\}$, es decir, $\alpha_k = \widehat{f}(k)$ para todo $k\in \Z^n$.\\
 
 Note que,
 
 $$
-|\widehat{f}_n(k) - \alpha_k|^2 \leq \sum_{k=-\infty}^{\infty} |\widehat{f}_n(k) - \alpha_k|^2 = \|\hat{f}_n - \{\alpha_k\}\|^2_{\ell^2} \to 0 \quad \text{cuando} \quad n \to \infty.
+|\widehat{f}_n(k) - \alpha_k|^2 \leq \sum_{k\in\Z^n} |\widehat{f}_n(k) - \alpha_k|^2 = \|\hat{f}_n - \{\alpha_k\}\|^2_{2} \to 0 \quad \text{cuando} \quad n \to \infty.
 $$
 
 Por otro lado, la desigualdad de Cauchy-Schwarz nos da
 
 $$
-|\widehat{f}_n(k) - \widehat{f}(k)| = \dfrac{1}{(2\pi)^{n}} \int_{-\pi}^{\pi} (f_n(x) - f(x)) e^{-ik\cdot x} \, dx \leq (2\pi)^{-\frac{n}{2}} \|f_n - f\|_2 \to 0.
-$$
-\textcolor{green}{version 2 }\\
-Sea $\{\alpha_m\}_{m \in \mathbb{Z}^n}$ una sucesión de números complejos tal que $\{\alpha_m\}_{m \in \mathbb{Z}^n} \in \ell^2(\mathbb{Z}^n)$. Sea
-
-$$
-f_N(x) := \dfrac{1}{(2\pi)^{N}}\sum_{|m| \leq N} \alpha_m e^{-i m \cdot x},
+|\widehat{f}_n(k) - \widehat{f}(k)| = \dfrac{1}{(2\pi)^{n}} \int_{\T^n} (f_n(x) - f(x)) e^{-ik\cdot x} \, dx \leq (2\pi)^{-\frac{n}{2}} \|f_n - f\|_2 \to 0 \quad\text{cuando}\quad n\to \infty.
 $$
 
-Observe que $\{f_N\}$ es una sucesión de Cauchy en $L^2(\mathbb{T}^n)$, es decir,
+Esto es que  $a_k=\widehat{f}(k)$, en efecto $\widehat{f}$ es el límite de $\{ \widehat{f_n} \}$.\\
+
+Con lo anterior es claro que la transformada está llegando $\ell^2(\Z^n)$, pero podemos decir más, note que lo anterior nos dice que $f_n\to f$ en $L^2(\T^n)$ y $\widehat{f_n}\to \hat{f}$ en $\ell^2(\Z^n)$, por la identidad de Parseval tenemos que:
+
+$$\left\|f_n\right\|_{L^2}^2=(2 \pi)^n\left\|\widehat{f_n}\right\|_2^2,$$
+
+tomando $n\to \infty$ se sigue que:
+
+$$\|f\|_{L^2}^2=(2\pi)^n\|\widehat{f}\|_2^2.$$
+
+Esto es que vale la identidad de Parseval en $L^2$. Tenemos que la transformada es lineal, veamos que es inyectiva y continua, en efecto dado $\epsilon>0$, si $\|f-g\|_{L^2}<(2\pi)^{\frac{n}{2}}\epsilon$  por la identidad de Parseval:
+
+\begin{align*}
+    \|\widehat{f}-\widehat{g}\|_2=(2\pi)^{\frac{n}{2}}\|f-g\|_{L^2}<\epsilon
+.\end{align*}
+
+Análogamente si $\hat{h}(k)=\hat{f}(k)$ para todo $k\in \Z^n$ considere $g=h-f$, entonces $\|\widehat{g}\|_{2}=0=\|g\|_{L^2}$, luego $g=0$. Finalmente debemos ver que $\wedge$ es sobreyectiva.\\
+
+Sea $\left\{\alpha_k\right\} \in \ell^2(\mathbb{Z}^n)$. Dado un entero $n \geq 1$, definimos $f_n(x)=\displaystyle\sum_{\substack{k\in \Z^n\\
+|k|\leq n}} \alpha_k \Phi_k$, así $f_n \in C^{\infty}(\T^n) \subset$ $C(\T^n)$. 
+Por el Teorema \ref{ortogonalidad} tenemos que:
 
 $$
-\int_{\mathbb{T}^n} \|f_N - f_M\|^2_{L^2} = \int_{\mathbb{T}^n} |f_N(x) - f_M(x)|^2 \, dt =\dfrac{1}{(2\pi)^{N-M}} \sum_{M < |m| \leq N} |\alpha_m|^2 \to 0 \quad \text{cuando} \quad M, N \to \infty.
+\left\|f_n-f_m\right\|_{L^2}^2=\left\|\sum_{\substack{k\in \Z^n\\
+n+1 \leq|k| \leq m}} \alpha_k \Phi_k\right\|_{L^2}^2=(2 \pi)^n\sum_{\substack{k\in \Z^n\\ n+1 \leq|k| \leq m}}\left|\alpha_k\right|^2
 $$
 
-Por tanto, existe $f \in L^2(\mathbb{T}^n)$ tal que 
 
-$$
-\lim_{N \to \infty} f_N = f.
-$$
-
-Además,
-
-$$
-\widehat{f}(k) = \langle f, \varphi_k \rangle = \lim_{N \to \infty} \dfrac{1}{(2\pi)^{N}}\sum_{|m| \leq N} \alpha_m \langle e^{- i m \cdot x}, \varphi_k \rangle =\dfrac{1}{(2\pi)^{n}} \alpha_k.
-$$
-
-Por lo tanto, $\widehat{f}(m) = \alpha_m$ para todo $m \in \mathbb{Z}^n$.
-
-
+Como $\left\{\alpha_k\right\} \in \ell^2(\mathbb{Z}^n)$, lo anterior muestra que $\left\{f_n\right\}$ es una sucesión de Cauchy en $L^2(\T^n)$. Ahora, como $L^2(\T^n)$ es completo, entonces existe $f \in L^2([-\pi, \pi])$ el límite de $\{f_n\}$ en $L^2$. Basta ver que $\widehat{f}(k)=\alpha_k$ para todo $k \in \mathbb{Z}^n$. Notemos que si $n \geq|k|$, por la construcción de $f_n$, $\widehat{f_n}(k)=\alpha_k$, tomando el límite cuando $n\to \infty$ de $f_n$ obtenemos lo deseado.
 \end{proof}
+
+\begin{note}
+Sobre la prueba anterior hay un comentario importante, note que nuestro candidato a preimágen de la transformada en la sobreyectividad fue la serie de Fourier de $f$, en este caso es importante resaltar que esta serie es convergente  en el sentido $L^2$.
+\end{note}
 
 El teorema anterior implica que existe la inversa de la transformada de Fourier que denotaremos como
 
@@ -433,7 +517,7 @@ $$
 \vee: l^2\left(\mathbb{Z}^n\right) \rightarrow L^2\left(\mathbb{T}^n\right)
 $$
 
-definida como $\left\{\alpha_k\right\}^{\vee}=\displaystyle\sum_{k \in \mathbb{Z}^n} \alpha_k \Phi_k$, donde el sentido de esta serie es en $L^2$.
+definida como $\left\{\alpha_k\right\}^{\vee}=\displaystyle\sum_{k \in \mathbb{Z}^n} \alpha_k \Phi_k$, donde el sentido de esta serie es en $L^2(\T^n)$.
 
 
 \subsection{Espacios de Sobolev}
@@ -450,7 +534,7 @@ $$
 La norma anterior es interesante para establecer si una función es integrable y diferenciable (en algún sentido) y estudiar si su derivada conserva la misma propiedad de integrabilidad. Esto motiva a definir el espacio completado \cite{ogrianoc}.
 
 $$
-H_{p e r}^1(\T^n)=\overline{\left(C^1(\T^n),\|\cdot\|_{H^1}\right)}.
+H^1(\T^n)=\overline{\left(C^1(\T^n),\|\cdot\|_{H^1}\right)}.
 $$
 
 Dado que la transformada de Fourier en $L^2$ es un isomorfismo observamos lo siguiente:\\
