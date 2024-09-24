@@ -1,2 +1,2 @@
 # ZKB_PDE
-Well posedness Zakharov-Kusnetsov-Burgers equation.
+Well posedness of non linear modified Zakharov-Kusnetsov-Burgers equation.
