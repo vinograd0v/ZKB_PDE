@@ -61,7 +61,16 @@ Antes de continuar con el resultado principal debemos hacer varias salvedades. P
  Dado $t^\prime\in(0,T)$ tenemos que
 $$\lim_{t\to t^\prime}\|f(t)-f(t^\prime)\|_{H^s}=0,$$
 si $t^\prime=0$ o $t^\prime=T$ se toma el limite lateral.
- \end{definition} 
+ \end{definition}
+Una propiedad importante de este espacio es
+\begin{prop}\label{completezC}
+    El espacio $C([0,T];H^s(\T^n))$ es completo con la distancia
+    $$\sup_{t\in[0,T]}\|u(t)-v(t)\|_{H^s}.$$
+    Para $u,v\in C([0,T];H^s(\T^n)).$
+\end{prop}
+\begin{proof}
+    \textcolor{blue}{luego escribo lo que dijo oscar}
+\end{proof}
 Segundo introducimos los conceptos claves de contracción y punto fijo.  
 \begin{definition}Sea $(M,d)$ un espacio métrico y $\psi:M\to M$ una función.
     \begin{itemize}
@@ -93,8 +102,7 @@ Dividiremos la prueba en tres partes.
        $$\sup_{t\in[0,T]}\|u(t)-v(t)\|_{H^s},$$
        para $u,v\in X^s_T(a)$.\\
 
-       \textcolor{blue}{El Ivan es un pedante}
-       \\
+       Note que $X^s_T(a)$ es un subconjunto cerrado de $C([0,T];H^s(\T^n))$, ya que es la bola cerrada de centro $0$ en ese espacio. Por la proposición (\ref{completezC}) y el hecho de que todo subconjunto cerrado de un espacio métrico completo es completo, concluimos que $X^s_T(a)$ es completo bajo esa distancia.
 
        Con esto, sea $v\in X^s_T(a)$, definimos la función
        $$\phi(v)(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)v^3(x,t^\prime)\,dt^\prime.$$
@@ -104,12 +112,12 @@ Dividiremos la prueba en tres partes.
        \begin{align*}
            \|\phi(v)(x,t)\|_{H^s}&\leq\|U(t)u_0(x)\|_{H_s}+\int_0^t\|U(t-t^\prime)v^3(x,t^\prime)\|_{H^s}\,dt^\prime\\
            &=\|\langle k\rangle^s\widehat{U(t)u}_0(k)\|_2+\int_0^t\|\langle k\rangle^s(U(t-t^\prime)v^3)^\wedge(k,t^\prime)\|_2\,dt^\prime\\
-           &=\|e^{(ik_1|k|^2-|k^2|)t}\langle k\rangle^s\widehat{u}_0(k)\|_2+\int_0^t\|e^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\langle k\rangle^s\widehat{v^3}(k,t^\prime)\|_2\,dt^\prime\\
+           &=\|e^{(ik_1|k|^2-|k|^2)t}\langle k\rangle^s\widehat{u}_0(k)\|_2+\int_0^t\|e^{(ik_1|k|^2-|k|^2)(t-t^\prime)}\langle k\rangle^s\widehat{v^3}(k,t^\prime)\|_2\,dt^\prime\\
            &\leq\|u_0(x)\|_{H^s}+\int_0^t\|v^3(x,t^\prime)\|_{H^s}\,dt^\prime\\
            &\leq\|u_0(x)\|_{H^s}+c\int_0^t\|v(x,t^\prime)\|^3_{H^s}\,dt^\prime.
        \end{align*}
        Note que esto lo podemos hacer ya que $H^s(\T^n)$ es álgebra de Banach y 
-       $$\left|e^{(ik_1|k|^2-|k^2|)t}\right|=\left|e^{ik_1|k|^2t}\right|\left|e^{-|k|^2t}\right|\leq 1.$$
+       $$\left|e^{(ik_1|k|^2-|k|^2)t}\right|=\left|e^{ik_1|k|^2t}\right|\left|e^{-|k|^2t}\right|\leq 1.$$
        Si tomamos el supremo a ambos lados de la desigualdad tenemos que
        \begin{align*}
            \sup_{t\in[0,T]}\|\phi(v)(x,t)\|_{H^s}&\leq\|u_0(x)\|_{H^s}+cT\sup_{t\in[0,T]}\|v(x,t)\|^3\\
@@ -117,28 +125,28 @@ Dividiremos la prueba en tres partes.
        \end{align*}
        esto ultimo ya que $v\in X_T^s(a).$ Note que si escogemos
        $$\begin{cases}
-           a=\dfrac{3}{2}\|u_0(x)\|_{H^s}>0,\\
+           a=\dfrac{3}{2}\|u_0(x)\|_{H^s},\\
            0<T<\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s},
        \end{cases}$$
        tenemos que
-       $$\sup_{t\in[0,T]}\|\phi(v)(x,t)\|_{H^s}<\|u_0(x)\|_{H^s}+c\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^3 =\dfrac{3}{2}\|u_0(x)\|_{H^s}$$
-       Ahora falta probar que $\phi(v)\in C([0,T];H^s(\T^n))$Primero notemos que dado $s\in[0,T]$
+       $$\sup_{t\in[0,T]}\|\phi(v)(x,t)\|_{H^s}<\|u_0(x)\|_{H^s}+c\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^3 =\dfrac{3}{2}\|u_0(x)\|_{H^s}.$$
+       Ahora falta probar que $\phi(v)\in C([0,T];H^s(\T^n))$. Primero notemos que dado $s\in[0,T]$
        \begin{align*}
            \|\phi(v)(t)-\phi(v)(s)\|_{H^s}&=\left\|U(t)u_0-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime-U(s)u_0+\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}\\
-           &\leq\|U(t)u_0-U(s)u_0\|_{H^s}+\left\|\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}
+           &\leq\|U(t)u_0-U(s)u_0\|_{H^s}+\left\|\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}.
        \end{align*}
-       Luego basta con probar que cuando $t\to s$ cada sumando se hace 0. Primero veamos el caso donde $s=0$, note que la definición de la norma en $H^s(\T^n)$ y la proposición (\ref{FourierUt}) 
+       Luego basta con probar que cuando $t\to s$, cada sumando se hace 0. Primero veamos el caso donde $s=0$, note que la definición de la norma en $H^s(\T^n)$, y por la proposición (\ref{FourierUt}) 
        \begin{align*}
            \|U(t)u_0-U(0)u_0\|_{H^s}^2&=\|\langle k\rangle^s(\hat{U(t)u}_0(k)-\hat{u_0}(k))\|_2^2\\
-           &=\sum_{k\in\Z^n}|\langle k\rangle^s(e^{(ik_1|k|^2-|k^2|)t}-1)\hat{u}_0(k)|^2
+           &=\sum_{k\in\Z^n}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)|^2.
        \end{align*}
        Ahora note que
        \begin{align*}
-           |\langle k\rangle^s(e^{(ik_1|k|^2-|k^2|)t}-1)\hat{u}_0(k)|^2&\leq(|e^{(ik_1|k|^2-|k^2|)t}|+|1|)^2||\langle k\rangle^s\hat{u}_0(k)|^2\\
-           &\leq 4|\langle k\rangle^s\hat{u}_0(k)|^2
+           |\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)|^2&\leq(|e^{(ik_1|k|^2-|k|^2)t}|+|1|)^2||\langle k\rangle^s\hat{u}_0(k)|^2\\
+           &\leq 4|\langle k\rangle^s\hat{u}_0(k)|^2,
        \end{align*}
-       Así como por hipótesis $\{\langle k\rangle^s\hat{u}_0(k)\}\in\ell^2(\Z^n)$ concluimos que $\{\langle k\rangle^s(e^{(ik_1|k|^2-|k^2|)t}-1)\hat{u}_0(k)\}\in\ell^2(\Z^n)$ por M de Weierstrass, Así tenemos que
-       $$\lim_{t\to0^+}\|U(t)u_0-U(0)u_0\|_{H^s}=\left(\sum_{k\in\Z^n}\lim_{t\to0^+}|\langle k\rangle^s(e^{(ik_1|k|^2-|k^2|)t}-1)\hat{u}_0(k)|^2\right)^{\frac{1}{2}}=0$$
+        por hipótesis $\{\langle k\rangle^s\hat{u}_0(k)\}\in\ell^2(\Z^n)$, por lo tanto  $\{\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)\}\in\ell^2(\Z^n)$, por M de Weierstrass. Así tenemos que
+       $$\lim_{t\to0^+}\|U(t)u_0-U(0)u_0\|_{H^s}=\left(\sum_{k\in\Z^n}\lim_{t\to0^+}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)|^2\right)^{\frac{1}{2}}=0.$$
        Ahora para el otro sumando tenemos que
        
         \begin{align*}
@@ -146,31 +154,32 @@ Dividiremos la prueba en tres partes.
              &\leq\int_0^t\|v^3(t^\prime)\|_{H^s}\,dt^\prime\to 0
          \end{align*} 
 
-       Cuando $t\to0^+$ de esta manera concluimos que
+       Cuando $t\to0^+$, de esta manera concluimos que
 
-       $$\lim_{t\to0^+}\|\phi(v)(t)-\phi(v)(0)\|_{H^s}=0$$
+       $$\lim_{t\to0^+}\|\phi(v)(t)-\phi(v)(0)\|_{H^s}=0.$$
 
-       Ahora si $s\neq 0$ podemos asumir sin perdida de generalidad que $t<s$ de manera similar para el primer sumando
+       Ahora, si $s\neq 0$, podemos asumir sin perdida de generalidad que $t<s$, de manera similar para el primer sumando
        \begin{align*}
            \|U(t)u_0-U(s)u_0\|_{H^s}^2&=\|\langle k\rangle^s(\hat{U(t)u}_0(k)-\hat{U(s)u_0}(k))\|_2^2\\
-           &=\sum_{k\in\Z^n}|\langle k\rangle^s(e^{(ik_1|k|^2-|k^2|)t}-e^{(ik_1|k|^2-|k^2|)s})\hat{u}_0(k)|^2
+           &=\sum_{k\in\Z^n}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-e^{(ik_1|k|^2-|k|^2)s})\hat{u}_0(k)|^2.
        \end{align*}
        Luego
        \begin{align*}
-           |\langle k\rangle^s(e^{(ik_1|k|^2-|k^2|)t}-e^{(ik_1|k|^2-|k^2|)s})\hat{u}_0(k)|^2&\leq(|e^{(ik_1|k|^2-|k^2|)t}|+|e^{(ik_1|k|^2-|k^2|)s}|)^2||\langle k\rangle^s\hat{u}_0(k)|^2\\
-           &\leq 4|\langle k\rangle^s\hat{u}_0(k)|^2
+           |\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-e^{(ik_1|k|^2-|k|^2)s})\hat{u}_0(k)|^2&\leq(|e^{(ik_1|k|^2-|k|^2)t}|+|e^{(ik_1|k|^2-|k|^2)s}|)^2||\langle k\rangle^s\hat{u}_0(k)|^2\\
+           &\leq 4|\langle k\rangle^s\hat{u}_0(k)|^2,
        \end{align*}
-       y nuevamente por M de Weierstrass podemos ingresar el limite, es decir
-       $$\lim_{t\to s}\|U(t)u_0-U(s)u_0\|_{H^s}=\left(\sum_{k\in\Z^n}\lim_{t\to s}|\langle k\rangle^s(e^{(ik_1|k|^2-|k^2|)t}-e^{(ik_1|k|^2-|k^2|)s})\hat{u}_0(k)|^2\right)^{\frac{1}{2}}=0$$
+       y nuevamente por M de Weierstrass podemos ingresar el limite a la suma, es decir
+       $$\lim_{t\to s}\|U(t)u_0-U(s)u_0\|_{H^s}=\left(\sum_{k\in\Z^n}\lim_{t\to s}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-e^{(ik_1|k|^2-|k|^2)s})\hat{u}_0(k)|^2\right)^{\frac{1}{2}}=0.$$
        Para el caso del sumando con la integral tenemos
 
        \begin{align*}
              \left\|\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}&\leq\int_t^s\|U(s-t^\prime)v^3(t^\prime)-U(t-t^\prime)v^3(t^\prime)\|_{H^s}\,dt^\prime\\
              &\leq\int_t^s\|U(s-t^\prime)v^3(t^\prime)\|_{H^s}+\|U(t-t^\prime)v^3(t^\prime)\|_{H^s}\,dt^\prime\\
-             &\leq\int_t^s\|v^3(t^\prime)\|_{H^s}dt^\prime+\int_t^s\|v^3(t^\prime)\|_{H^s}\,dt^\prime\to 0.
+             &\leq2\int_t^s\|v^3(t^\prime)\|_{H^s}dt^\prime\to 0.
          \end{align*} 
-         Cuando $t\to s$.\\
-       Así concluimos que $\phi:X^s_T(a)\to X^s_T(a).$ Ahora veamos que $\phi$ define una contracción para los $a$ y $T$ dados previamente. Sean $u,v\in X^s_T(a),$ Note que por la definición de $\phi$ y de manera similar al argumento previo tenemos
+         Cuando $t\to s$. Es decir
+         $$\lim_{t\to s}\|\phi(v)(t)-\phi(v)(s)\|_{H^s}=0.$$
+       Con estos dos hechos podemos concluir que $\phi:X^s_T(a)\to X^s_T(a).$ Ahora veamos que $\phi$ define una contracción para los $a$ y $T$ dados previamente. Sean $u,v\in X^s_T(a),$ Note que por la definición de $\phi$ y de manera similar al argumento previo tenemos
        \begin{align*}
            \|\phi(v)(t)-\phi(u)(t)\|_{H^s}&=\left\|-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime+\int_0^tU(t-t^\prime)u^3(t^\prime)\,dt^\prime\right\|_{H^s}\\
            &\leq\int_0^t\|U(t-t^\prime)(u^3(t^\prime)-v^3(t^\prime))\|_{H^s}\,dt^\prime\\
