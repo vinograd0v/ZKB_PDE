@@ -16,8 +16,8 @@
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
 \newcommand\T{\mathbb{T}}
-
 \renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\hat}{\widehat}
 
 \setlength{\parindent}{0pt}
 
@@ -531,15 +531,89 @@ $$
 $$
 
 
-La norma anterior es interesante para establecer si una función es integrable y diferenciable (en algún sentido) y estudiar si su derivada conserva la misma propiedad de integrabilidad. Esto motiva a definir el espacio completado \cite{ogrianoc}.
+La norma anterior es interesante para establecer si una función es integrable y diferenciable (en algún sentido) y estudiar si su derivada conserva la misma propiedad de integrabilidad. Esto motiva a definir el espacio \cite{ogrianoc}.
 
 $$
 H^1(\T^n)=\overline{\left(C^1(\T^n),\|\cdot\|_{H^1}\right)}.
 $$
 
-Dado que la transformada de Fourier en $L^2$ es un isomorfismo observamos lo siguiente:\\
+Dado que la transformada de Fourier en $L^2$ es un isomorfismo y vale la identidad de Parseval en $L^2(\T^n)$ observamos lo siguiente\\
 
-\textcolor{red}{Ya vengo voy a la tienda y sigo más tarde xd}
+
+$$
+\begin{aligned}
+ \|f\|_{H^{1}}&=\frac{1}{(2 \pi)^{\frac{n}{2}}}\left(\sum_{|\alpha|\leq1}\left\|\partial^\alpha f\right\|_{L^2}^2\right)^{\frac{1}{2}} \\
+& =\left(\sum_{|\alpha| \leq 1}\| i^{|\alpha|}k^{\alpha} \hat{f}(k) \|_2^2\right)^{\frac{1}{2}} \\
+& =\left(\|\widehat{f}(k)\|_2^2+\sum_{j=1}^n\left\|i k_j \hat{f}(k)\right\|_2^2\right)^{\frac{1}{2}} \\
+& =\left(\sum_{k \in \Z^n}|\hat{f}(k)|^2+\sum_{k \in \Z^n} \sum_{j=1}^n\left|k_j\right|^2|\hat{f}(k)|^2\right)^{\frac{1}{2}} \\
+& =\left(\sum_{k \in \Z^n}|\hat{f}(k)|^2\left(1+|k|^2\right)\right)^{\frac{1}{2}}\\
+&=\left(\sum_{k\in\Z^{n}} |\langle k \rangle \hat{f}(k)|^2\right)^{\frac{1}{2}}=\|\langle k\rangle\hat{f}(k)\|_2,
+\end{aligned}
+$$
+
+donde $\langle k\rangle=(1+|k|^2)^{\frac{1}{2}}$. Esto motiva la siguiente definición.
+
+
+\begin{definition}
+Sea $s \geq 0$. Definimos el espacio de Sobolev periódico de orden $s$ como
+
+$$
+H^s=H^s(\T^n)=\left\{f \in L^2(\T^n):\left\{\langle k\rangle^s \widehat{f}(k)\right\} \in \ell^2(\mathbb{Z}^n)\right\},
+$$
+
+$\text { para } k=\left(k_1, \ldots, k_n\right) \in \mathbb{Z}^n,\langle k\rangle=\left(1+|k|^2\right)^{\frac{1}{2}} \text { con }|k|^2=k_1^2+\cdots+k_n^2 \text {. }
+$
+\end{definition}
+
+Le asignamos al espacio $H^s\left(\mathbb{T}^n\right)$ el producto interno
+
+\begin{equation}
+(f \mid g)_{H^*}=\sum_{k \in \mathbb{Z}^n}\langle k\rangle^{2 s} \widehat{f}(k) \overline{\widehat{g}(k)}
+\end{equation}
+
+para $f, g \in H^s\left(\mathbb{T}^n\right)$, el cual induce la norma
+
+$$
+\|f\|_{H^s}^2=\sum_{k \in \mathbb{Z}^n}\langle k\rangle^{2 s}|\widehat{f}(k)|^2
+$$
+
+\begin{theorem}
+Sea $s \geq 0$. Muestre que $H^s\left(\mathbb{T}^n\right)$ con el producto interno anterior es un espacio de Hilbert.
+\end{theorem}
+
+\begin{proof}
+Primero veamos que $H^s(\T^n)$ es subespacio vectorial de $L^2(\T^n)$, dados $f,g\in H^s(\T^n)$ y $\lambda\in \C$, en efecto:
+
+\begin{align*}
+    \sum_{\substack{k\in \Z^n\\
+    |k|\leq N}}|\langle k\rangle^s \hat{f+\lambda g}(k)|^2&=\sum_{\substack{k\in \Z^n\\
+    |k|\leq N}}|\langle k\rangle^s( \hat{f}(k)+\lambda \hat{g}(k))|^2\\
+    &\leq2\left(\sum_{\substack{k\in \Z^n\\
+    |k|\leq N}}|\langle k\rangle^s\hat{f}(k)|^2+|\lambda|^2\sum_{\substack{k\in \Z^n\\
+    |k|\leq N}}|\langle k\rangle^s \hat{g}(k)|^2\right)
+.\end{align*}
+
+Tomando el límite cuando $N\to \infty$ obtenemos:
+
+$$\|\langle k\rangle^s\hat{f+\lambda g}(k)\|_2^2\leq2 \|\langle k\rangle\hat{f}(k)\|_2^2+2|\lambda|^2\|\langle k\rangle\hat{g}(k)\|_2^2<\infty.$$
+
+Ahora veamos que $H^s(\T^n)$ es completo con la norma con la norma inducida por el producto interno (3)
+\end{proof}
+
+\begin{theorem}[Encajamiento de Sobolev]\label{algebra}
+Suponga que $s>\frac{n}{2}$, entonces si $f \in H^s\left(\mathbb{T}^n\right)$ se tiene que $f$ se puede considerar como un elemento de $C\left(\mathbb{T}^n\right)$ y $\widehat{f} \in l^1\left(\mathbb{Z}^n\right)$. Más precisamente, la aplicación $f \in H^s\left(\mathbb{T}^n\right) \mapsto f \in C\left(\mathbb{T}^n\right)$ es continua $y$ existe una constante universal $C>0$ tal que
+
+$$
+\|f\|_{\infty} \leq\|\widehat{f}\|_1 \leq C\|f\|_{H^s}
+$$
+
+
+Más aún, el espacio $H^s\left(\mathbb{T}^n\right)$ define una álgebra de Banach, esto es, existe $C>0$ tal que para todo $f, g \in H^s\left(\mathbb{T}^n\right)$, se tiene que el producto $f g \in H^s\left(\mathbb{T}^n\right)^1 y$
+
+$$
+\|f g\|_{H^s} \leq C\|f\|_{H^s}\|g\|_{H^s}
+$$
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados de Buen Planteamiento}
