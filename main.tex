@@ -55,7 +55,7 @@ Este trabajo se centra en el estudio de la ecuación no lineal modificada de Zak
 \end{abstract}
 
 \section{Introducción}
-En este trabajo vamos a realizar un estudio de la ecuación no lineal modificada de Zakharov-Kusnetsov-Burgers, la cual se enuncia de la siguiente manera
+En este trabajo vamos a realizar un estudio de la ecuación no lineal modificada de Zakharov-Kusnetsov-Burgers,
 
 \begin{equation}\label{ZKB1}
     \begin{cases}
@@ -65,15 +65,15 @@ En este trabajo vamos a realizar un estudio de la ecuación no lineal modificada
 \end{equation}
 donde $u_0$ es un dato inicial en algún espacio de Sobolev periódico, que durante este trabajo denotaremos como $H^s(\mathbb{T}^n)$, $s \geq 0$. \\
 
-Utilizando la transformada de Fourier en la ecuación anterior, de manera formal  se llegará a la fórmula integral, la cual para \ref{ZKB1} es 
+Utilizando la transformada de Fourier en la ecuación anterior, de manera formal  se llegará a la fórmula integral, la cual para (\ref{ZKB1}) es 
 
 \begin{equation*}\label{Duhamel}
 u(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)u^3(x,t^\prime)\,dt^\prime.
 \end{equation*}
       
-Aunque nos enfocaremos en el estudio de la ecuación no lineal modificada de Zakharov-Kuznetsov-Burgers, es pertinente mencionar brevemente las ecuaciones de Zakharov-Kuznetsov y Zakharov-Kuznetsov-Burgers, que son ampliamente utilizadas para describir ondas no lineales en medios fuertemente magnetizados.La ecuación de Zakharov-Kuznetsov se ha empleado para investigar ondas ionoacústicas en plasmas. Esta ecuación permite modelar la evolución isotrópica que describe la propagación de ondas débiles en dos o más dimensiones. Por otro lado, la ecuación de Zakharov-Kuznetsov-Burgers, la cual es un análogo bidimensional de la conocida ecuación de Korteweg-de Vries-Burgers, amplía el modelo dado por la ecuación de Zakharov-Kuznetsov  al incorporar efectos de disipación y dispersión, haciéndola aplicable a situaciones con amortiguamiento, como en plasmas con viscosidad o fricción. Ambas ecuaciones son de gran relevancia en campos como la física de plasmas y la mecánica de fluidos, así como en otras áreas que involucran la propagación de ondas no lineales. Su estructura la hace muy útil en el ámbito de las ecuaciones dispersivas, permitiendo estudiar la dinámica de las soluciones, la estabilidad y los comportamientos asintóticos de ondas viajeras en sistemas multidimensionales. Todo lo anterior, se puede evidenciar en \cite{texto1}\cite{texto2},\cite{texto3},\cite{texto4}\cite{texto5}\\
+Aunque nos enfocaremos en el estudio de la ecuación no lineal modificada de Zakharov-Kuznetsov-Burgers, es pertinente mencionar brevemente las ecuaciones de Zakharov-Kuznetsov y Zakharov-Kuznetsov-Burgers, que son ampliamente utilizadas para describir ondas no lineales en medios fuertemente magnetizados. La ecuación de Zakharov-Kuznetsov se ha empleado para investigar ondas ionoacústicas en plasmas. Esta ecuación permite modelar la evolución isotrópica que describe la propagación de ondas débiles en dos o más dimensiones. Por otro lado, la ecuación de Zakharov-Kuznetsov-Burgers, la cual es un análogo bidimensional de la conocida ecuación de Korteweg-de Vries-Burgers, amplía el modelo dado por la ecuación de Zakharov-Kuznetsov  al incorporar efectos de disipación y dispersión, haciéndola aplicable a situaciones con amortiguamiento, como en plasmas con viscosidad o fricción. Ambas ecuaciones son de gran relevancia en campos como la física de plasmas y la mecánica de fluidos, así como en otras áreas que involucran la propagación de ondas no lineales. Su estructura la hace muy útil en el ámbito de las ecuaciones dispersivas, permitiendo estudiar la dinámica de las soluciones, la estabilidad y los comportamientos asintóticos de ondas viajeras en sistemas multidimensionales. Todo lo anterior, se puede evidenciar en \cite{texto1},\cite{texto2},\cite{texto3},\cite{texto4},\cite{texto5}.\\
 
-Este trabajo está organizado de la siguiente manera: en primer lugar, se presenta una sección de preliminares donde se exponen las definiciones y resultados teóricos necesarios para su desarrollo. En esta sección se incluyen resultados sobre espacios periódicos, la transformada de Fourier en $ \T^n$, y los espacios de Sobolev. En la segunda sección, se presentan los resultados sobre el buen planteamiento de la ecuación de Zakharov-Kuznetsov-Burgers no lineal modificada, donde demostramos la existencia y unicidad de la solución a partir de la fórmula integral, además, se aborda la dependencia continua de dicha solución todo lo anterior con respecto al dato inicial $ u_0$ en el espacio $C([0, T]; H^s(\T^n))$.
+Este trabajo está organizado de la siguiente manera: en primer lugar, se presenta una sección de preliminares donde se exponen las definiciones y resultados teóricos necesarios para su desarrollo. En esta sección se incluyen resultados sobre espacios periódicos, la transformada de Fourier en $ \T^n$  y los espacios de Sobolev. En la segunda sección, se presentan los resultados sobre el buen planteamiento de la ecuación de Zakharov-Kuznetsov-Burgers no lineal modificada, donde demostramos la existencia y unicidad de la solución a partir de la fórmula integral, además, se aborda la dependencia continua de dicha solución todo lo anterior con respecto al dato inicial $ u_0$ en el espacio $C([0, T]; H^s(\T^n))$.
 
 
 
@@ -116,7 +116,9 @@ Cuando $k \in \mathbb{Z}^{+}$, dado un multiíndice $\beta=(\beta_1,\ldots,\beta
     &\hspace{0.8cm} \text{y para todo } 1\leq j\leq n\}.
 \end{align*}
 
-Diremos que $f \in C_{\text {per }}^{\infty}([-L, L]^n)$, si $f \in C_{\text {per }}^k([-L, L]^n)$ para cualquier $k \in \mathbb{Z}^{+}$.\\
+Diremos que $f \in C_{\text {per }}^{\infty}([-L, L]^n)$, si $f \in C_{\text {per }}^k([-L, L]^n)$ para cualquier $k \in \mathbb{Z}^{+}$.
+\end{note}
+
 
 Note que:
 
@@ -125,8 +127,6 @@ C_{p e r}([-L, L]^n) \supseteq C_{p e r}^1([-L, L]^n) \supseteq \cdots \supseteq
 $$
 
 es decir, el conjunto es más pequeño cuando pedimos más regularidad a las funciones.
-
-\end{note}
 
 Dado $L>0$, si $f: \mathbb{R}^n \rightarrow \mathbb{C}$ es una función periódica de periodo $2 L$, entonces el mapeo
 
@@ -145,10 +145,10 @@ Por las propiedades del toro que hemos mencionado, funciones $f: \mathbb{T}^n \r
 \begin{note}
     Dado que  podemos identificar $\mathbb{T}^n$ como $[-\pi,\pi]^n$, vemos que la integración de funciones sobre el toro resulta de restringir la medida de Lebesgue en $[\pi,\pi]^n$ y por la periodicidad de las funciones en $\mathbb{T}^n$ tenemos que:
 
-    $$\int_{\mathbb{T}^n} f(x) d x=\int_{[-\pi,\pi]^n} f(x) d x=\int_{[0,2\pi]^n} f(x) d x=\int_{\left[a_1, 2\pi+a_1\right] \times \cdots \times\left[a_n, 2\pi+a_n\right]} f(x) d x.$$
+    $$\int_{\mathbb{T}^n} f(x) d x=\int_{[-\pi,\pi]^n} f(x) d x=\int_{[0,2\pi]^n} f(x) d x=\int_{C} f(x) d x,$$
 
 
-    para cualesquiera $a_1,\ldots,a_n \in \R$, en efecto:
+    con $C=\left[a_1, 2\pi+a_1\right] \times \cdots \times\left[a_n, 2\pi+a_n\right]$ para cualesquiera $a_1,\ldots,a_n \in \R$, en efecto:
 
     $$\begin{aligned}
     \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x \\
@@ -156,6 +156,7 @@ Por las propiedades del toro que hemos mencionado, funciones $f: \mathbb{T}^n \r
     & =\int_{[\pi, 2 \pi]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x\\
     &=\int_{[0,2\pi]^n} f(x) d x.
     \end{aligned}$$
+\end{note}
 
 Para la última propiedad note que:
 
@@ -175,7 +176,6 @@ Si $a>2\pi$, en efecto:
 ,\end{align*}
 
 los casos $a\in [0,2\pi]$ y $a<0$ son análogos.
-\end{note}
 
 Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
 
@@ -647,7 +647,7 @@ Con lo cual probamos que $H^{s}(\T^{n})$ es completo con la norma inducida por e
 \end{proof}
 
 \begin{theorem}[Encajamiento de Sobolev]\label{algebra}
-Suponga que $s>\frac{n}{2}$, entonces si $f \in H^s\left(\mathbb{T}^n\right)$ se tiene que $f$ se puede considerar como un elemento de $C\left(\mathbb{T}^n\right)$ y $\widehat{f} \in l^1\left(\mathbb{Z}^n\right)$. Más precisamente, la aplicación $f \in H^s\left(\mathbb{T}^n\right) \mapsto f \in C\left(\mathbb{T}^n\right)$ es continua $y$ existe una constante universal $C>0$ tal que
+Suponga que $s>\frac{n}{2}$, entonces si $f \in H^s\left(\mathbb{T}^n\right)$ se tiene que $f\in C\left(\mathbb{T}^n\right)$ y $\widehat{f} \in l^1\left(\mathbb{Z}^n\right)$. Más precisamente, la aplicación $f \in H^s\left(\mathbb{T}^n\right) \mapsto f \in C\left(\mathbb{T}^n\right)$ es continua $y$ existe una constante universal $C>0$ tal que
 
 $$
 \|f\|_{\infty} \leq\|\widehat{f}\|_1 \leq C\|f\|_{H^s}
@@ -662,7 +662,25 @@ $$
 \end{theorem}
 
 \begin{proof}
-\lipsum[1]
+
+Sea $f \in H^s(\T^n), s>\frac{n}{2}$. Note que dado $N\geq 1$ por la desigualdad de Cauchy-Schwarz:
+
+$$
+\begin{aligned}
+\sum_{\substack{k\in\Z^n\\
+|k|\leq N}}|\widehat{f}(k)| & =\sum_{\substack{k\in\Z^n\\
+|k|\leq N}}\langle k\rangle^{-s}\langle k\rangle^s|\widehat{f}(k)| \\
+& \leq\left(\sum_{\substack{k\in\Z^n\\
+|k|\leq N}}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\left(\sum_{\substack{k\in\Z^n\\
+|k|\leq N}}\langle k\rangle^{2 s}|\widehat{f}(k)|^2\right)^{\frac{1}{2}} \\
+& \leq\left(\sum_{k\in \Z^n}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\left(\sum_{k\in \Z^n}\langle k\rangle^{2 s}|\widehat{f}(k)|^2\right)^{\frac{1}{2}} \\
+& =\left(\sum_{k\in \Z^n}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\|f\|_{H^s}
+\end{aligned}
+$$
+
+
+Dado que $\langle k\rangle^{-2 s}=\left(1+|k|^2\right)^{-s}$, entonces la serie anterior converge si $2 s>1$, es decir, $s>\frac{1}{2}$. Tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in l^1(\mathbb{Z})$. Esto nos dice que la serie de Fourier $\sum_{k=-\infty}^{\infty} \widehat{f}(k) e^{i k x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por unicidad del límite en $L^2$, tenemos que $f=\sum_{k=-\infty}^{\infty} \widehat{f}(k) e^{i k x}$ (módulo un conjunto de medida nula). Por tanto, obtenemos que $f$ se identifica con una función continua y por la estimativa previa
+
 \end{proof}
 
 
