@@ -705,7 +705,31 @@ $$\sum_{k=1}^{\infty} \frac{k^{n-1}}{k^{2s}}=\sum_{k=1}^{\infty} \frac{1}{k^{2s+
 
 que es convergente si $s>\frac{n}{2}$ por el criterio de la integral.\\
 
-Así, hemos encontrado una cota para la suma que no depende de $N$ tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in \ell^1(\mathbb{Z}^n)$. Esto nos dice que la serie de Fourier $\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por la unicidad del límite en $L^2$, tenemos que $f(x)=\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ en casi toda parte. Luego, obtenemos que $f$ se identifica con una función continua y por la estimativa previa
+Así, hemos encontrado una cota para la suma que no depende de $N$ tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in \ell^1(\mathbb{Z}^n)$. Esto nos dice que la serie de Fourier $\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por la unicidad del límite en $L^2$, tenemos que $f(x)=\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ en casi toda parte. Luego, obtenemos que $f$ se identifica con una función continua y por la estimativa previa, ahora veamos que existe una constante $c_s>0$, tal que para todo $k,k_1\in \Z^{n}$ se tiene que 
+\begin{align*}
+    \langle k \rangle ^{s}\leq c_s \langle k_1\rangle +\langle k-k_1 \rangle^{s}
+.\end{align*}
+Para esto note que 
+\begin{align*}
+    \langle k \rangle ^{\frac{s}{2}}&=(1+|k|^{2})^{\frac{s}{2}}\\
+    &= (1+|k-k_1+k_1|^{2})^{\frac{s}{2}}\\
+    &\leq (1+2|k-k_1|^{2}+2|k_1|^{2})^{\frac{s}{2}}\\
+    & <(1+2+2|k-k_1|^{2}+2+2|k_1|^{2})^{\frac{s}{2}}\\
+    &\leq (2+|k-k_1|^{2}+|k_1|^{2}+2|k-k_1|^{2}+2|k_1|^{2})^{\frac{s}{2}}\\ 
+    &=(6+3|k-k_1|^{2}+3|k_1|^{2})^{\frac{s}{2}}\\
+    &= 3^{\frac{s}{2}} (1+|k-k_1|^{2}+1+|k_1|^{2})^{\frac{s}{2}}\\
+    &=3^{\frac{s}{2}} (\langle k-k_1\rangle+\langle k_1\rangle)^{\frac{s}{2}}
+.\end{align*}
+Luego tenemos que 
+\begin{align*}
+    \langle k \rangle ^{s}&=3^{s} (\langle k-k_1\rangle+\langle k_1\rangle)^{s}
+.\end{align*}
+Así, por desigualdad de Young
+\begin{align*}
+    \langle k \rangle ^{s}&\leq C_s (\langle k-k_1\rangle^{s}+\langle k_1\rangle^{s})
+.\end{align*}
+
+
 \end{proof}
 
 
