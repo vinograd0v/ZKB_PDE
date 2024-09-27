@@ -14,50 +14,53 @@ Procedamos de manera formal en búsqueda de un candidato a solución, tomando la
    &=\partial_t\widehat{u}(k)+(ik_1-1)\sum_{i=1}^ni^2k_i^2\widehat{u}(k)+\widehat{u^3}(k)\\
    &=\partial_t\widehat{u}(k)+(1-ik_1)|k|^2\widehat{u}(k)+\widehat{u^3}(k).\\
 \end{align*}
-Así junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$ para todo $k\in\Z^n$ tenemos una ecuación diferencial ordinaria asociada a un problema de valor inicial respecto a la variable temporal 
+Así, junto al hecho de que $\widehat{u}(k,0)=\widehat{u}_0(k)$, para todo $k\in\Z^n$ tenemos una ecuación diferencial ordinaria asociada a un problema de valor inicial respecto a la variable temporal 
 $$\begin{cases}
-    \dfrac{d}{dt}\widehat{u}(k)+(|k|^2-ik_1|k|^2)\widehat{u}(k)=-\widehat{u^3}(k), & k\in\Z^n,t>0\\
-    \widehat{u}(k,0)=\widehat{u}_0(k), &k\in\Z.
+    \dfrac{d}{dt}\widehat{u}(k)+(|k|^2-ik_1|k|^2)\widehat{u}(k)=-\widehat{u^3}(k), & k\in\Z^n,t>0.\\
+    \widehat{u}(k,0)=\widehat{u}_0(k), &k\in\Z^{n}.
 \end{cases}$$
-Luego usando el factor integrante $e^{(|k|^2-ik_1|k|^2)t}$, e integrando a ambos lados de 0 a $t$ tenemos que
+Luego, usando el factor integrante $e^{(|k|^2-ik_1|k|^2)t}$, e integrando a ambos lados de 0 a $t$, tenemos que
 $$e^{(|k|^2-ik_1|k|^2)t}\widehat{u}(k,t)-\widehat{u}_0(k)=-\int_0^te^{(|k|^2-ik_1|k|^2)t^\prime}\widehat{u^3}(k,t^\prime)\,dt^\prime.$$
-Así despejando $\widehat{u}(k,t)$ llegamos a que
-$$\widehat{u}(k,t)=e^{(ik_1|k|^2-|k|^2)t}\widehat{u}_0(k)-\int_0^te^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime)\,dt^\prime,$$
-tomando la transformada inversa de Fourier tenemos que
+Así, despejando $\widehat{u}(k,t)$ llegamos a que
+$$\widehat{u}(k,t)=e^{(ik_1|k|^2-|k|^2)t}\widehat{u}_0(k)-\int_0^te^{(ik_1|k|^2-|k|^2)(t-t^\prime)}\widehat{u^3}(k,t^\prime)\,dt^\prime,$$
+tomando la transformada inversa de Fourier 
 \begin{align*}
-    u(x,t)&=(e^{(ik_1|k|^2-|k^2|)t}\widehat{u}_0(k))^{\vee}-\int_0^t(e^{(ik_1|k|^2-|k^2|)(t-t^\prime)}\widehat{u^3}(k,t^\prime))^{\vee}\,dt^\prime\\
-    &=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{u}_0(k)-\int_0^t\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)(t-t^\prime)+ik\cdot x}\widehat{u^3}(k,t^\prime)\,dt^\prime.
+    u(x,t)&=(e^{(ik_1|k|^2-|k|^2)t}\widehat{u}_0(k))^{\vee}-\int_0^t(e^{(ik_1|k|^2-|k|^2)(t-t^\prime)}\widehat{u^3}(k,t^\prime))^{\vee}\,dt^\prime\\
+    &=\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k|^2)t+ik\cdot x}\widehat{u}_0(k)-\int_0^t\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k|^2)(t-t^\prime)+ik\cdot x}\widehat{u^3}(k,t^\prime)\,dt^\prime.
 \end{align*}
-Teniendo en cuenta esto, es en cierta medida natural definir la familia de operadores $\{U(t)\}_{t\geq 0}$ tal que:
+Teniendo en cuenta esto, es natural definir la familia de operadores $\{U(t)\}_{t\geq 0}$ tal que
 $$U(t)f(x)=\begin{cases}
-    \displaystyle\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k^2|)t+ik\cdot x}\widehat{f}(k), & t>0,\\
+    \displaystyle\sum_{k\in\Z^n}e^{(ik_1|k|^2-|k|^2)t+ik\cdot x}\widehat{f}(k), & t>0,\\
     f(x), &t=0
 \end{cases}$$
-Para $f$ lo suficientemente regular. A continuación presentamos una propiedad de estos operadores:
+Para $f$ lo suficientemente regular.\\
+ A continuación presentamos una propiedad de estos operadores:
 \begin{prop}\label{FourierUt}
     Si $f\in L^2(\T^n)$ entonces $U(t)f\in L^2(\T^n),$ ademas
-    $$\hat{U(t)f}(k)=e^{(ik_1|k|^2-|k^2|)t}\hat{f}(k).$$
+    $$\hat{U(t)f}(k)=e^{(ik_1|k|^2-|k|^2)t}\hat{f}(k).$$
     Para todo $k\in \Z^n.$ 
  \end{prop} 
 
 
-De esta manera, nuestro candidato a solución es la formula de Duhamel dada por
+De esta manera, nuestro candidato a solución es la fórmula de Duhamel dada por
 \begin{equation}\label{Duhamel}
 u(x,t)=U(t)u_0(x)-\int_0^tU(t-t^\prime)u^3(x,t^\prime)\,dt^\prime,
 \end{equation}
-en algunas ocasiones omitiremos la dependencia espacial con el propósito de no sobrecargar la notación.
+\begin{note}
+En algunas ocasiones omitiremos la dependencia espacial con el propósito de no sobrecargar la notación.
+\end{note}
 \begin{definition}
-    Dado $s\geq 0.$ Diremos que el problema (\ref{ZKB}) esta localmente bien planteado en $H^s(\T^n)$ si:
+    Dado $s\geq 0.$ Diremos que el problema (\ref{ZKB}) está localmente bien planteado en $H^s(\T^n)$ si:
     \begin{itemize}
-        \item \textbf{(Existencia y Unicidad).} Dado $u_0\in H^s(\T^n),$ existe $T>0$ y una única solución de la formula de Duhamel (\ref{Duhamel}) con dato inicial $u_0$ en el espacio $C([0,T];H^s(\T^n)).$
+        \item \textbf{(Existencia y Unicidad).} Dado $u_0\in H^s(\T^n),$ existe $T>0$ y una única solución de la fórmula de Duhamel (\ref{Duhamel}) con dato inicial $u_0$ en el espacio $C([0,T];H^s(\T^n)).$
         \item \textbf{(Dependencia Continua).} Dado $u_0\in H^s(\T^n)$ existe una vecindad $V$ de $u_0$ en $H^s(\T^n)$ y $T>0$ tal que la aplicación dato inicial solución 
-        $$v_0\in H^s(\T^n)\mapsto v\in C([0,T];H^s(\T^n)). $$ 
-        Es continua.
+        $$v_0\in H^s(\T^n)\mapsto v\in C([0,T];H^s(\T^n)), $$ 
+        es continua.
     \end{itemize}
 \end{definition}
 Antes de continuar con el resultado principal debemos hacer varias salvedades. Primero definimos el espacio $C([0,T];H^s(\T^n))$.
 \begin{definition}
-     El espacio $C([0,T];H^s(\T^n))$ consiste de funciones $f:[0,T]\to H^s(\T^n)$, continuas en el siguiente sentido:\\ 
+     El espacio $C([0,T];H^s(\T^n))$. Es el conjunto de funciones $f:[0,T]\to H^s(\T^n)$, continuas en el siguiente sentido:\\ 
  Dado $t^\prime\in(0,T)$ tenemos que
 $$\lim_{t\to t^\prime}\|f(t)-f(t^\prime)\|_{H^s}=0,$$
 si $t^\prime=0$ o $t^\prime=T$ se toma el limite lateral.
@@ -69,29 +72,29 @@ Una propiedad importante de este espacio es
     Para $u,v\in C([0,T];H^s(\T^n)).$
 \end{prop}
 \begin{proof}
-    Sea $\{f_l\}_{l\in\Z^+}$ una sucesión de Cauchy en $C([0,T];H^s(\T^n))$, luego para todo $\epsilon>0$ existe $N\in\Z^+$, tal que si $i,j\geq N$ entonces $\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}<\epsilon,$ luego para $t\in[0,T]$ fijo tenemos que $\|f_i(t)-f_j(t)\|_{H^s}<\epsilon,$ es decir $\{f_l(t)\}_{l\in\Z^+}$ es una sucesión de Cauchy en $H^s(\T^n),$ luego por el teorema (2.13), esta sucesión converge de manera puntual a alguna función $f(t)\in H^s(\T^n).$ Primero probemos que $f_l\to f$ en $C([0,T];H^s(\T^n)).$\\
+    Sea $\{f_l\}_{l\in\Z^+}$ una sucesión de Cauchy en $C([0,T];H^s(\T^n))$, así, para todo $\epsilon>0$ existe $N\in\Z^+$, tal que si $i,j\geq N$,  entonces, $\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}<\epsilon,$ luego, para $t\in[0,T]$ fijo tenemos que $\|f_i(t)-f_j(t)\|_{H^s}<\epsilon,$ es decir $\{f_l(t)\}_{l\in\Z^+}$ es una sucesión de Cauchy en $H^s(\T^n)$. Por el teorema (2.13), esta sucesión converge de manera puntual a alguna función $f(t)\in H^s(\T^n).$ Primero probemos que $f_l\to f$ en $C([0,T];H^s(\T^n)).$\\
 
-    Sea $t\in[0,T]$ fijo pero arbitrario, como $\{f_l\}_{l\in\Z^+}$ es una sucesión de Cauchy en $C([0,T];H^s(\T^n))$, existe $N\in\Z^+$, tal que si $i,j\geq N$ entonces $\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}<\frac{\epsilon}{2},$ como tenemos convergencia puntual en $H^s(\T^n)$, existe $K(t)\in\Z^+,$ tal que si $l\geq K(t),$ entonces $\|f_l(t)-f(t)\|_{H^s}<\frac{\epsilon}{2}.$ Si tomamos $i\geq N$ y $j=\max\{N,K(t)\}.$ Tenemos que
+    Sea $t\in[0,T]$ fijo pero arbitrario, como $\{f_l\}_{l\in\Z^+}$ es una sucesión de Cauchy en $C([0,T];H^s(\T^n))$, existe $N\in\Z^+$, tal que si $i,j\geq N$, entonces $\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}<\frac{\epsilon}{2},$ como tenemos convergencia puntual en $H^s(\T^n)$, existe $K(t)\in\Z^+,$ tal que si $l\geq K(t),$ entonces $\|f_l(t)-f(t)\|_{H^s}<\frac{\epsilon}{2}.$ Si tomamos $i\geq N$ y $j=\max\{N,K(t)\}$ 
     \begin{align*}
         \|f_i(t)-f(t)\|_{H^s}&=\|f_i(t)-f_j(t)+f_j(t)-f(t)\|_{H^s}\\
         &\leq\|f_i(t)-f_j(t)\|_{H^s}+\|f_j(t)-f(t)\|_{H^s}\\
         &\leq\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}+\|f_j(t)-f(t)\|_{H^s}\\
         &<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
     \end{align*}
-    Como esto se tiene para $t\in[0,T]$ arbitrario, y para todo $i\geq N$, entonces $\sup_{t\in[0,T]}\|f_i(t)-f(t)\|_{H^s}<\epsilon.$\\
+    Esto se tiene para $t\in[0,T]$ arbitrario, y para todo $i\geq N$, entonces $\sup_{t\in[0,T]}\|f_i(t)-f(t)\|_{H^s}<\epsilon.$\\
 
     Para finalizar la prueba basta con probar que $f\in C([0,T];H^s(\T^n))$.\\ 
 
-    Sea $t\in[0,T]$ y $t^\prime\in[0,T]$ dado. Primero como cada $f_i\in C([0,T];H^s(\T^n))$ tenemos que para $\epsilon>0,$ existe un $\delta>0,$ tal que si $|t-t^\prime|<\delta$, entonces $\|f_i(t)-f_i(t^\prime)\|<\frac{\epsilon}{3},$ y por lo probado anteriormente sabemos que existe $N\in\Z^n$ tal que si $i\geq N$ entonces $\sup_{t\in[0,T]}\|f(t)-f_i(t)\|_{H^s}<\frac{\epsilon}{3}.$ Con todo esto notamos que
+    Sea $t\in[0,T]$ y $t^\prime\in[0,T]$ dado. Primero, como cada $f_i\in C([0,T];H^s(\T^n))$ tenemos que para $\epsilon>0,$ existe un $\delta>0,$ tal que si $|t-t^\prime|<\delta$, entonces $\|f_i(t)-f_i(t^\prime)\|<\frac{\epsilon}{3},$ y por lo probado anteriormente sabemos que existe $N\in\Z^+$ tal que si $i\geq N$, entonces $\sup_{t\in[0,T]}\|f(t)-f_i(t)\|_{H^s}<\frac{\epsilon}{3}.$ Con todo esto notamos que
     \begin{align*}
         \|f(t)-f(t^\prime)\|_{H^s}&\leq\|f(t)-f_i(t)\|_{H^s}+\|f_i(t)-f_i(t^\prime)\|_{H^s}+\|f_i(t^\prime)-f(t^\prime)\|_{H^s}\\
         &\leq 2\sup_{t\in[0,T]}\|f(t)-f_i(t)\|_{H^s}+\|f_i(t^\prime)-f(t^\prime)\|_{H^s}\\
         &<\frac{2}{3}\epsilon+\frac{\epsilon}{3}=\epsilon.
     \end{align*}
-    Mostrando así que para $t^\prime\in[0,T]$ arbitrario tenemos que:
+    Mostrando así, que para $t^\prime\in[0,T]$ arbitrario tenemos que
     $$\lim_{t\to t^\prime}\|f(t)-f(t^\prime)\|_{H^s}=0.$$
 \end{proof}
-Segundo introducimos los conceptos claves de contracción y punto fijo. 
+Segundo, introducimos los conceptos claves de contracción y punto fijo. 
 \begin{definition}Sea $(M,d)$ un espacio métrico y $\psi:M\to M$ una función.
     \begin{itemize}
         \item $\psi$ es una \textbf{contracción} si existe $0<L<1$ tal que
@@ -103,22 +106,23 @@ Segundo introducimos los conceptos claves de contracción y punto fijo.
 \begin{theorem}[Punto fijo de Banach]\label{Banach}
 Sea $(M,d)$ un espacio métrico completo. entonces toda contracción tiene un único punto fijo.   
 \end{theorem}
-La idea para el buen planteamiento es ver (\ref{Duhamel}) como una aplicación y usar (\ref{Banach}) para encontrar soluciones como puntos fijos en espacios de funciones adecuados. Con todo esto procedemos a la demostración de el resultado principal, la buena colocación local.
+La idea para el buen planteamiento es ver (\ref{Duhamel}) como una aplicación y usar el teorema (\ref{Banach}) para encontrar soluciones como puntos fijos en espacios de funciones adecuados. Con todo esto procedemos a la demostración de el resultado principal, la buena colocación local.
 \begin{theorem}
-    Para cualquier $n\geq 1$ fijo, el problema de Cauchy (\ref{ZKB}) esta localmente bien planteado en $H^s(\T^n),$ $s>\frac{n}{2}.$ Esto es:
+    Para cualquier $n\geq 1$ fijo, el problema de Cauchy (\ref{ZKB}) está localmente bien planteado en $H^s(\T^n),$ $s>\frac{n}{2}.$ Esto es:
     \begin{itemize}
-        \item \textbf{(Existencia y Unicidad).} Para cualquier $u_0\in H^s(\T^n),$ existe un tiempo $T>0$ y una única $u\in C([0,T];H^s(\T^n))$ solución de la formula integral (\ref{Duhamel}) con dato inicial $u_0.$
+        \item \textbf{(Existencia y Unicidad).} Para cualquier $u_0\in H^s(\T^n),$ existe un tiempo $T>0$ y una única $u\in C([0,T];H^s(\T^n))$ solución de la fórmula integral (\ref{Duhamel}) con dato inicial $u_0.$
         \item \textbf{(Dependencia Continua).} Dado $u_0\in H^s(\T^n)$ existe una vecindad $V$ de $u_0$ en $H^s(\T^n)$ y $T>0$ tal que la aplicación dato inicial solución 
-        $$v_0\in V\mapsto v\in C([0,T];H^s(\T^n)). $$ 
-        Es continua. 
+        $$v_0\in V\mapsto v\in C([0,T];H^s(\T^n)), $$ 
+        es continua. 
     \end{itemize}
 \end{theorem}
 \begin{proof}
 Dividiremos la prueba en tres partes.
 \begin{itemize}
-       \item[i)]\textbf{Existencia.} Sea $u_0\in H^s(\T^n)$ con $s>\frac{n}{2}$ arbitrario pero fijo. Veamos que existe una solución de (\ref{Duhamel}) con dato inicial $u_0.$ Si $u_0=0,$ tomando $u=0$ tenemos la existencia. Ahora si asumimos $u_0\neq 0$ tenemos que $\|u_0\|_{H^s}>0.$ Dados $T>0$ y $a>0$ fijos definimos el espacio
+       \item[i)]\textbf{Existencia.} Sea $u_0\in H^s(\T^n)$ con $s>\frac{n}{2}$ arbitrario pero fijo. Veamos que existe una solución de (\ref{Duhamel}) con dato inicial $u_0.$\\
+        Si $u_0=0,$ tomando $u=0$ tenemos la existencia. Ahora si asumimos $u_0\neq 0$, tenemos que $\|u_0\|_{H^s}>0.$ Dados $T>0$ y $a>0$ fijos definimos el espacio
        $$X_T^s(a)=\{v\in C([0,T];H^s(\T^n)):\sup_{t\in[0,T]}\|v(t)\|_{H^s}\leq a\}.$$
-       Primero probemos que $X_T^s(a)$ es completo con la distancia
+       Primero, probemos que $X_T^s(a)$ es completo con la distancia
        $$\sup_{t\in[0,T]}\|u(t)-v(t)\|_{H^s},$$
        para $u,v\in X^s_T(a)$.\\
 
@@ -143,54 +147,55 @@ Dividiremos la prueba en tres partes.
            \sup_{t\in[0,T]}\|\phi(v)(x,t)\|_{H^s}&\leq\|u_0(x)\|_{H^s}+cT\sup_{t\in[0,T]}\|v(x,t)\|^3\\
            &\leq\|u_0(x)\|_{H^s}+cTa^3,
        \end{align*}
-       esto ultimo ya que $v\in X_T^s(a).$ Note que si escogemos
+       esto último ya que $v\in X_T^s(a).$ Si escogemos
        $$\begin{cases}
            a=\dfrac{3}{2}\|u_0(x)\|_{H^s},\\
            0<T<\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s},
        \end{cases}$$
        tenemos que
        $$\sup_{t\in[0,T]}\|\phi(v)(x,t)\|_{H^s}<\|u_0(x)\|_{H^s}+c\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^3 =\dfrac{3}{2}\|u_0(x)\|_{H^s}.$$
-       Ahora falta probar que $\phi(v)\in C([0,T];H^s(\T^n))$. Primero notemos que dado $s\in[0,T]$
+       Ahora falta probar que $\phi(v)\in C([0,T];H^s(\T^n))$. Dado $s\in[0,T]$
        \begin{align*}
            \|\phi(v)(t)-\phi(v)(s)\|_{H^s}&=\left\|U(t)u_0-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime-U(s)u_0+\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}\\
            &\leq\|U(t)u_0-U(s)u_0\|_{H^s}+\left\|\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}.
        \end{align*}
-       Luego basta con probar que cuando $t\to s$, cada sumando se hace 0. Primero veamos el caso donde $s=0$, note que la definición de la norma en $H^s(\T^n)$, y por la proposición (\ref{FourierUt}) 
+       Luego, basta con probar que cuando $t\to s$, cada sumando se hace 0. Primero, veamos el caso donde $s=0$, note que de la definición de la norma en $H^s(\T^n)$, y por la proposición (\ref{FourierUt}) 
        \begin{align*}
            \|U(t)u_0-U(0)u_0\|_{H^s}^2&=\|\langle k\rangle^s(\hat{U(t)u}_0(k)-\hat{u_0}(k))\|_2^2\\
            &=\sum_{k\in\Z^n}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)|^2.
        \end{align*}
-       Ahora note que
+       Ahora bien,
        \begin{align*}
            |\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)|^2&\leq(|e^{(ik_1|k|^2-|k|^2)t}|+|1|)^2||\langle k\rangle^s\hat{u}_0(k)|^2\\
            &\leq 4|\langle k\rangle^s\hat{u}_0(k)|^2,
        \end{align*}
-        por hipótesis $\{\langle k\rangle^s\hat{u}_0(k)\}\in\ell^2(\Z^n)$, por lo tanto  $\{\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)\}\in\ell^2(\Z^n)$, por M de Weierstrass. Así tenemos que
+        por hipótesis $\{\langle k\rangle^s\hat{u}_0(k)\}\in\ell^2(\Z^n)$, por el criterio M de Weierstrass  $\{\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)\}\in\ell^2(\Z^n)$. Así,
        $$\lim_{t\to0^+}\|U(t)u_0-U(0)u_0\|_{H^s}=\left(\sum_{k\in\Z^n}\lim_{t\to0^+}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-1)\hat{u}_0(k)|^2\right)^{\frac{1}{2}}=0.$$
-       Ahora para el otro sumando tenemos que
+       Ahora, para el otro sumando tenemos que
        
         \begin{align*}
              \left\|\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}&\leq\int_0^t\|U(t-t^\prime)v^3(t^\prime)\|_{H^s}\,dt^\prime\\
              &\leq\int_0^t\|v^3(t^\prime)\|_{H^s}\,dt^\prime\to 0
          \end{align*} 
 
-       Cuando $t\to0^+$, de esta manera concluimos que
+       Cuando $t\to0^+$, de esta manera,
 
        $$\lim_{t\to0^+}\|\phi(v)(t)-\phi(v)(0)\|_{H^s}=0.$$
+       Con esto concluimos el caso para $s=0$.
 
-       Ahora, si $s\neq 0$, podemos asumir sin perdida de generalidad que $t<s$, de manera similar para el primer sumando
+       Veamos el caso cuando $s\neq 0$, podemos asumir sin pérdida de generalidad que $t<s$, de manera similar para el primer sumando
        \begin{align*}
            \|U(t)u_0-U(s)u_0\|_{H^s}^2&=\|\langle k\rangle^s(\hat{U(t)u}_0(k)-\hat{U(s)u_0}(k))\|_2^2\\
            &=\sum_{k\in\Z^n}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-e^{(ik_1|k|^2-|k|^2)s})\hat{u}_0(k)|^2.
        \end{align*}
-       Luego
+       Luego,
        \begin{align*}
            |\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-e^{(ik_1|k|^2-|k|^2)s})\hat{u}_0(k)|^2&\leq(|e^{(ik_1|k|^2-|k|^2)t}|+|e^{(ik_1|k|^2-|k|^2)s}|)^2||\langle k\rangle^s\hat{u}_0(k)|^2\\
            &\leq 4|\langle k\rangle^s\hat{u}_0(k)|^2,
        \end{align*}
-       y nuevamente por M de Weierstrass podemos ingresar el limite a la suma, es decir
+       y nuevamente por el criterio M de Weierstrass podemos intercambiar el límite y la suma, es decir
        $$\lim_{t\to s}\|U(t)u_0-U(s)u_0\|_{H^s}=\left(\sum_{k\in\Z^n}\lim_{t\to s}|\langle k\rangle^s(e^{(ik_1|k|^2-|k|^2)t}-e^{(ik_1|k|^2-|k|^2)s})\hat{u}_0(k)|^2\right)^{\frac{1}{2}}=0.$$
-       Para el caso del sumando con la integral tenemos
+       Para el segundo sumando tenemos
 
        \begin{align*}
              \left\|\int_0^sU(s-t^\prime)v^3(t^\prime)\,dt^\prime-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime\right\|_{H^s}&\leq\int_t^s\|U(s-t^\prime)v^3(t^\prime)-U(t-t^\prime)v^3(t^\prime)\|_{H^s}\,dt^\prime\\
@@ -199,7 +204,7 @@ Dividiremos la prueba en tres partes.
          \end{align*} 
          Cuando $t\to s$. Es decir
          $$\lim_{t\to s}\|\phi(v)(t)-\phi(v)(s)\|_{H^s}=0.$$
-       Con estos dos hechos podemos concluir que $\phi:X^s_T(a)\to X^s_T(a).$ Ahora veamos que $\phi$ define una contracción para los $a$ y $T$ dados previamente. Sean $u,v\in X^s_T(a),$ Note que por la definición de $\phi$ y de manera similar al argumento previo tenemos
+       Con estos dos hechos podemos concluir que $\phi:X^s_T(a)\to X^s_T(a).$ Ahora, veamos que $\phi$ define una contracción para los $a$ y $T$  previamente dados. Sean $u,v\in X^s_T(a),$  por la definición de $\phi$ y de manera similar al argumento previo tenemos
        \begin{align*}
            \|\phi(v)(t)-\phi(u)(t)\|_{H^s}&=\left\|-\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime+\int_0^tU(t-t^\prime)u^3(t^\prime)\,dt^\prime\right\|_{H^s}\\
            &\leq\int_0^t\|U(t-t^\prime)(u^3(t^\prime)-v^3(t^\prime))\|_{H^s}\,dt^\prime\\
@@ -208,11 +213,12 @@ Dividiremos la prueba en tres partes.
            &\leq c\int_0^t\|u(t^\prime)-v(t^\prime)\|_{H^s}\|(u^2+uv+v^2)(t^\prime)\|_{H^s}\,dt^\prime\\
            &\leq c\int_0^t\|u(t^\prime)-v(t^\prime)\|_{H^s}(\|u^2(t^\prime)\|_{H^s}+\|uv(t^\prime)\|_{H^s}+\|v^2(t^\prime)\|_{H^s})\,dt^\prime.
        \end{align*}
+
         Con esto si tomamos el supremo a ambos lados respecto a $t$ tenemos que
        $$\sup_{t\in[0,T]}\|\phi(v)(x,t)-\phi(u)(x,t)\|_{H^s}\leq 3ca^2T\sup\|u(x,t)-v(x,t)\|_{H^s}.$$
-       Luego note que
+       Luego,
        $$0<3ca^2T<3c\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^2\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)=1$$
-       De esta manera concluimos que $\phi$ es una contracción sobre un espacio métrico completo, y por el teorema (\ref{Banach}) tenemos que existe una única función $u\in X^s_T(a)$ donde $\phi(u)=u,$ esto quiere decir que $u$ es una solución de (\ref{Duhamel}). Finalizando así la existencia.
+       De esta manera concluimos que $\phi$ es una contracción sobre un espacio métrico completo, y por el teorema (\ref{Banach}) tenemos que existe una única función $u\in X^s_T(a)$ donde $\phi(u)=u,$ esto quiere decir que $u$ es una solución de (\ref{Duhamel}). Finalizando así la prueba de  existencia.
        \item \textbf{Unicidad.}\textcolor{blue}{Escribo en una hoja bien y luego lo lateo.}
        \item \textbf{Dependencia Continua.}
 

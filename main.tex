@@ -103,7 +103,7 @@ Algunas observaciones:
 \begin{note}
     Dado $L>0$ el conjunto $C_{\text {per }}([-L, L]^n)$ consiste en las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ continuas con periodo $2L$. Análogamente, dado $k \in \mathbb{Z}^{+}, C_{p e r}^k([-L, L]^n)$ consiste de todas las funciones $f: \mathbb{R}^n \rightarrow \mathbb{C}$ periódicas con periodo $2 L$ de clase $C^k$.\\
 
-Una manera equivalente de identificar los espacios anteriores es la siguiente:
+Una manera equivalente de identificar los espacios anteriores es la siguiente,
 $$
 C_{\text {per }}([-L, L]^n):=\{f \in C([-L, L]^n): f(Le_j)=f(-Le_j), 1\leq j\leq n\}.
 $$
@@ -120,13 +120,13 @@ Diremos que $f \in C_{\text {per }}^{\infty}([-L, L]^n)$, si $f \in C_{\text {pe
 \end{note}
 
 
-Note que:
+Note que,
 
 $$
 C_{p e r}([-L, L]^n) \supseteq C_{p e r}^1([-L, L]^n) \supseteq \cdots \supseteq C_{p e r}^k([-L, L]^n),
 $$
 
-es decir, el conjunto es más pequeño cuando pedimos más regularidad a las funciones.
+es decir, el conjunto se hace más pequeño cuando pedimos más regularidad a las funciones.
 
 Dado $L>0$, si $f: \mathbb{R}^n \rightarrow \mathbb{C}$ es una función periódica de periodo $2 L$, entonces el mapeo
 
@@ -140,15 +140,15 @@ Otra forma frecuente para trabajar sobre este espacio de funciones periódicas e
 
 De manera más rigurosa, el toro es el conjunto de clases de equivalencia de $\mathbb{R}^n$ dadas por la relación $x \sim y$ si y solo si $x-y \in 2 \pi \mathbb{Z}^n$, esto es $\mathbb{T}^n=\mathbb{R}^n/ 2 \pi \mathbb{Z}^n$. Adicionalmente el toro es un grupo aditivo por lo que será útil hacerle una traslación a $[-\pi,\pi]^n$\\
 
-Por las propiedades del toro que hemos mencionado, funciones $f: \mathbb{T}^n \rightarrow \mathbb{C}$ se pueden identificar como funciones periódicas $f: \mathbb{R}^n \rightarrow \mathbb{C}$ con periodo $2 \pi$. De esta manera, $C_{\text {per }}^k([-\pi, \pi]^n)$ es isomorfo a $C^k(\mathbb{T}^n)$, por comodidad en la notación durante el resto de  este trabajo nos referiremos a este espacio como $C^k(\T^n)$. \cite{ogrianoc}\\
+Por las propiedades del toro que hemos mencionado, las funciones $f: \mathbb{T}^n \rightarrow \mathbb{C}$ se pueden identificar como funciones periódicas $f: \mathbb{R}^n \rightarrow \mathbb{C}$ con periodo $2 \pi$. De esta manera, $C_{\text {per }}^k([-\pi, \pi]^n)$ es isomorfo a $C^k(\mathbb{T}^n)$, por comodidad en la notación durante el resto de  este trabajo nos referiremos a este espacio como $C^k(\T^n)$. \cite{ogrianoc}\\
 
 \begin{note}
-    Dado que  podemos identificar $\mathbb{T}^n$ como $[-\pi,\pi]^n$, vemos que la integración de funciones sobre el toro resulta de restringir la medida de Lebesgue en $[\pi,\pi]^n$ y por la periodicidad de las funciones en $\mathbb{T}^n$ tenemos que:
+    Dado que  podemos identificar $\mathbb{T}^n$ como $[-\pi,\pi]^n$, vemos que la integración de funciones sobre el toro resulta de restringir la medida de Lebesgue en $[\pi,\pi]^n$ y por la periodicidad de las funciones en $\mathbb{T}^n$ tenemos que,
 
     $$\int_{\mathbb{T}^n} f(x) d x=\int_{[-\pi,\pi]^n} f(x) d x=\int_{[0,2\pi]^n} f(x) d x=\int_{C} f(x) d x,$$
 
 
-    con $C=\left[a_1, 2\pi+a_1\right] \times \cdots \times\left[a_n, 2\pi+a_n\right]$ para cualesquiera $a_1,\ldots,a_n \in \R$, en efecto:
+    con $C=\left[a_1, 2\pi+a_1\right] \times \cdots \times\left[a_n, 2\pi+a_n\right]$ para cualesquiera $a_1,\ldots,a_n \in \R$, en efecto,
 
     $$\begin{aligned}
     \int_{[\pi, \pi]^n} f(x) d x & =\int_{[-\pi, 0]^n} f(x) d x+\int_{[0, \pi]^n} f(x) d x \\
@@ -158,15 +158,15 @@ Por las propiedades del toro que hemos mencionado, funciones $f: \mathbb{T}^n \r
     \end{aligned}$$
 \end{note}
 
-Para la última propiedad note que:
+Para la última propiedad note que,
 
 $$\int_{[0,2\pi]^ n}f(x)dx=\int_{[0,2\pi]}\int_{[0,2\pi]}\ldots\int_{[0,2\pi]}f(x) dx_1\ldots dx_n,$$
 
-dado que $f(x)$ es integrable entonces vale el teorema de fubini, dicho esto, basta ver que el resultado se tiene para una de las integrales, a saber:
+dado que $f(x)$ es integrable entonces, el teorema de Fubini es válido, dicho esto, basta ver que el resultado se tiene para una de las integrales, es decir,
 
 $$\int_{[0,2\pi]}f(x)dx=\int_{[a,2\pi+a]}f(x)dx.$$
 
-Si $a>2\pi$, en efecto:
+Si $a>2\pi$, se tiene que,
 
 \begin{align*}
     \int_0^{2\pi}f(x)dx&=\int_0^af(x)dx-\int_{2\pi}^af(x) dx\\
@@ -177,39 +177,39 @@ Si $a>2\pi$, en efecto:
 
 los casos $a\in [0,2\pi]$ y $a<0$ son análogos.
 
-Finalmente por la periodicidad, la integración por partes no nos deja términos de borde:
+Finalmente, por la periodicidad la integración por partes no nos deja términos de borde, así
 
     \begin{align*}
         \int_{\mathbb{T}^n} \partial_{x_i} f(x) g(x) d x&=\int_{\T ^{n-1}}\left(\int_{-\pi}^{\pi}\partial_{x_i} f(x) g(x)dx_{i}\right)d\widetilde{x}\\
         &=\int_{\T^{n-1}}\left[fg(x_1,\ldots,\pi,\ldots,x_n)-fg(x_1,\ldots,-\pi,\ldots,x_n)\right]d\widetilde{x}\\
         &\hspace*{0.4cm}-\int_{T^{n-1}}\int_{-\pi}^{\pi}f(x)\partial_{x_i}g(x)dx_id\widetilde{x}\\
         &=\int_{\T^{n-1}}0\,d\widetilde{x}-\int_{\T^n}f(x)\partial_{x_i}g(x)dx\\
-        &=-\int_{\T^n}f(x)\partial_{x_i}g(x)dx
+        &=-\int_{\T^n}f(x)\partial_{x_i}g(x)dx.
     \end{align*}
 
-(\textbf{Espacios} $\mathbf{\ell^p}$ ). Sea $1 \leq p<\infty$. Consideramos el siguiente conjunto de sucesiones  a valor complejo:
+(\textbf{Espacios} $\mathbf{\ell^p}$ ). Sea $1 \leq p<\infty$. Consideramos el siguiente conjunto de sucesiones  a valor complejo,
 $$
-\ell^p=\ell^p(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sum_{k\in \Z^n}\left|\alpha_k\right|^p<\infty\right\}
-$$
-
-
-Note que $l^p$ es un espacio vectorial con la suma $\left(\alpha_k\right)_{k \in \mathbb{Z}^n}+\left(\beta_k\right)_{k \in \mathbb{Z}^n}=$ $\left(\alpha_k+\beta_k\right)_{k \in \mathbb{Z}^n}$ y la multiplicación por escalar $\lambda \cdot\left(\alpha_k\right)_{k \in \mathbb{Z}^n}=\left(\lambda \alpha_k\right)_{k \in \mathbb{Z}^n}, \lambda \in \mathbb{C}$. Adicionalmente, considere la norma:
-
-$$
-\|\alpha\|_p=\left(\sum_{k\in \Z^n}\left|\alpha_k\right|^p\right)^{\frac{1}{p}}
+\ell^p=\ell^p(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sum_{k\in \Z^n}\left|\alpha_k\right|^p<\infty\right\}.
 $$
 
 
-Es posible ver que $\left(\ell^p,\|\cdot\|_p\right)$ es un espacio de Banach. Cuando $p=\infty$, definimos $\ell^{\infty}$ como sigue:
+Note que $l^p$ es un espacio vectorial con la suma $\left(\alpha_k\right)_{k \in \mathbb{Z}^n}+\left(\beta_k\right)_{k \in \mathbb{Z}^n}=$ $\left(\alpha_k+\beta_k\right)_{k \in \mathbb{Z}^n}$ y la multiplicación por escalar $\lambda \cdot\left(\alpha_k\right)_{k \in \mathbb{Z}^n}=\left(\lambda \alpha_k\right)_{k \in \mathbb{Z}^n}, \lambda \in \mathbb{C}$. Adicionalmente, considere la norma
 
 $$
-\ell^{\infty}=\ell^{\infty}(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|<\infty\right\}
+\|\alpha\|_p=\left(\sum_{k\in \Z^n}\left|\alpha_k\right|^p\right)^{\frac{1}{p}}.
+$$
+
+
+Es posible ver que $\left(\ell^p,\|\cdot\|_p\right)$ es un espacio de Banach. Cuando $p=\infty$, definimos $\ell^{\infty}$ como sigue
+
+$$
+\ell^{\infty}=\ell^{\infty}(\mathbb{Z}^n):=\left\{\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}: \alpha_k \in \mathbb{C} \text { para todo } k, \sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|<\infty\right\},
 $$
 
 y definimos la norma
 
 $$
-\|\alpha\|_{\infty}=\sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|
+\|\alpha\|_{\infty}=\sup _{k \in \mathbb{Z}^n}\left|\alpha_k\right|.
 $$
 
 
@@ -227,7 +227,7 @@ donde $\alpha=\left(\alpha_k\right)_{k \in \mathbb{Z}^n}, \beta=\left(\beta_k\ri
 (\textbf{Norma} $\mathbf{L^p}$ ). Para $1 \leq p<\infty$ y $f \in C(\T^n)$ definimos la norma
 
 $$
-\|f\|_p=\left(\int_{\T^n}|f(x)|^p d x\right)^{\frac{1}{p}}
+\|f\|_p=\left(\int_{\T^n}|f(x)|^p d x\right)^{\frac{1}{p}}.
 $$
 
 
@@ -239,7 +239,7 @@ $$
 $$
 
 
-Se puede mostrar también que $\left(C(\T^n),\|\cdot\|_{\infty}\right)$ es un espacio de Banach.
+Se puede mostrar que $\left(C(\T^n),\|\cdot\|_{\infty}\right)$ es un espacio de Banach.
 Cuando $p=2$, la norma es inducida por el producto interno
 
 $$
@@ -247,7 +247,7 @@ $$
 $$
 
 
-La norma $\|\cdot\|_p$ se le llama la norma $L^p, 1 \leq p \leq \infty$.
+la norma $\|\cdot\|_p$ se le llama la norma $L^p, 1 \leq p \leq \infty$.
 
 
 \begin{theorem}\label{ortogonalidad}
@@ -264,7 +264,7 @@ $$
 \end{theorem}
 
 \begin{proof}
-En efecto, por el teorema de Tychonoff tenemos que el producto cartesiano de conjuntos compactos es compacto y como $\T^{n}=[-\pi,\pi]\times [-\pi,\pi]\times\ldots\times[-\pi,\pi]$ entonces $\T^{n}$ es compacto, por lo cual, como $\Phi_k(x)$ es una función continua en $[-\pi,\pi]^n$ podemos aplicar el teorema de Fubini como sigue:
+Por el teorema de Tychonoff tenemos que el producto cartesiano de conjuntos compactos es compacto y como $\T^{n}=[-\pi,\pi]\times [-\pi,\pi]\times\ldots\times[-\pi,\pi]$, entonces $\T^{n}$ es compacto, por lo cual, al ser $\Phi_k(x)$ es una función continua en $[-\pi,\pi]^n$ podemos aplicar el teorema de Fubini de la siguiente manera,
 
 \begin{align*}
     \left(\Phi_k \mid \Phi_m\right)&=\int_{[-\pi,\pi]^n}e^{ik \cdot x}e^{-im\cdot x}dx\\
@@ -273,7 +273,7 @@ En efecto, por el teorema de Tychonoff tenemos que el producto cartesiano de con
     &=\int_{[-\pi,\pi]}e^{i(k_1-m_1) x_1}dx_1\int_{[-\pi,\pi]}e^{i(k_2-m_2) x_2}dx_2\ldots \int_{[-\pi,\pi]} e^{i(k_n-m_n) x_n}dx_n
 .\end{align*}
 
-y como:
+y como,
 
 $$
 \begin{aligned}
@@ -282,7 +282,7 @@ $$
 \end{aligned}
 $$
 
-entonces se concluye que:
+entonces se concluye que,
 
 $$(\Phi_k|\Phi_m)=\begin{cases}
 0, \quad &\text{si } m\neq k,\\
@@ -295,18 +295,18 @@ Dado el sistema ortogonal $\phi_k(x)=e^{ik\cdot x}$ con $k\in \Z^n$  y $x\in \R^
 
 $$f(x)=\sum_{k\in \Z^n}c_ke^{ik\cdot x},$$
 
-procedamos formalmente asumiendo que la serie anterior converge uniformemente, así:
+procedamos formalmente asumiendo que la serie anterior converge uniformemente, así
 
 \begin{align*}
     \left(f|\Phi_m\right)&=\sum_{k\in \Z^n} c_k\left(\Phi_k|\Phi_m\right)\\
     &=c_m (2\pi)^n
 ,\end{align*}
 
-donde $c_m$, con $m\in \Z^n$ son los coeficientes de Fourier, esto es:
+donde $c_m$, con $m\in \Z^n$ son los coeficientes de Fourier, esto es
 
-$$c_m=\dfrac{1}{(2\pi)^n}\left(f|\Phi_m\right)=\dfrac{1}{(2\pi)^n}\int_{\T^n}f(x)e^{-im\cdot x} dx,$$
+$$c_m=\dfrac{1}{(2\pi)^n}\left(f|\Phi_m\right)=\dfrac{1}{(2\pi)^n}\int_{\T^n}f(x)e^{-im\cdot x} dx.$$\\
 
-esto motiva la definición de la transformada y serie de Fourier en $C(\T^n)$.
+Lo anterior, motiva la definición de la transformada y serie de Fourier en $C(\T^n)$.
 
 
 \begin{definition}
@@ -327,7 +327,7 @@ $$
 se llama la serie de Fourier de $f$.
 \end{definition}
 
-Se puede estudiar a detalle la convergencia de esta serie, sin embargo esto se sale del propósito de este trabajo. Más adelante presentaremos resultados conocidos de la convergencia de la serie de Fourier que requerimos para obtener nuestro resultado de buena colocación, no adentraremos en los detalles de la demostración de los mismos, esto se puede consultar en \cite{grafakos2008classical} o en \cite{iorio2001fourier}.
+Se puede estudiar a detalle la convergencia de esta serie, sin embargo esto se sale del propósito de este trabajo. Más adelante, presentaremos resultados conocidos de la convergencia de la serie de Fourier que requerimos para obtener nuestro resultado de buena colocación, no nos adentraremos en los detalles de la demostración de los mismos, esto se puede consultar en \cite{grafakos2008classical} o en \cite{iorio2001fourier}.
 
 \begin{theorem}[Desigualdad de Bessel]\label{bessel}
 Si $f \in C (\T^{n})$ entonces:
@@ -344,14 +344,15 @@ Sabemos que como la norma es mayor o igual a cero, entonces
 &= || f||_{L^2}^{2}- \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}(2\pi)^n\left|\widehat{f}(k)\right|^{2}.
 \end{align*}
 
-Así\begin{align*}
+Así,
+\begin{align*}
 0 &\leq|| f||_{[L^2}^{2}-(2\pi)^n \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2}.
 \end{align*}
-Por lo cual 
+Por lo cual,
 \begin{align*}
 \sum_{\substack{k\in \Z^{n}\\ |k|\leq N}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_{L^2}^{2}.
 \end{align*}
-Luego tomando el límite cuando $N\rightarrow \infty$, se sigue que:
+Luego tomando el límite cuando $N\rightarrow \infty$, se sigue que
 \begin{align*}
 \sum_{\substack{k\in \Z^{n}}}\left|\widehat{f}(k)\right|^{2} &\leq\dfrac{1}{(2\pi)^n}|| f||_{L^2}^{2}.
 \end{align*}
@@ -362,13 +363,13 @@ La transformada de Fourier es lineal.
 \end{theorem}
 
 \begin{proof}
-Note que:
+Note que
 
 $$
 \begin{aligned}
 (f+c g)(k) & =\frac{1}{(2\pi)^n}\int_{\T^n}(f+g)(x) e^{-i k \cdot x} d x \\
 & =\frac{1}{(2\pi)^n}\int_{\T^n}(f(x)+c g(x)) e^{-i k \cdot x} d x \\
-& =\frac{1}{(2\pi)^n}\int_{\T^n} f(x) e^{-i k \cdot x} d x+\frac{c}{(2\pi)^n} \int_{\T^n} g(x) e^{i k \cdot x} d x \\
+& =\frac{1}{(2\pi)^n}\int_{\T^n} f(x) e^{-i k \cdot x} d x+\frac{c}{(2\pi)^n} \int_{\T^n} g(x) e^{-i k \cdot x} d x \\
 & =\hat{f}(k)+c\hat{g}(k)
 \end{aligned}
 $$
@@ -379,11 +380,11 @@ Si $f \in C^l\left(\mathbb{T}^n\right)$ y $\beta=\left(\beta_1, \ldots, \beta_n\
 \end{theorem}
 
 \begin{proof}
-Procedamos  por inducción sobre el orden del multi-índice, primero note que si $\beta$ es un multi-índice de orden 1, entonces $\beta=(0,\ldots,1,\ldots,0)$, así:
+Procedamos  por inducción sobre el orden del multi-índice, primero note que si $\beta$ es un multi-índice de orden 1, entonces $\beta=(0,\ldots,1,\ldots,0)$, así
 
 $$\partial^{\beta}f(x)=\partial_{x_j}f(x),$$
 
-luego:
+luego,
 
 \begin{align*}
     \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{x_j}f}(k)\\
@@ -393,11 +394,11 @@ luego:
     &=i^{|\beta|}k^{\beta}\hat{f}(k)
 .\end{align*}
 
-Ahora supongamos que la igualdad se tiene para todo multi-índice $\alpha$ de orden $n$, note que dado un multi-índice de orden $n+1$, $\beta$, existe un multi-índice $\alpha$ de orden $n$ tal que:
+Ahora supongamos que la igualdad se tiene para todo multi-índice $\alpha$ de orden $n$, note que, dado un multi-índice de orden $n+1$, $\beta$, existe un multi-índice $\alpha$ de orden $n$ tal que,
 
 $$\partial^{\beta}f(x)=\partial_{x_j}\partial^{\alpha}f(x),$$
 
-así:
+así,
 
 \begin{align*}
     \widehat{\partial^{\beta}f}(k)&=\widehat{\partial_{x_j}\partial^{\alpha}f}(k)\\
@@ -413,7 +414,7 @@ Por el principio de inducción matemática se sigue la igualdad.
 A continuación presentamos el espacio $L^2(\T^n)$.
 
 \begin{definition}
-El espacio $L^2\left(\mathbb{T}^n\right)=L^2\left([-\pi, \pi]^n\right)$ consiste de funciones $f:[-\pi, \pi]^n \rightarrow \mathbb{C}$ medibles según Lebesgue tales que:
+El espacio $L^2\left(\mathbb{T}^n\right)=L^2\left([-\pi, \pi]^n\right)$ consiste de funciones $f:[-\pi, \pi]^n \rightarrow \mathbb{C}$ medibles según Lebesgue tales que,
 
 $$\|f\|_{L^2}^2=\int_{\T^n}|f(x)|^2 d x<\infty.$$
 \end{definition}
@@ -423,7 +424,7 @@ El espacio $C^{\infty}\left(\mathbb{T}^n\right)$ es denso en $L^2\left(\mathbb{T
 \end{theorem}
 
 \begin{note}
-Recordemos que $C^{\infty}(\T^n)\subset C^m(\T^ n)\subset  \ldots\subset C(\T^n)$, es claro que las funciones en $C(\T^n)$ son funciones en $L^2(\T^n)$ por la continuidad sobre un compacto, esto nos dice que el conjunto $C^m(\T^n)$ es denso en $L^2(\T^n)$ para todo $m\geq 0$\\
+Recordemos que $C^{\infty}(\T^n)\subset C^m(\T^ n)\subset  \ldots\subset C(\T^n)$, es claro que las funciones en $C(\T^n)$ son funciones en $L^2(\T^n)$. Por la continuidad sobre un compacto, tenemos que el conjunto $C^m(\T^n)$ es denso en $L^2(\T^n)$ para todo $m\geq 0$.\\
 
 Es posible ver que $L^2(\T)$ es completo y el espacio $C(\T^n)$ no lo es con  la norma $\|\cdot\|_{L^2}$, dicho esto podemos definir a $L^2(\T^n)$ como el espacio de completación de $C(\T^n)$ por la densidad.
 \end{note}
@@ -443,17 +444,17 @@ De manera equivalente, si $f, g \in C^m\left(\mathbb{T}^n\right)$,
 
 \end{theorem}
 
-Por lo anterior podemos probar que si $f\in C^{\infty}(\T^{n})$ entonces $\widehat{f}$ es inyectiva.
+Por lo anterior podemos probar que si $f\in C^{\infty}(\T^{n})$ entonces, $\widehat{f}$ es inyectiva.
 \begin{theorem}\label{inyectiva}
-Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}^{n}$. Entonces $f = g$.
+Sean $f, g \in C^{\infty}(\T^{n})$. Suponga que $\widehat{f}(k) = \widehat{g}(k)$ para todo $k \in \mathbb{Z}^{n}$, entonces, $f = g$.
 \end{theorem}
 \begin{proof}
 
- Sea $h = f - g$ luego, por propiedades de las funciones continuas en $\T^{n}$,tenemos que $h \in C^{\infty}(\T^{n})$ y por hipótesis $\hat{h}(k) = 0$ para todo $k \in \mathbb{Z}$, por el Teorema \ref{convergencia}  , se sigue que $\|\hat{h}\|_2= 0=\|h\|_{L^2}$, es decir, $h = 0$.       
+ Sea $h = f - g$, como $f$ y $g$ son funciones continuas en $\T^{n}$, tenemos que $h \in C^{\infty}(\T^{n})$, como por hipótesis $\hat{h}(k) = 0$ para todo $k \in \mathbb{Z}$, por el Teorema \ref{convergencia}  , se sigue que $\|\hat{h}\|_2= 0=\|h\|_{L^2}$, es decir, $h = 0$.       
 \end{proof}
         
 \begin{note}
-  Sobre la transformada de Fourier en $L^2(\T^n)$ tenemos de la desigualdad de Cauchy-Schwarz:
+  Tomando la transformada de Fourier en $L^2(\T^n)$, por la desigualdad de Cauchy-Schwarz
 
 $$
 \begin{aligned}
@@ -464,7 +465,7 @@ $$
 \end{aligned}
 $$
 
-dado que $\|f\|_{L^2}<\infty$ entonces sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in \ell^{\infty}(\Z^n)$, sin embargo podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$  
+dado que $\|f\|_{L^2}<\infty$ entonces, sabemos que $\widehat{f}=\{\widehat{f}(k)\}\in \ell^{\infty}(\Z^n)$, sin embargo, podemos decir aún más sobre la transformada de Fourier en $L^2(\T^n)$  
 \end{note}
 
 
@@ -476,17 +477,18 @@ $$
 \wedge: L^2\left(\mathbb{T}^n\right) \rightarrow \ell^2\left(\mathbb{Z}^n\right)
 $$
 
-es un isomorfismo. Además, vale la identidad de Parseval (1) y (2)
+es un isomorfismo. Además, vale la identidad de Parseval (2) y (3)
 \end{theorem}
 \begin{proof}
-Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$. Sea $\{f_n\}$ una sucesión, de manera que $\{f_n\}\subset C^{m}(\T^{n}) $ tal que $f_n$ converge a $f$ en el sentido de $L^2$. Por el teorema \ref{convergencia}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
+Veamos que si $f \in L^2(\T^n)$, entonces $\widehat{f} \in \ell^2(\mathbb{Z}^{n})$.\\ 
+Sea $\{f_n\}$ una sucesión, tal que $\{f_n\}\subset C^{m}(\T^{n}) $ y que $f_n$ converge a $f$ en el sentido de $L^2$. Por el teorema \ref{convergencia}, sabemos que vale la identidad de Parseval para funciones en $C^{m}(\T^{n}) $, lo cual implica
 
 $$
 \|f_n - f_m\|^2_{L^2} = (2\pi)^{n} \|\hat{f}_n - \hat{f}_m\|^2_{2},
 $$
 
 para todo $n, m \in \mathbb{Z}^{n}$. \\
-Luego, como $\{f_n\} \subset C^{m}(\T^{n})$ converge en $L^2$, esta define una secuencia de Cauchy. La identidad de Parseval entonces nos muestra que $\{\widehat{f}_n\}$ es de Cauchy en $\ell^2(\mathbb{Z}^{n})$. Puesto que $\ell^2(\mathbb{Z}^{n})$ es completo, entonces toda sucesión de Cauchy converge. Sea $\{\alpha_k\} \in \ell^2(\mathbb{Z}^{n})$ el límite de $\{\widehat{f}_n\}$.\\
+Luego, como $\{f_n\} \subset C^{m}(\T^{n})$ converge en $L^2$, esta define una secuencia de Cauchy. La identidad de Parseval  nos muestra que $\{\widehat{f}_n\}$ es de Cauchy en $\ell^2(\mathbb{Z}^{n})$. Puesto que $\ell^2(\mathbb{Z}^{n})$ es completo, toda sucesión de Cauchy converge. Sea $\{\alpha_k\} \in \ell^2(\mathbb{Z}^{n})$ el límite de $\{\widehat{f}_n\}$.\\
 
 Ahora, veamos que  $\widehat{f} = \{\widehat{f}(k)\} = \{\alpha_k\}$, es decir, $\alpha_k = \widehat{f}(k)$ para todo $k\in \Z^n$.\\
 
@@ -502,39 +504,39 @@ $$
 |\widehat{f}_n(k) - \widehat{f}(k)| = \dfrac{1}{(2\pi)^{n}} \int_{\T^n} (f_n(x) - f(x)) e^{-ik\cdot x} \, dx \leq (2\pi)^{-\frac{n}{2}} \|f_n - f\|_2 \to 0 \quad\text{cuando}\quad n\to \infty.
 $$
 
-Esto es que  $a_k=\widehat{f}(k)$, en efecto $\widehat{f}$ es el límite de $\{ \widehat{f_n} \}$.\\
+Esto es que  $a_k=\widehat{f}(k)$, con lo cual $\widehat{f}$ es el límite de $\{ \widehat{f_n} \}$.\\
 
-Con lo anterior es claro que la transformada está llegando $\ell^2(\Z^n)$, pero podemos decir más, note que lo anterior nos dice que $f_n\to f$ en $L^2(\T^n)$ y $\widehat{f_n}\to \hat{f}$ en $\ell^2(\Z^n)$, por la identidad de Parseval tenemos que:
+Con lo anterior es claro que la transformada está llegando $\ell^2(\Z^n)$, pero, note que lo anterior nos dice que $f_n\to f$ en $L^2(\T^n)$ y $\widehat{f}_n\to \hat{f}$ en $\ell^2(\Z^n)$, por la identidad de Parseval tenemos que
 
-$$\left\|f_n\right\|_{L^2}^2=(2 \pi)^n\left\|\widehat{f_n}\right\|_2^2,$$
+$$\left\|f_n\right\|_{L^2}^2=(2 \pi)^n\left\|\widehat{f}_n\right\|_2^2,$$
 
-tomando $n\to \infty$ se sigue que:
+tomando $n\to \infty$ se sigue que
 
 $$\|f\|_{L^2}^2=(2\pi)^n\|\widehat{f}\|_2^2.$$
 
-Esto es que vale la identidad de Parseval en $L^2$. Tenemos que la transformada es lineal, veamos que es inyectiva y continua, en efecto dado $\epsilon>0$, si $\|f-g\|_{L^2}<(2\pi)^{\frac{n}{2}}\epsilon$  por la identidad de Parseval:
+Esto es que vale la identidad de Parseval en $L^2$. Tenemos que la transformada es lineal, veamos que es inyectiva y continua; dado $\epsilon>0$, si $\|f-g\|_{L^2}<(2\pi)^{\frac{n}{2}}\epsilon$  por la identidad de Parseval
 
 \begin{align*}
-    \|\widehat{f}-\widehat{g}\|_2=(2\pi)^{\frac{n}{2}}\|f-g\|_{L^2}<\epsilon
+    \|\widehat{f}-\widehat{g}\|_2=(2\pi)^{-\frac{n}{2}}\|f-g\|_{L^2}<\epsilon
 .\end{align*}
 
-Análogamente si $\hat{h}(k)=\hat{f}(k)$ para todo $k\in \Z^n$ considere $g=h-f$, entonces $\|\widehat{g}\|_{2}=0=\|g\|_{L^2}$, luego $g=0$. Finalmente debemos ver que $\wedge$ es sobreyectiva.\\
+Análogamente, si $\hat{h}(k)=\hat{f}(k)$ para todo $k\in \Z^n$ considere $g=h-f$, entonces $\|\widehat{g}\|_{2}=0=\|g\|_{L^2}$, luego $g=0$. Finalmente debemos ver que $\wedge$ es sobreyectiva.\\
 
 Sea $\left\{\alpha_k\right\} \in \ell^2(\mathbb{Z}^n)$. Dado un entero $n \geq 1$, definimos $f_n(x)=\displaystyle\sum_{\substack{k\in \Z^n\\
 |k|\leq n}} \alpha_k \Phi_k$, así $f_n \in C^{\infty}(\T^n) \subset$ $C(\T^n)$. 
-Por el Teorema \ref{ortogonalidad} tenemos que:
+Por el Teorema \ref{ortogonalidad} tenemos que
 
 $$
 \left\|f_n-f_m\right\|_{L^2}^2=\left\|\sum_{\substack{k\in \Z^n\\
-n+1 \leq|k| \leq m}} \alpha_k \Phi_k\right\|_{L^2}^2=(2 \pi)^n\sum_{\substack{k\in \Z^n\\ n+1 \leq|k| \leq m}}\left|\alpha_k\right|^2
+n+1 \leq|k| \leq m}} \alpha_k \Phi_k\right\|_{L^2}^2=(2 \pi)^n\sum_{\substack{k\in \Z^n\\ n+1 \leq|k| \leq m}}\left|\alpha_k\right|^2.
 $$
 
 
-Como $\left\{\alpha_k\right\} \in \ell^2(\mathbb{Z}^n)$, lo anterior muestra que $\left\{f_n\right\}$ es una sucesión de Cauchy en $L^2(\T^n)$. Ahora, como $L^2(\T^n)$ es completo, entonces existe $f \in L^2([-\pi, \pi])$ el límite de $\{f_n\}$ en $L^2$. Basta ver que $\widehat{f}(k)=\alpha_k$ para todo $k \in \mathbb{Z}^n$. Notemos que si $n \geq|k|$, por la construcción de $f_n$, $\widehat{f_n}(k)=\alpha_k$, tomando el límite cuando $n\to \infty$ de $f_n$ obtenemos lo deseado.
+Como $\left\{\alpha_k\right\} \in \ell^2(\mathbb{Z}^n)$, lo anterior muestra que $\left\{f_n\right\}$ es una sucesión de Cauchy en $L^2(\T^n)$. Ahora, como $L^2(\T^n)$ es completo, entonces existe $f \in L^2([-\pi, \pi])$ que es el límite de $\{f_n\}$ en $L^2$. Basta ver que $\widehat{f}(k)=\alpha_k$ para todo $k \in \mathbb{Z}^n$. Notemos que si $n \geq|k|$, por la construcción de $f_n$, $\widehat{f_n}(k)=\alpha_k$, tomando el límite cuando $n\to \infty$ de $f_n$ obtenemos lo deseado.
 \end{proof}
 
 \begin{note}
-Sobre la prueba anterior hay un comentario importante, note que nuestro candidato a preimágen de la transformada en la sobreyectividad fue la serie de Fourier de $f$, en este caso es importante resaltar que esta serie es convergente  en el sentido $L^2$.
+Hay un comentario importante sobre la prueba anterior, note que nuestro candidato a preimágen de la transformada fue la serie de Fourier de $f$, en este caso es importante resaltar que esta serie es convergente  en el sentido $L^2$.
 \end{note}
 
 El teorema anterior implica que existe la inversa de la transformada de Fourier que denotaremos como
@@ -553,7 +555,7 @@ En esta subsección presentamos los espacios de Sobolev periódicos $H^s(\T^n)$ 
 Es posible demostrar que el espacio $C^1(\T^n)$ no es completo con la norma
 
 $$
-\|f\|_{H^1}=\frac{1}{(2 \pi)^{\frac{n}{2}}}\left(\|f\|_{L^2}^2+\left\|f^{\prime}\right\|_{L^2}^2\right)^{\frac{1}{2}}
+\|f\|_{H^1}=\frac{1}{(2 \pi)^{\frac{n}{2}}}\left(\|f\|_{L^2}^2+\left\|f^{\prime}\right\|_{L^2}^2\right)^{\frac{1}{2}}.
 $$
 
 
@@ -608,7 +610,7 @@ Sea $s \geq 0$. Muestre que $H^s\left(\mathbb{T}^n\right)$ con el producto inter
 \end{theorem}
 
 \begin{proof}
-Primero veamos que $H^s(\T^n)$ es subespacio vectorial de $L^2(\T^n)$, dados $f,g\in H^s(\T^n)$ y $\lambda\in \C$, en efecto:
+Primero veamos que $H^s(\T^n)$ es subespacio vectorial de $L^2(\T^n)$, dados $f,g\in H^s(\T^n)$ y $\lambda\in \C$, en efecto
 
 \begin{align*}
     \sum_{\substack{k\in \Z^n\\
@@ -619,23 +621,24 @@ Primero veamos que $H^s(\T^n)$ es subespacio vectorial de $L^2(\T^n)$, dados $f,
     |k|\leq N}}|\langle k\rangle^s \hat{g}(k)|^2\right)
 .\end{align*}
 
-Tomando el límite cuando $N\to \infty$ obtenemos:
+Tomando el límite cuando $N\to \infty$ obtenemos
 
 $$\|\langle k\rangle^s\hat{f+\lambda g}(k)\|_2^2\leq2 \|\langle k\rangle\hat{f}(k)\|_2^2+2|\lambda|^2\|\langle k\rangle\hat{g}(k)\|_2^2<\infty.$$
 
-Ahora veamos que $H^s(\T^n)$ es completo con la norma inducida por el producto interno (3).\\
+Ahora veamos que $H^s(\T^n)$ es completo con la norma inducida por el producto interno (4).\\
 
 Si $(f_j)$ es una sucesión de Cauchy en $H^s(\T^n)$, tenemos que para todo $\varepsilon> 0$, existe $N>0$, tal que si $m,l>N$ entonces
-$$\| f_m-f_l\|_{H{s}}< \epsilon $$
-Luego, $$\| f_m-f_l\|_{H{s}}=\displaystyle\sum_{k\in \Z^{n}}\langle k\rangle ^{s}|\widehat{f_{m}}(k)-\widehat{f_{l}}(k)|^{2}$$
+$$\| f_m-f_l\|_{H{s}}< \epsilon. $$
+Luego, $$\| f_m-f_l\|_{H{s}}=\displaystyle\sum_{k\in \Z^{n}}\langle k\rangle ^{2s}|\widehat{f_{m}}(k)-\widehat{f_{l}}(k)|^{2}.$$
 Por lo cual $\{\langle k \rangle^{s}\widehat{f}_j(k)\}$ es una sucesión de Cauchy en $\ell^{2}(\Z^{n})$, es decir, existe $g\in \ell^{2}(\Z^{n}) $ tal que
-$$\langle k \rangle ^{s}\hat{f}(k)\rightarrow g(k)$$
-Así, $f=\left(\dfrac{g(k)}{\langle k \rangle^{s}}\right)^{v}$, por tanto $\hat{f}=\left(\dfrac{g(k)}{\langle k \rangle^{s}}\right)$.\\
+$$\langle k \rangle ^{s}\hat{f}(k)\rightarrow g(k).$$
+Así, $f=\left(\dfrac{g(k)}{\langle k \rangle^{s}}\right)^{\vee}$, por tanto $\hat{f}(k)=\left(\dfrac{g(k)}{\langle k \rangle^{s}}\right)$.\\
 
-Para completar la prueba debemos mostrar que $f\in H^{s}$ y que $f_{j}\rightarrow f$ está en $H^{s}$, tenemos que 
-$$\|f\|^{s}_{H^{s}}=\displaystyle\sum_{k\in \Z ^{n}} \langle k \rangle^{2s}\left| \dfrac{g(k)}{\langle k\rangle^{s}}\right|^{2}=\displaystyle\sum_{k\in \Z^{n}}|g(k)|^{2}=\|g\|^{2}_{\ell^{2}}<\infty$$
+Para completar la prueba debemos mostrar que $f\in H^{s}$ y que $f_{j}\rightarrow f$ en $H^{s}$.\\
+Tenemos que
+$$\|f\|^{s}_{H^{s}}=\displaystyle\sum_{k\in \Z ^{n}} \langle k \rangle^{2s}\left| \dfrac{g(k)}{\langle k\rangle^{s}}\right|^{2}=\displaystyle\sum_{k\in \Z^{n}}|g(k)|^{2}=\|g\|^{2}_{2}<\infty.$$
 Con lo cual $f\in H^{s}$.\\
-Ahora bien, como $f$ es una sucesión de Cauchy entonces para todo $\epsilon>0$, existe $N>0$ de manera que si $j<N$ se tiene que
+Ahora bien, como $\{\langle k \rangle^{s}\widehat{f}_j(k)\}$ converge, se tiene que para todo $\epsilon>0$, existe $N>0$ de manera que si $j>N$, entonces 
 \begin{align*}
    \|f-f_j\|_{H^{s}}^{2}&=\sum_{k\in \Z}\langle k \rangle^{2s}|\hat{f}(k)-\hat{f_j}(k)|^{2}\\
    &=\sum_{k\in \Z^{n}} \langle k\rangle^{2s}\left| \dfrac{g(k)}{\langle k \rangle^{s}}-  \hat{f_j}(k) \right|^{2} \\
@@ -663,7 +666,7 @@ $$
 
 \begin{proof}
 
-Sea $f \in H^s(\T^n), s>\frac{n}{2}$. Note que dado $N\geq 1$ por la desigualdad de Cauchy-Schwarz:
+Sea $f \in H^s(\T^n), s>\frac{n}{2}$. Note que dado $N\geq 1$ por la desigualdad de Cauchy-Schwarz
 
 $$
 \begin{aligned}
@@ -678,51 +681,47 @@ $$
 \end{aligned}
 $$
 
-en efecto:
+en efecto
 \begin{align*}
     \sum_{k\in \Z^n}\jk^{-2s}&=\sum_{k\in \Z^n}\frac{1}{(1+|k|^2)^s}\\
     &\leq \sum_{\substack{k\in \Z^n\\
     |k|\neq 0}}\frac{1}{|k|^{2s}}
     ,\end{align*}
 
-es claro que esta serie converge si y solo si la serie:
+es claro que esta serie converge si y sólo si la serie
 
-$$\sum_{k_1,\ldots k_n=1}^{\infty}\frac{1}{(|k_1|^2+|k_2|^2+\ldots+|k_n|^2)^s}.$$
-
-Note que $(a+b)^2=a^2+b^2+o(a^2+b^2)$, el término restante es el orden de o pequeña de $a^2+b^2$, luego basta estudiar la convergencia de la serie:
+$$\sum_{k_1,\ldots k_n=1}^{\infty}\frac{1}{(|k_1|^2+|k_2|^2+\ldots+|k_n|^2)^s}$$
+converge.\\
+Note que $(a+b)^2=a^2+b^2+o(a^2+b^2)$, el término restante es el orden de o pequeña de $a^2+b^2$, luego basta estudiar la convergencia de la serie
 
 \begin{align*}
    \sum_{k_1,\ldots k_n=1}^{\infty}\frac{1}{(k_1+k_2+\ldots+k_n)^{2s}}=\sum_{k=1}^{\infty}\frac{a_{k,n}}{k^{2s}}
 ,\end{align*}
 
-donde $a_{k,n}$ es el número de $n$-tuplas de enteros  positivos cuya suma es $k$. Para cualquier par de enteros positivos $n$ y $k$, el número de $n$-tuplas de enteros positivos cuya suma es $k$ es igual al número subconjuntos de $n - 1$ elementos de un conjunto con $k - 1$ elementos, esto es:
+donde $a_{k,n}$ es el número de $n$-tuplas de enteros  positivos cuya suma es $k$. Para cualquier par de enteros positivos $n$ y $k$, el número de $n$-tuplas de enteros positivos cuya suma es $k$ es igual al número subconjuntos de $n - 1$ elementos de un conjunto con $k - 1$ elementos, esto es
 
 $$a_{k,n}=\binom{k-1}{n-1}= \frac{k!}{(n-1)!(k-n)!}=\frac{k(k-1)\ldots(k-(n-1))}{(n-1)!}\leq \frac{k^{n-1}}{(n-1)!}=O(k^{n-1}).$$ 
 
-Esto es $\displaystyle\sum_{k \in \Z^n}\jk^{-2s}$ converge si y solo si la serie:
+Luego $\displaystyle\sum_{k \in \Z^n}\jk^{-2s}$ converge si y sólo si la serie
 
 $$\sum_{k=1}^{\infty} \frac{k^{n-1}}{k^{2s}}=\sum_{k=1}^{\infty} \frac{1}{k^{2s+1-n}},$$
 
 que es convergente si $s>\frac{n}{2}$ por el criterio de la integral.\\
 
-Así, hemos encontrado una cota para la suma que no depende de $N$ tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in \ell^1(\mathbb{Z}^n)$. Esto nos dice que la serie de Fourier $\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por la unicidad del límite en $L^2$, tenemos que $f(x)=\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ en casi toda parte. Luego, obtenemos que $f$ se identifica con una función continua y por la estimativa previa, ahora veamos que existe una constante $c_s>0$, tal que para todo $k,k_1\in \Z^{n}$ se tiene que 
+Así, hemos encontrado una cota para la suma que no depende de $N$, tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in \ell^1(\mathbb{Z}^n)$. Esto nos dice que la serie de Fourier $\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por la unicidad del límite en $L^2$, tenemos que $f(x)=\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ en casi toda parte. Luego, obtenemos que $f$ se identifica con una función continua y por la estimativa previa, ahora veamos que existe una constante $c_s>0$, tal que para todo $k,k_1\in \Z^{n}$ se tiene que 
 \begin{align*}
-    \langle k \rangle ^{s}\leq c_s \langle k_1\rangle +\langle k-k_1 \rangle^{s}
+    \langle k \rangle ^{s}\leq c_s \langle k_1\rangle^{s} +\langle k-k_1 \rangle^{s}
 .\end{align*}
 Para esto note que 
 \begin{align*}
-    \langle k \rangle ^{\frac{s}{2}}&=(1+|k|^{2})^{\frac{s}{2}}\\
+    \langle k \rangle ^{s}&=(1+|k|^{2})^{\frac{s}{2}}\\
     &= (1+|k-k_1+k_1|^{2})^{\frac{s}{2}}\\
     &\leq (1+2|k-k_1|^{2}+2|k_1|^{2})^{\frac{s}{2}}\\
     & <(1+2+2|k-k_1|^{2}+2+2|k_1|^{2})^{\frac{s}{2}}\\
     &\leq (2+|k-k_1|^{2}+|k_1|^{2}+2|k-k_1|^{2}+2|k_1|^{2})^{\frac{s}{2}}\\ 
     &=(6+3|k-k_1|^{2}+3|k_1|^{2})^{\frac{s}{2}}\\
     &= 3^{\frac{s}{2}} (1+|k-k_1|^{2}+1+|k_1|^{2})^{\frac{s}{2}}\\
-    &=3^{\frac{s}{2}} (\langle k-k_1\rangle+\langle k_1\rangle)^{\frac{s}{2}}
-.\end{align*}
-Luego tenemos que 
-\begin{align*}
-    \langle k \rangle ^{s}&=3^{s} (\langle k-k_1\rangle+\langle k_1\rangle)^{s}
+    &=3^{\frac{s}{2}} (\langle k-k_1\rangle^{2}+\langle k_1\rangle^{2})^{\frac{s}{2}}
 .\end{align*}
 Así, por desigualdad de Young
 \begin{align*}
