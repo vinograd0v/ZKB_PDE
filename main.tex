@@ -48,6 +48,8 @@ asociado a la ecuación con no linealidad modificada de Zakharov-Kusnetsov-Burge
 \postdate{}
 
 \begin{document}
+%ESTO ES PARA QUE LAS CITAS SALGAN EN EL ORDEN QUE TENÍAMOS
+\nocite{grafakos2008classical}\nocite{ogrianoc}\nocite{iorio2001fourier}\nocite{ioriojunior2001equacoes}
 
 \maketitle
 \begin{abstract}
@@ -708,11 +710,22 @@ $$\sum_{k=1}^{\infty} \frac{k^{n-1}}{k^{2s}}=\sum_{k=1}^{\infty} \frac{1}{k^{2s+
 
 que es convergente si $s>\frac{n}{2}$ por el criterio de la integral.\\
 
-Así, hemos encontrado una cota para la suma que no depende de $N$, tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in \ell^1(\mathbb{Z}^n)$. Esto nos dice que la serie de Fourier $\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por la unicidad del límite en $L^2$, tenemos que $f(x)=\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ en casi toda parte. Luego, obtenemos que $f$ se identifica con una función continua y por la estimativa previa, ahora veamos que existe una constante $c_s>0$, tal que para todo $k,k_1\in \Z^{n}$ se tiene que 
+Así, hemos encontrado una cota para la suma que no depende de $N$, tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in \ell^1(\mathbb{Z}^n)$. Esto nos dice que la serie de Fourier $\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por la unicidad del límite en $L^2$, tenemos que $f(x)=\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ en casi toda parte. Luego, obtenemos que $f$ se identifica con una función continua y por la estimativa anterior:
+
+
+$$
+\begin{aligned}
+|f(x)|=\left|\sum_{k\in \Z^n} \widehat{f}(k) e^{i k\cdot x}\right| & \leq \sum_{k\in \Z^n}|\widehat{f}(k)| \\
+& \leq\left(\sum_{k\in \Z^n}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\|f\|_{H^s}\\
+&=c\|f\|_{H^s}.
+\end{aligned}
+$$
+
+La desigualdad anterior no depende de $x$, tomando el supremo obtenemos $\|f\|_{\infty}\leq \|\hat{f}\|_1\leq c\|f\|_{H^s}$, donde la constante $c$ es universal. Nos falta ver que $H^s(\T^n)$ es un álgebra de Banach, para  esto primero veamos que existe una constante $C_s>0$, tal que para todo $k,k_1\in \Z^{n}$ se tiene que 
 \begin{align*}
-    \langle k \rangle ^{s}\leq c_s \langle k_1\rangle^{s} +\langle k-k_1 \rangle^{s}
+    \langle k \rangle ^{s}\leq C_s \langle k_1\rangle^{s} +\langle k-k_1 \rangle^{s}
 .\end{align*}
-Para esto note que 
+Note que 
 \begin{align*}
     \langle k \rangle ^{s}&=(1+|k|^{2})^{\frac{s}{2}}\\
     &= (1+|k-k_1+k_1|^{2})^{\frac{s}{2}}\\
@@ -728,6 +741,24 @@ Así, por desigualdad de Young
     \langle k \rangle ^{s}&\leq C_s (\langle k-k_1\rangle^{s}+\langle k_1\rangle^{s})
 .\end{align*}
 
+Sean $f,g\in H^s(\T^n)$, como $\widehat{f}, \widehat{g} \in l^1(\mathbb{Z}^n) \cap \ell^2(\mathbb{Z}^n)$, por la desigualdad de Young tenemos que $\widehat{f} * \widehat{g} \in \ell^2(\mathbb{Z}^n)$, esto nos dice que el producto $f g=(\widehat{f} * \widehat{g})^{\vee}$ define una función en $L^2([-\pi, \pi])$. Además, se tiene que $\widehat{f g}=\widehat{f} * \widehat{g}$, Así:
+
+$$
+\begin{aligned}
+\|f g\|_{H^s}& =\left\|\langle k\rangle^s \hat{f g}(k)\right\|_2\\
+&=\left\|\langle k\rangle^s(\hat{f} * \hat{g})(k)\right\|_2 \\
+& \leq C_s\left\|\left(\left\langle k_1\right\rangle^s+\left\langle k-k_1\right\rangle^s\right)(\hat{f}*\hat{g})(k)\right\|_2 \\
+& \leq C_s\left.\left(\left\|\left\langle k_1\right\rangle^s(\hat{f} * \hat{g})(k)\right\|_2+\left\|\left\langle k-k_1\right\rangle^s(\hat{f} * \hat{g})(k)\right\|_2\right)\right. \\
+& =C_s\left(\left\|\sum_{k_1 \in z^n}\left\langle k_1\right\rangle^s\left(\hat{f}\left(k_1\right) \hat{g}\left(k-k_1\right)\right)\right\|_2+\left\|\sum_{k \in z^n}\left\langle k-k_1\right\rangle^s \hat{f}\left(k_1\right) g\left(k-k_1\right)\right\|_2\right) \\
+& =C_s\left(\left\|\left(\langle\cdot\rangle^s \hat{f}\right) * \hat{g}(k)\right\|_2+\| \hat{f} *\left(\langle\cdot\rangle^s \hat{g}\right)(k) \|_2\right)\\
+&\leq C_s\left(\|\langle\cdot\rangle \hat{f}\|_2\|\hat{g}\|_1+\|\langle\cdot\rangle \hat{g}\|_2\|\hat{f}\|_1\right) \quad \quad (\text{Young }r=p=2,\text{ } q=1) \\
+& \leq C_s\left(\|\langle\cdot\rangle \hat{f}\|_2\left\|g\right\|_{H^s}+\|\langle\cdot\rangle \hat{g}\|_2\|f\|_{H^s}\right) \\
+& \leq C_s\cdot c\left(\|f\|_{H^s}\left\|g\right\|_{H^s}+\|g\|_{H^s}\|f\|_{H^s}\right) \\
+& =C\left(\|f\|_{H^s}\|g\|_{H^s}\right).
+\end{aligned}
+$$
+
+Donde $C>0$ ya que $C_s,c>0$ además $C$ no depende de la elección de $f$ y $g$, adicionalmente como $f,g\in H^s(\T^n)$ entonces la desigualdad anterior nos da que $fg\in H^s(\T^n)$, esto  completa  la prueba.
 
 \end{proof}
 
