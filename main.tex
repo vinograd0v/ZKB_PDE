@@ -674,13 +674,38 @@ $$
 |k|\leq N}}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\left(\sum_{\substack{k\in\Z^n\\
 |k|\leq N}}\langle k\rangle^{2 s}|\widehat{f}(k)|^2\right)^{\frac{1}{2}} \\
 & \leq\left(\sum_{k\in \Z^n}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\left(\sum_{k\in \Z^n}\langle k\rangle^{2 s}|\widehat{f}(k)|^2\right)^{\frac{1}{2}} \\
-& =\left(\sum_{k\in \Z^n}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\|f\|_{H^s}
+& =\left(\sum_{k\in \Z^n}\langle k\rangle^{-2 s}\right)^{\frac{1}{2}}\|f\|_{H^s},
 \end{aligned}
 $$
 
+en efecto:
+\begin{align*}
+    \sum_{k\in \Z^n}\jk^{-2s}&=\sum_{k\in \Z^n}\frac{1}{(1+|k|^2)^s}\\
+    &\leq \sum_{\substack{k\in \Z^n\\
+    |k|\neq 0}}\frac{1}{|k|^{2s}}
+    ,\end{align*}
 
-Dado que $\langle k\rangle^{-2 s}=\left(1+|k|^2\right)^{-s}$, entonces la serie anterior converge si $2 s>1$, es decir, $s>\frac{1}{2}$. Tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in l^1(\mathbb{Z})$. Esto nos dice que la serie de Fourier $\sum_{k=-\infty}^{\infty} \widehat{f}(k) e^{i k x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por unicidad del límite en $L^2$, tenemos que $f=\sum_{k=-\infty}^{\infty} \widehat{f}(k) e^{i k x}$ (módulo un conjunto de medida nula). Por tanto, obtenemos que $f$ se identifica con una función continua y por la estimativa previa
+es claro que esta serie converge si y solo si la serie:
 
+$$\sum_{k_1,\ldots k_n=1}^{\infty}\frac{1}{(|k_1|^2+|k_2|^2+\ldots+|k_n|^2)^s}.$$
+
+Note que $(a+b)^2=a^2+b^2+o(a^2+b^2)$, el término restante es el orden de o pequeña de $a^2+b^2$, luego basta estudiar la convergencia de la serie:
+
+\begin{align*}
+   \sum_{k_1,\ldots k_n=1}^{\infty}\frac{1}{(k_1+k_2+\ldots+k_n)^{2s}}=\sum_{k=1}^{\infty}\frac{a_{k,n}}{k^{2s}}
+,\end{align*}
+
+donde $a_{k,n}$ es el número de $n$-tuplas de enteros  positivos cuya suma es $k$. Para cualquier par de enteros positivos $n$ y $k$, el número de $n$-tuplas de enteros positivos cuya suma es $k$ es igual al número subconjuntos de $n - 1$ elementos de un conjunto con $k - 1$ elementos, esto es:
+
+$$a_{k,n}=\binom{k-1}{n-1}= \frac{k!}{(n-1)!(k-n)!}=\frac{k(k-1)\ldots(k-(n-1))}{(n-1)!}\leq \frac{k^{n-1}}{(n-1)!}=O(k^{n-1}).$$ 
+
+Esto es $\displaystyle\sum_{k \in \Z^n}\jk^{-2s}$ converge si y solo si la serie:
+
+$$\sum_{k=1}^{\infty} \frac{k^{n-1}}{k^{2s}}=\sum_{k=1}^{\infty} \frac{1}{k^{2s+1-n}},$$
+
+que es convergente si $s>\frac{n}{2}$ por el criterio de la integral.\\
+
+Así, hemos encontrado una cota para la suma que no depende de $N$ tomando $N \rightarrow \infty$, llegamos a que $\{\widehat{f}(k)\} \in \ell^1(\mathbb{Z}^n)$. Esto nos dice que la serie de Fourier $\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ converge absoluta y uniformemente, pero como esta también converge a $f$ en $L^2$, por la unicidad del límite en $L^2$, tenemos que $f(x)=\displaystyle\sum_{k\in \Z^n} \widehat{f}(k) e^{i k \cdot x}$ en casi toda parte. Luego, obtenemos que $f$ se identifica con una función continua y por la estimativa previa
 \end{proof}
 
 
