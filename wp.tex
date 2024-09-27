@@ -69,9 +69,29 @@ Una propiedad importante de este espacio es
     Para $u,v\in C([0,T];H^s(\T^n)).$
 \end{prop}
 \begin{proof}
-    \textcolor{blue}{luego escribo lo que dijo oscar}
+    Sea $\{f_l\}_{l\in\Z^+}$ una sucesión de Cauchy en $C([0,T];H^s(\T^n))$, luego para todo $\epsilon>0$ existe $N\in\Z^+$, tal que si $i,j\geq N$ entonces $\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}<\epsilon,$ luego para $t\in[0,T]$ fijo tenemos que $\|f_i(t)-f_j(t)\|_{H^s}<\epsilon,$ es decir $\{f_l(t)\}_{l\in\Z^+}$ es una sucesión de Cauchy en $H^s(\T^n),$ luego por el teorema (2.13), esta sucesión converge de manera puntual a alguna función $f(t)\in H^s(\T^n).$ Primero probemos que $f_l\to f$ en $C([0,T];H^s(\T^n)).$\\
+
+    Sea $t\in[0,T]$ fijo pero arbitrario, como $\{f_l\}_{l\in\Z^+}$ es una sucesión de Cauchy en $C([0,T];H^s(\T^n))$, existe $N\in\Z^+$, tal que si $i,j\geq N$ entonces $\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}<\frac{\epsilon}{2},$ como tenemos convergencia puntual en $H^s(\T^n)$, existe $K(t)\in\Z^+,$ tal que si $l\geq K(t),$ entonces $\|f_l(t)-f(t)\|_{H^s}<\frac{\epsilon}{2}.$ Si tomamos $i\geq N$ y $j=\max\{N,K(t)\}.$ Tenemos que
+    \begin{align*}
+        \|f_i(t)-f(t)\|_{H^s}&=\|f_i(t)-f_j(t)+f_j(t)-f(t)\|_{H^s}\\
+        &\leq\|f_i(t)-f_j(t)\|_{H^s}+\|f_j(t)-f(t)\|_{H^s}\\
+        &\leq\sup_{t\in[0,T]}\|f_i(t)-f_j(t)\|_{H^s}+\|f_j(t)-f(t)\|_{H^s}\\
+        &<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
+    \end{align*}
+    Como esto se tiene para $t\in[0,T]$ arbitrario, y para todo $i\geq N$, entonces $\sup_{t\in[0,T]}\|f_i(t)-f(t)\|_{H^s}<\epsilon.$\\
+
+    Para finalizar la prueba basta con probar que $f\in C([0,T];H^s(\T^n))$.\\ 
+
+    Sea $t\in[0,T]$ y $t^\prime\in[0,T]$ dado. Primero como cada $f_i\in C([0,T];H^s(\T^n))$ tenemos que para $\epsilon>0,$ existe un $\delta>0,$ tal que si $|t-t^\prime|<\delta$, entonces $\|f_i(t)-f_i(t^\prime)\|<\frac{\epsilon}{3},$ y por lo probado anteriormente sabemos que existe $N\in\Z^n$ tal que si $i\geq N$ entonces $\sup_{t\in[0,T]}\|f(t)-f_i(t)\|_{H^s}<\frac{\epsilon}{3}.$ Con todo esto notamos que
+    \begin{align*}
+        \|f(t)-f(t^\prime)\|_{H^s}&\leq\|f(t)-f_i(t)\|_{H^s}+\|f_i(t)-f_i(t^\prime)\|_{H^s}+\|f_i(t^\prime)-f(t^\prime)\|_{H^s}\\
+        &\leq 2\sup_{t\in[0,T]}\|f(t)-f_i(t)\|_{H^s}+\|f_i(t^\prime)-f(t^\prime)\|_{H^s}\\
+        &<\frac{2}{3}\epsilon+\frac{\epsilon}{3}=\epsilon.
+    \end{align*}
+    Mostrando así que para $t^\prime\in[0,T]$ arbitrario tenemos que:
+    $$\lim_{t\to t^\prime}\|f(t)-f(t^\prime)\|_{H^s}=0.$$
 \end{proof}
-Segundo introducimos los conceptos claves de contracción y punto fijo.  
+Segundo introducimos los conceptos claves de contracción y punto fijo. 
 \begin{definition}Sea $(M,d)$ un espacio métrico y $\psi:M\to M$ una función.
     \begin{itemize}
         \item $\psi$ es una \textbf{contracción} si existe $0<L<1$ tal que
@@ -193,9 +213,8 @@ Dividiremos la prueba en tres partes.
        Luego note que
        $$0<3ca^2T<3c\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^2\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)=1$$
        De esta manera concluimos que $\phi$ es una contracción sobre un espacio métrico completo, y por el teorema (\ref{Banach}) tenemos que existe una única función $u\in X^s_T(a)$ donde $\phi(u)=u,$ esto quiere decir que $u$ es una solución de (\ref{Duhamel}). Finalizando así la existencia.
-       \item \textbf{Unicidad.}
+       \item \textbf{Unicidad.}\textcolor{blue}{Escribo en una hoja bien y luego lo lateo.}
        \item \textbf{Dependencia Continua.}
-       \textcolor{blue}{luego hago esto, toca monear}
 
 
 
