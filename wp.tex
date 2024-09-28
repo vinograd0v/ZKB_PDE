@@ -233,8 +233,34 @@ Dividiremos la prueba en tres partes.
        $$\sup_{t\in[0,T^1]}\|u(t)-v(t)\|_{H^s}\leq cT_1M^2\sup_{t\in[0,T_1]}\|v(t)-u(t)\|_{H^s}. $$
        Si escogemos $T_1=\min\{T,\frac{1}{2cM^2}\}$, junto a la desigualdad anterior, obtenemos
        $$\sup_{t\in[0,T^1]}\|u(t)-v(t)\|_{H^s}\leq \frac{1}{2}\sup_{t\in[0,T_1]}\|v(t)-u(t)\|_{H^s}.$$
-       Note que, esto sólo es posible si $u(t)=v(t)$ para todo $t\in[0,T_1].$ Si $T_1=T$ hemos finalizado la prueba, ya que, hemos mostrado que $u(t)=v(t)$ para todo $t\in[0,T].$ En caso contrario, es decir, si $T_1<T$, como $c$ es una constante positiva que no depende de $T$ ni de $u$ o $v$, de hecho, solo depende de la constante universal que dada en el teorema (\ref{algebra}) y como $M$ es fijo, por la primera parte podemos plantear el problema de valor inicial (\ref{ZKB}) con la condición inicial $u(x,T_1)=v(x,T_1)=u_0(x)$ y, de la misma manera, deducir que $u(t)=v(t)$ para todo $t\in[T_1,T_2]$, donde $T_2=\min\{T,2T_1\}$ implicando así, que $u(t)=v(t)$ para todo $t\in[0,T_2],$. Este argumento lo podemos iterar para todo $k\in \Z^+$, eventualmente existirá un $k$ tal que $kT_1\geq T$, es decir que $T_k=T,$ y por tanto en la iteración $k$-ésima tendremos que $u(t)=v(t)$ para todo $t\in[0,T],$ concluyendo así, la prueba de la unicidad.
-       \item \textbf{Dependencia Continua.}
+       Note que, esto sólo es posible si $u(t)=v(t)$ para todo $t\in[0,T_1].$ Si $T_1=T$ hemos finalizado la prueba, ya que, hemos mostrado que $u(t)=v(t)$ para todo $t\in[0,T].$ En caso contrario, es decir, si $T_1<T$, como $c$ es una constante positiva que no depende de $T$ ni de $u$ o $v$, de hecho, solo depende de la constante universal que dada en el teorema (\ref{algebra}) y como $M$ es fijo, por la primera parte podemos plantear el problema de valor inicial (\ref{ZKB}) con la condición inicial $u(x,T_1)=v(x,T_1)$ y, de la misma manera, deducir que $u(t)=v(t)$ para todo $t\in[T_1,T_2]$, donde $T_2=\min\{T,2T_1\}$ implicando así, que $u(t)=v(t)$ para todo $t\in[0,T_2],$. Este argumento lo podemos iterar para todo $k\in \Z^+$, eventualmente existirá un $k$ tal que $kT_1\geq T$, es decir que $T_k=T,$ y por tanto en la iteración $k$-ésima tendremos que $u(t)=v(t)$ para todo $t\in[0,T],$ concluyendo así, la prueba de la unicidad.
+       \item \textbf{Dependencia Continua.} Primero estudiemos el caso donde $u_0\neq0.$ Sea $\epsilon>0$ tal que $0<\epsilon<\|u_0\|_{H^s}$, y considere 
+       $$V=\{v_0\in H^s(\T^n):\|v_0-u_0\|_{H^s}<\epsilon\}.$$
+       Por la desigualdad triangular
+       $$\|v_0\|_{H^s}-\|u_0\|_{H^s}\leq\|v_0-u_0\|_{H^s}<\epsilon<\|u_0\|_{H^s},$$
+       es decir, $\|v_0\|_{H^s}<2\|u_0\|_{H^s}$ para $v_0\in V.$ Definamos la aplicación
+       $$\psi_{v_0}(w)=U(t)v_0(x)-\int_0^tU(t-t^\prime)w^3(t^\prime)\,dt^\prime.$$
+       Para $w\in X^s_T(a)$ y $v_0\in V.$ Mostremos primero que $\psi_{v_0}(w)\in X^s_T(a).$ Siguiendo el argumento de existencia obtenemos
+       \begin{align*}
+           \|\psi_{v_0}(w)\|_{H^s}&\leq\|U(t)v_0\|_{H^s}+\int_0^t\|U(t-t^\prime)w^3(t^\prime)\|_{H^s}dt^\prime\\
+           &\leq\|v_0\|_{H^s}+\int_0^t\|w^3(t^\prime)\|_{H^s}dt^\prime\\
+           &\leq\|v_0\|_{H^s}+c\int_0^t\|w(t^\prime)\|_{H^s}^3dt^\prime.
+       \end{align*}
+       Tomando el supremo para $t\in[0,T]$
+       $$\sup_{t\in[0,T]} \|\psi_{v_0}(w)\|_{H^s}\leq \|v_0\|_{H^s}+cTa^3<2\|u_0\|_{H^s}+cTa^3$$
+       Escogiendo
+       $$\begin{cases}
+           a=3\|u_0\|_{H^s},\\
+           0<T<\frac{1}{27c}\|u_0\|_{H^s}^{-2}.
+       \end{cases}$$
+       Tenemos que
+       $$\sup_{t\in[0,T]} \|\psi_{v_0}(w)\|_{H^s}<2\|u_0\|_{H^s}+c\left(\frac{1}{27c}\|u_0\|_{H^s}^{-2}\right)(3\|u_0\|_{H^s})^3=3\|u_0\|_{H^s}.$$
+       Mostrando así que $\psi_{v_0}:X^s_T(a)\to X^s_T(a).$ Veamos ahora que $\psi_{v_0}$ es una contracción. Note que el argumento en la prueba de existencia es el mismo que aquí, por lo tanto dados $v,w\in X^s_T(a)$
+       $$\sup_{t\in[0,T]}\|\psi_{v_0}(v)-\psi_{v_0}(w)\|_{H^s}\leq 3ca^2T\sup_{t\in[0,T]}\|v-w\|_{H^s}.$$
+       Note que
+       $$0<3ca^2T<3c(3\|u_0\|_{H^s})^2\left(\frac{1}{27c}\|u_0\|_{H^s}^{-2}\right)<1$$
+
+       
 
 
    \end{itemize}   
