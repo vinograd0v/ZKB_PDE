@@ -211,15 +211,29 @@ Dividiremos la prueba en tres partes.
            &\leq\int_0^t\|u^3(t^\prime)-v^3(t^\prime)\|_{H^s}\,dt^\prime\\
            &=\int_0^t\|(u-v)(u^2+uv+v^2)(t^\prime)\|_{H^s}\,dt^\prime\\
            &\leq c\int_0^t\|u(t^\prime)-v(t^\prime)\|_{H^s}\|(u^2+uv+v^2)(t^\prime)\|_{H^s}\,dt^\prime\\
-           &\leq c\int_0^t\|u(t^\prime)-v(t^\prime)\|_{H^s}(\|u^2(t^\prime)\|_{H^s}+\|uv(t^\prime)\|_{H^s}+\|v^2(t^\prime)\|_{H^s})\,dt^\prime.
+           &\leq c\int_0^t\|u(t^\prime)-v(t^\prime)\|_{H^s}(\|u(t^\prime)\|^2_{H^s}+\|u(t^\prime)\|_{H^s}\|v(t^\prime)\|_{H^s}+\|v(t^\prime)\|^2_{H^s})\,dt^\prime.
        \end{align*}
 
         Con esto si tomamos el supremo a ambos lados respecto a $t$ tenemos que
-       $$\sup_{t\in[0,T]}\|\phi(v)(x,t)-\phi(u)(x,t)\|_{H^s}\leq 3ca^2T\sup\|u(x,t)-v(x,t)\|_{H^s}.$$
+       $$\sup_{t\in[0,T]}\|\phi(v)(x,t)-\phi(u)(x,t)\|_{H^s}\leq 3ca^2T\sup_{t\in[0,T]}\|u(x,t)-v(x,t)\|_{H^s}.$$
        Luego,
        $$0<3ca^2T<3c\left(\dfrac{3}{2}\|u_0(x)\|_{H^s}\right)^2\left(\dfrac{4}{27c}\|u_0(x)\|^{-2}_{H^s}\right)=1$$
        De esta manera concluimos que $\phi$ es una contracción sobre un espacio métrico completo, y por el teorema (\ref{Banach}) tenemos que existe una única función $u\in X^s_T(a)$ donde $\phi(u)=u,$ esto quiere decir que $u$ es una solución de (\ref{Duhamel}). Finalizando así la prueba de  existencia.
-       \item \textbf{Unicidad.}\textcolor{blue}{Escribo en una hoja bien y luego lo lateo.}
+       \item \textbf{Unicidad.} Sean $u,v\in C([0,T];H^s(\T^n))$ soluciones de (\ref{Duhamel}), luego existe $M>0$ tal que
+       $$\sup_{t\in[0,T]}\|u(t)\|_{H^s}+\sup_{t\in[0,T]}\|v(t)\|_{H^s}\leq M.$$
+       Así, siguiendo un argumento similar al ítem anterior, tenemos
+       \begin{align*}
+           \|u(t)-v(t)\|_{H^s}&=\left\|\int_0^tU(t-t^\prime)v^3(t^\prime)\,dt^\prime-\int_0^tU(t-t^\prime)u^3(t^\prime)\,dt^\prime\right\|_{H^s}\\
+           &\leq\int_0^t\|U(t-t^\prime)(v^3(t^\prime)-u^3(t^\prime))\|_{H^s}\,dt^\prime\\
+           &\leq\int_0^t\|v^3(t^\prime)-u^3(t^\prime)\,dt^\prime\|_{H^s}\\
+           &\leq c\int_0^t\|v(t^\prime)-u(t^\prime)\|_{H^s}(\|u(t^\prime)\|^2_{H^s}+\|u(t^\prime)\|_{H^s}\|v(t^\prime)\|_{H^s}+\|v(t^\prime)\|^2_{H^s})\,dt^\prime\\
+           &\leq c\int_0^t\|v(t^\prime)-u(t^\prime)\|_{H^s}(\|u(t^\prime)\|_{H^s}+\|v(t^\prime)\|_{H^s})^2\,dt^\prime
+       \end{align*}
+       Luego tomando el supremo entre 0 y $T_1$, donde $0<T_1\leq T$, tenemos
+       $$\sup_{t\in[0,T^1]}\|u(t)-v(t)\|_{H^s}\leq cT_1M^2\sup_{t\in[0,T_1]}\|v(t)-u(t)\|_{H^s}. $$
+       Si escogemos $T_1=\min\{T,\frac{1}{2cM^2}\}$, junto a la desigualdad anterior, obtenemos
+       $$\sup_{t\in[0,T^1]}\|u(t)-v(t)\|_{H^s}\leq \frac{1}{2}\sup_{t\in[0,T_1]}\|v(t)-u(t)\|_{H^s}.$$
+       Note que esto solo es posible si $u(t)=v(t)$ para todo $t\in[0,T_1].$ Si $T_1=T$ hemos finalizado la prueba, ya que hemos mostrado que $u(t)=v(t)$ para todo $t\in[0,T].$ En caso contrario, es decir, si $T_1<T$, como $c$ es una constante positiva que no depende de $T$ ni de $u$ o $v$, de hecho, solo depende de la constante universal que dada en el teorema (\ref{algebra}). Ademas como $M$ es fijo, por la primera parte podemos plantear el problema de valor inicial (\ref{ZKB}) con la condición inicial $u(x,T_1)=v(x,T_1)=u_0(x)$ y de la misma manera, deducir que $u(t)=v(t)$ para todo $t\in[T_1,T_2]$, donde $T_2=\min\{T,2T_1\},$ implicando así que $u(t)=v(t)$ para todo $t\in[0,T_2],$ este argumento lo podemos iterar para todo $k\in \Z^+.$ Eventualmente existirá un $k$ tal que $kT_1\geq T$, es decir que $T_k=T,$ y por tanto en la iteración $k$-esima tendremos que $u(t)=v(t)$ para todo $t\in[0,T],$ concluyendo así la unicidad.
        \item \textbf{Dependencia Continua.}
 
 
