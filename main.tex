@@ -598,13 +598,13 @@ $
 Le asignamos al espacio $H^s\left(\mathbb{T}^n\right)$ el producto interno
 
 \begin{equation}
-(f \mid g)_{H^*}=\sum_{k \in \mathbb{Z}^n}\langle k\rangle^{2 s} \widehat{f}(k) \overline{\widehat{g}(k)}
+(f \mid g)_{H^*}=\sum_{k \in \mathbb{Z}^n}\langle k\rangle^{2 s} \widehat{f}(k) \overline{\widehat{g}(k)},
 \end{equation}
 
 para $f, g \in H^s\left(\mathbb{T}^n\right)$, el cual induce la norma
 
 $$
-\|f\|_{H^s}^2=\sum_{k \in \mathbb{Z}^n}\langle k\rangle^{2 s}|\widehat{f}(k)|^2
+\|f\|_{H^s}^2=\sum_{k \in \mathbb{Z}^n}\langle k\rangle^{2 s}|\widehat{f}(k)|^2.
 $$
 
 A continuación estudiaremos algunas propiedades de los espacios de Sobolev, pero antes de eso veremos cómo se comporta el producto de dos funciones en este espacio, para esto necesitamos estudiar la transformada de Fourier de dos funciones en $H^s(\T^n)$, note que si $f,g\in H^s(\T^n)$ son tal que su serie de Fourier es absoluta y uniformemente convergente, entonces:
@@ -618,7 +618,7 @@ $$\begin{aligned}
 Note que lo que hicimos fue cambiar a $f $ y $g$ por su serie de Fourier y cambiar el orden de sumación, estos pasos son válidos en particular si $f,g\in C^{\infty}(\T^n)$. Por la ortogonalidad, vemos que la última integral es no nula cuando $k_1=k-k_2$, es decir, $k_2=k-k_1$. Luego concluimos
 
 $$
-\widehat{f g}(k)=\sum_{k_1=-\infty}^{\infty} \widehat{f}\left(k_1\right) \widehat{g}\left(k-k_1\right)
+\widehat{f g}(k)=\sum_{k_1=-\infty}^{\infty} \widehat{f}\left(k_1\right) \widehat{g}\left(k-k_1\right).
 $$
 
 
@@ -628,7 +628,7 @@ Es decir, el coeficiente de Fourier del producto $f g$ es la convolución ``adit
 Sean $1 \leq p, q, r \leq \infty$ tales que $\frac{1}{r}=\frac{1}{p}+\frac{1}{q}-1$. Considere $\alpha=\left\{\alpha_k\right\} \in \ell^p\left(\mathbb{Z}^n\right), \beta=\left\{\beta_k\right\} \in \ell^q\left(\mathbb{Z}^n\right)$, entonces la convolución $\alpha * \beta=\left\{(\alpha * \beta)_k\right\}$ dada por
 
 $$
-(\alpha * \beta)_k=\sum_{k_1 \in \mathbb{Z}^n} \alpha_{k_1} \beta_{k-k_1}
+(\alpha * \beta)_k=\sum_{k_1 \in \mathbb{Z}^n} \alpha_{k_1} \beta_{k-k_1},
 $$
 
 satisface que $\alpha * \beta \in \ell^r\left(\mathbb{Z}^n\right)$ y $\|\alpha * \beta\|_r \leq\|\alpha\|_{p}\|\beta\|_{q}$.
@@ -682,7 +682,7 @@ Para mostrar la densidad de $C^{\infty}(\T^ n)$, sea $f \in H^s(\T^n)$, definimo
 |k|\leq n}} \widehat{f}(k) e^{i k \cdot x}$, para $n \geq 1$ entero. Luego $f_n \in C^{\infty}(\T^n)$ y para cada $|k| \leq n, \widehat{f_n}(k)=\widehat{f}(k)$ por la ortogonalidad, Luego:
 
 $$
-\left\|f-f_n\right\|_{H^s}^2=\sum_{|k| \geq n+1}\langle k\rangle^{2 s}|\widehat{f}(k)|^2 \rightarrow 0
+\left\|f-f_n\right\|_{H^s}^2=\sum_{|k| \geq n+1}\langle k\rangle^{2 s}|\widehat{f}(k)|^2 \rightarrow 0,
 $$
 cuando  $n\to \infty$.
 \end{proof}
@@ -691,14 +691,14 @@ cuando  $n\to \infty$.
 Suponga que $s>\frac{n}{2}$, entonces si $f \in H^s\left(\mathbb{T}^n\right)$ se tiene que $f\in C\left(\mathbb{T}^n\right)$ y $\widehat{f} \in \ell^1\left(\mathbb{Z}^n\right)$. Más precisamente, la aplicación $f \in H^s\left(\mathbb{T}^n\right) \mapsto f \in C\left(\mathbb{T}^n\right)$ es continua $y$ existe una constante universal $C>0$ tal que
 
 $$
-\|f\|_{\infty} \leq\|\widehat{f}\|_1 \leq C\|f\|_{H^s}
+\|f\|_{\infty} \leq\|\widehat{f}\|_1 \leq C\|f\|_{H^s}.
 $$
 
 
 Más aún, el espacio $H^s\left(\mathbb{T}^n\right)$ define una álgebra de Banach, esto es, existe $C>0$ tal que para todo $f, g \in H^s\left(\mathbb{T}^n\right)$, se tiene que el producto $f g \in H^s\left(\mathbb{T}^n\right)^1 y$
 
 $$
-\|f g\|_{H^s} \leq C\|f\|_{H^s}\|g\|_{H^s}
+\|f g\|_{H^s} \leq C\|f\|_{H^s}\|g\|_{H^s}.
 $$
 \end{theorem}
 
@@ -728,7 +728,7 @@ en efecto
 
 es claro que esta serie converge si y sólo si la serie
 
-$$\sum_{k_1,\ldots k_n=1}^{\infty}\frac{1}{(|k_1|^2+|k_2|^2+\ldots+|k_n|^2)^s}$$
+$$\sum_{k_1,\ldots k_n=1}^{\infty}\frac{1}{(|k_1|^2+|k_2|^2+\ldots+|k_n|^2)^s},$$
 converge.\\
 Note que $(a+b)^2=a^2+b^2+o(a^2+b^2)$, el término restante es el orden de o pequeña de $a^2+b^2$, luego basta estudiar la convergencia de la serie
 
