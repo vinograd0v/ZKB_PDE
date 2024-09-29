@@ -240,7 +240,7 @@ Dividiremos la prueba en tres partes.
        $$\|v_0\|_{H^s}-\|u_0\|_{H^s}\leq\|v_0-u_0\|_{H^s}<\epsilon<\|u_0\|_{H^s},$$
        es decir, $\|v_0\|_{H^s}<2\|u_0\|_{H^s}$ para $v_0\in V.$ Definamos la aplicación
        $$\psi_{v_0}(w)=U(t)v_0(x)-\int_0^tU(t-t^\prime)w^3(t^\prime)\,dt^\prime.$$
-       Para $w\in X^s_T(a)$ y $v_0\in V.$ Mostremos primero que $\psi_{v_0}(w)\in X^s_T(a).$ Siguiendo el argumento de existencia obtenemos
+       Para $w\in X^s_T(a)$ y $v_0\in V.$ Primero mostremos que $\psi_{v_0}(w)\in X^s_T(a).$ Siguiendo el argumento de existencia obtenemos
        \begin{align*}
            \|\psi_{v_0}(w)\|_{H^s}&\leq\|U(t)v_0\|_{H^s}+\int_0^t\|U(t-t^\prime)w^3(t^\prime)\|_{H^s}dt^\prime\\
            &\leq\|v_0\|_{H^s}+\int_0^t\|w^3(t^\prime)\|_{H^s}dt^\prime\\
@@ -255,27 +255,27 @@ Dividiremos la prueba en tres partes.
        \end{cases}$$
        Tenemos que
        $$\sup_{t\in[0,T]} \|\psi_{v_0}(w)\|_{H^s}<2\|u_0\|_{H^s}+c\left(\frac{1}{54c}\|u_0\|_{H^s}^{-2}\right)(3\|u_0\|_{H^s})^3=\frac{5}{2}\|u_0\|_{H^s}< 3\|u_0\|_{H^s}.$$
-       Mostrando así que $\psi_{v_0}:X^s_T(a)\to X^s_T(a).$ Veamos ahora que $\psi_{v_0}$ es una contracción. Note que el argumento en la prueba de existencia es el mismo que aquí, por lo tanto dados $v,w\in X^s_T(a)$
+       Mostrando así que $\psi_{v_0}:X^s_T(a)\to X^s_T(a).$ Veamos ahora que $\psi_{v_0}$ es una contracción. Note que el argumento es análogo al de la existencia , por lo tanto dados $v,w\in X^s_T(a)$
        $$\sup_{t\in[0,T]}\|\psi_{v_0}(v)-\psi_{v_0}(w)\|_{H^s}\leq 3ca^2T\sup_{t\in[0,T]}\|v-w\|_{H^s}.$$
        Note que
        $$0<3ca^2T<3c(3\|u_0\|_{H^s})^2\left(\frac{1}{52c}\|u_0\|_{H^s}^{-2}\right)<\frac{1}{2}<1$$
-       Concluyendo así que $\psi_{v_0}$ es una contracción por lo que por el teorema (\ref{Banach}) para cada $v_0\in V$, existe una única solución $v\in X^s_T(a)$ con $v=\psi_{v_0}(v),$ Como nuestras constantes $a$ y $T$ no dependen de la elección de $v_0$ hemos mostrado que la aplicación
-       $$v_0\in V\mapsto v\in C([0,T];H^s(\T^n)).$$
-       Está bien definida.\\
-       Probemos que la aplicación es continua. Sean $u,v\in X^s_T(a),$ soluciones con datos iniciales $u_0$ y $v_0$ respectivamente. Note que siguiendo un argumento casi idéntico al hecho en la existencia tenemos  
+       Concluyendo así, que $\psi_{v_0}$ es una contracción, por el teorema (\ref{Banach}), para cada $v_0\in V$, existe una única solución $v\in X^s_T(a)$ con $v=\psi_{v_0}(v).$ Como nuestras constantes $a$ y $T$ no dependen de la elección de $v_0$ hemos mostrado que la aplicación
+       $$v_0\in V\mapsto v\in C([0,T];H^s(\T^n)),$$
+       está bien definida.\\
+       Probemos que la aplicación es continua. Sean $u,v\in X^s_T(a),$ soluciones con datos iniciales $u_0$ y $v_0$ respectivamente. Note que siguiendo un argumento casi idéntico al realizado en la prueba de existencia   
        \begin{align*}
          \|\psi_{u_0}(u)-\psi_{v_0}(v)\|_{H^s}&\leq \|U(t)(u_0-v_0)\|_{H^s}+\int^t_0\|U(t-t^\prime)(v^3(t^\prime)-u^3(t^\prime))\|_{H^s}\,dt^\prime\\
-         &\leq\|u_0-v_0\|_{H^s}+\int_0^t\|v^3(t^\prime)-u^3(t^\prime)\|_{H^s}\,dt^\prime
+         &\leq\|u_0-v_0\|_{H^s}+\int_0^t\|v^3(t^\prime)-u^3(t^\prime)\|_{H^s}\,dt^\prime.
        \end{align*}
        Tomando el supremo respecto a $t\in[0,T],$ obtenemos
 
-       $$\sup_{t\in[0,T]}\|\psi_{u_0}(u)-\psi_{v_0}(v)\|_{H^s}\leq\|u_0-v_0\|_{H^s}+3ca^2T\sup_{t\in[0,T]}\|u-v\|_{H^s}$$
+       $$\sup_{t\in[0,T]}\|\psi_{u_0}(u)-\psi_{v_0}(v)\|_{H^s}\leq\|u_0-v_0\|_{H^s}+3ca^2T\sup_{t\in[0,T]}\|u-v\|_{H^s}.$$
 
-       Como $u,v$ son soluciones, por lo probado previamente, cumplen que $\psi_{u_0}(u)=u$ y $\psi_{v_0}(v)=v,$ y como $a$ y $T$ son las mismas constantes escogidas previamente, tenemos que $3ca^2T<\frac{1}{2}.$ De esta manera concluimos que
+       Como $u,v$ son soluciones, por lo probado previamente, cumplen que $\psi_{u_0}(u)=u$ y $\psi_{v_0}(v)=v,$ y como $a$ y $T$ son las mismas constantes escogidas previamente, tenemos que $3ca^2T<\frac{1}{2}.$ De esta manera concluimos que,
        $$\sup_{t\in[0,T]}\|\psi_{u_0}(u)-\psi_{v_0}(v)\|_{H^s}\leq2\|u_0-v_0\|_{H^s}.$$
        Así, hemos mostrado que la aplicación es continua. Ahora solo falta el caso cuando $u_0=0.$ Sea $\epsilon>0,$ consideremos 
        $$V=\{v_0\in H^s(\T^n):\|v_0\|_{H^s}<\epsilon\}.$$
-       Note que si realizamos el proceso previo pero ahora tomando
+       Si realizamos el proceso previo pero ahora tomando
        $$\begin{cases}
            a=3\epsilon,\\
            0<T<\dfrac{1}{54c\epsilon^2}.
